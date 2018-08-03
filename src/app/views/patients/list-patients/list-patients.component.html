@@ -1,0 +1,22 @@
+<table class="table"  *ngIf="patients$ | async as patients">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Cellphone</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of patients">
+            <th scope="row">1</th>
+            <td>{{item.FirstName}}</td>
+            <td>{{item.Surname}}</td>
+            <td>{{item.Email}}</td>
+            <td>{{item.Cellphone}}</td>
+            <td>{{item.City}}</td>
+        </tr>         
+    </tbody>
+</table>

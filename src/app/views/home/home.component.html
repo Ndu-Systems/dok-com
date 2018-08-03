@@ -1,0 +1,48 @@
+
+    <div class="header_bg">
+      <div class="header">
+        <div class="head-t">
+          <div class="row">
+              <div class="col-md-6"> 
+                  <a type="submit" routerLink="/patients/add" class="btn btn-default">Add Patient</a>                  
+                </div>  
+                <div class="col-md-6">
+                    <!-- <div class="rgt-bottom">               
+                      <div class="clearfix"> </div>
+                    </div> -->
+                    <div class="search">
+                      <form>
+                        <input type="text" value="" placeholder="search...">
+                        <input type="submit" value="">
+                      </form>
+                    </div>
+                    <div class="clearfix"> </div>
+                  </div>
+          </div> 
+          
+          
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </div>
+
+    <!--content-->
+    <div class="content">
+      <div class="monthly-grid">
+        <div class="panel panel-widget">
+          <div class="panel-title">
+           Patients List
+          </div>
+          <div class="panel-body">
+            <!-- status -->
+            <div class="contain">
+             <div class="row">             
+              <app-list-patients></app-list-patients>
+             </div>
+            </div>
+            <!-- status -->
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
