@@ -10,18 +10,22 @@ if (isset($data->Email) ){
  $FirstName = $data->FirstName;
  $Surname 	= $data->Surname; 
  $City 	= $data->City;
- $Cellphone 	= $data->Cellphone;
- $Status 	= $data->Status;
- $RowState = 1;
+ $Cellphone 	= $data->Cellphone;  
+ $AddressLine1 	= $data->AddressLine1; 
+ $AddressLine2 	= $data->AddressLine2; 
+ $AddressLine3 	= $data->AddressLine3; 
+ $City 	= $data->City; 
+ $PostCode 	= $data->PostCode; 
+ $CreateUserId 	= $data->CreateUserId; 
+ $ModifyUserId 	= $data->ModifyUserId; 
+ $StatusId = 1;
 
 $result = $conn->prepare("SELECT * FROM patient WHERE Email = ?"); 
 $result->execute(array($Email));
 if ($result->rowCount() == 0) {
-$result = $conn->prepare("
-INSERT INTO  patient (  FirstName ,  Surname ,  Email ,  Cellphone ,  City ,  GlobalKey ,  Status ,  RowState ) VALUES 
-(?,?,?,?,?,UUID(),?,?)
-"); 
-if($result->execute(array($FirstName,$Surname,$Email,$Cellphone,$City,$Status,$RowState ))){
+$result = $conn->prepare("INSERT INTO patient(  FirstName, Surname, Email,Cellphone, AddressLine1, AddressLine2, AddressLine3, City, PostCode, GlobalKey, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
+										VALUES ( ?,?,?,?,?,?,?,?,?,UUID(),?,now(),?,now(),?)"); 
+if($result->execute(array($FirstName,$Surname,$Email,$Cellphone, $AddressLine1, $AddressLine2, $AddressLine3, $City,$PostCode,$CreateUserId,$ModifyUserId,$StatusId ))){
     echo 1;
 }else{
 	echo json_encode("error while trying create tenant, please try again");
