@@ -9,6 +9,9 @@ import { SharedModule } from '../shared';
 import { ListPatientsComponent, AddPatientComponent, PatientsComponent } from './patients';
 import { ServiceModule } from '../services';
 import { LoginComponent } from './accounts';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
     imports:[
         FormsModule,
@@ -16,7 +19,9 @@ import { LoginComponent } from './accounts';
         RouterModule,
         BrowserModule,
         SharedModule,
-        ServiceModule
+        ServiceModule,
+        Ng2SearchPipeModule,
+        NgxPaginationModule
     ],
     declarations:[ 
         HomeComponent,

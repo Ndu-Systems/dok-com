@@ -9,8 +9,8 @@ import { SelectService } from '../../../shared';
   styleUrls: ['./list-patients.component.css']
 })
 export class ListPatientsComponent implements OnInit {
-  patients$ : Observable<any>;
-  search:string;
+  patients$ : Observable<any>;  
+  searchText:string;
   constructor(
     private selectService : SelectService,    
     private route : Router
