@@ -17,7 +17,7 @@ export class ListPatientsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.patients$ = this.selectService.select("patient WHERE STATUS = 'Active'  AND RowState = 1  ORDER BY CreateDate DESC ");
+    this.patients$ = this.selectService.select("patient WHERE  StatusId = 1 ORDER BY CreateDate DESC ");
   }
 
 }

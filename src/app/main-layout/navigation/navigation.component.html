@@ -1,4 +1,4 @@
-<div class="sidebar-menu">
+<div class="sidebar-menu" *ngIf="isLoggedIn$ | async">
   <header class="logo1">
     <!-- <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>  -->
   </header>
@@ -13,7 +13,8 @@
               <li id="menu-academico-boletim" ><a routerLink="">Historic Appointments</a></li>
               </ul>
             </li>
-          <li id="menu-academico" ><a routerLink="/patients"><i class="fa fa-users"></i><span>Patients</span></a></li>									 
+          <li id="menu-academico" ><a routerLink="/patients"><i class="fa fa-users"></i><span>Patients</span></a></li>		
+          <li id="menu-academico" ><a routerLink="" (click)="onLogout()"><i class="fa fa-sign-out"></i><span> Logoff</span></a></li>									 
           </ul>
         </div>
         </div>

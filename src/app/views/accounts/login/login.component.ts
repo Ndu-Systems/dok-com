@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       if(user){
         this.showSuccess();
         setTimeout(() => {            
-          localStorage.setItem('currentUser',JSON.stringify({username:user.Email}));                
+          localStorage.setItem('currentUser',JSON.stringify({userId:user.UserId,username:user.Email}));                
           this.authenticationService.loginUser(user);
         }, 2000);      
       }
