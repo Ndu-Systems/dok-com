@@ -6,8 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../shared';
-import { ListPatientsComponent, AddPatientComponent } from './patients';
+import { ListPatientsComponent, AddPatientComponent, PatientsComponent } from './patients';
 import { ServiceModule } from '../services';
+import { LoginComponent } from './accounts';
 @NgModule({
     imports:[
         FormsModule,
@@ -20,7 +21,9 @@ import { ServiceModule } from '../services';
     declarations:[ 
         HomeComponent,
         ListPatientsComponent,
-        AddPatientComponent
+        AddPatientComponent,
+        PatientsComponent,
+        LoginComponent
     ],
     exports:[  
     ],

@@ -3,40 +3,48 @@
   <div class="monthly-grid">
     <div class="panel panel-widget">
       <div class="panel-body">
-        <div class="contain">
-          <div class="row">
-            <div class="forms">
-              <div class="form-grids widget-shadow" data-example-id="basic-forms">
-                <div class="form-title">
-                  <h4>
-                    <i class="fa fa-user"></i> Add Patient :</h4>
-                </div>
-                <div class="form-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="validateFirstName">First Name(s)</label>
-                      <input type="text" [ngModelOptions]="{standalone: true}"  [(ngModel)]="FirstName" class="form-control" id="validateFirstName" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="validateSurname">Surname</label>
-                      <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="Surname" class="form-control"  id="validateSurname" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="validateEmail">Email address</label>
-                      <input type="email" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="Email" class="form-control"  id="validateEmail" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="validateCellphone">Cellphone</label>
-                      <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="Cellphone" class="form-control"  id="validateCellphone" placeholder="">
-                    </div>
-                    <div class="form-group">
-                      <label for="validateCity">City</label>
-                      <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"  [(ngModel)]="City" class="form-control"  id="validateCity" placeholder="">
-                    </div>
-                    <button type="submit" (click)="add()" class="btn btn-default">Add Patient</button>
-                    <br/>
-                    <h4 class="error">{{Msg}}</h4>
-                  </form>
+        <div class="container">
+          <div class="row"> 
+            <div class="col-md-3"></div>            
+            <div class="col-md-6">
+              <div class="forms">
+                <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                  <div class="form-title">
+                    <h4>
+                      <i class="fa fa-user"></i> Add Patient :</h4>
+                  </div>
+                  <div class="form-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="validateFirstName">First Name(s)</label>
+                        <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="FirstName" class="form-control" id="validateFirstName"
+                          placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="validateSurname">Surname</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="Surname" class="form-control"
+                          id="validateSurname" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="validateEmail">Email address</label>
+                        <input type="email" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="Email" class="form-control" id="validateEmail"
+                          placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="validateCellphone">Cellphone</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="Cellphone" class="form-control"
+                          id="validateCellphone" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="validateCity">City</label>
+                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="City" class="form-control" id="validateCity"
+                          placeholder="">
+                      </div>
+                      <button type="submit" (click)="add()" class="btn btn-default">Add Patient</button>
+                      <br/>
+                      <h4 class="error">{{Msg}}</h4>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
