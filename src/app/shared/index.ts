@@ -1,4 +1,4 @@
-export * from './config'
-export* from './shared.module'
+export * from './modules';
+export * from './pipes/shared-pipes.module';
+export * from './guard';
 export * from './services/select.service'
-export * from './prime-ng'
