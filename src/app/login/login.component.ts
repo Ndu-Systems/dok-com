@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import { AccountService } from '../services';
 
 @Component({
     selector: 'app-login',
@@ -9,11 +10,33 @@ import { routerTransition } from '../router.animations';
     animations: [routerTransition()]
 })
 export class LoginComponent implements OnInit {
-    constructor(public router: Router) {}
+    Email : any = "doc@mail.com"
+    Password : any ="pass"
+    
+    constructor( 
+       private router: Router,
+        private accountService : AccountService
+    ) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+      localStorage.clear();
+    }
 
     onLoggedin() {
-        localStorage.setItem('isLoggedin', 'true');
+        this.accountService.loginUser(this.Email,this.Password)
+        .subscribe((response) =>{
+          let user = response;                 
+            if(user.Email!== undefined){
+            //   this.showSuccess();
+              setTimeout(() => {            
+                localStorage.setItem('currentUser',JSON.stringify({username:user.Email}));    
+                this.router.navigate(['/dashboard']);
+            
+              }, 2000);                           
+            }        
+          else{
+            // this.showError("Email/Password is not verified");
+          }
+        }); 
     }
 }

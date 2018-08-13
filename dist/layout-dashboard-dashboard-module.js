@@ -262,7 +262,7 @@ var DashboardRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [@routerTransition]>\r\n    <h2 class=\"text-muted\">Dashboard <small>Statistics Overview</small></h2>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n            <ngb-carousel>\r\n                <ng-template ngbSlide *ngFor=\"let slider of sliders\">\r\n                    <img class=\"img-fluid mx-auto d-block\" [src]=\"slider.imagePath\" alt=\"Random first slide\" width=\"100%\">\r\n                    <div class=\"carousel-caption\">\r\n                        <h3>{{slider.label}}</h3>\r\n                        <p>{{slider.text}}</p>\r\n                    </div>\r\n                </ng-template>\r\n            </ngb-carousel>\r\n        </div>\r\n    </div>\r\n    <hr>\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'primary'\" [icon]=\"'fa-comments'\" [count]=\"26\" [label]=\"'New Comments!'\" ></app-stat>\r\n        </div>\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'warning'\" [icon]=\"'fa-tasks'\" [count]=\"12\" [label]=\"'New task!'\" ></app-stat>\r\n        </div>\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'success'\" [icon]=\"'fa-shopping-cart'\" [count]=\"124\" [label]=\"'New Orders!'\" ></app-stat>\r\n        </div>\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'danger'\" [icon]=\"'fa-support'\" [count]=\"13\" [label]=\"'New Tickets!'\"></app-stat>\r\n        </div>\r\n    </div>\r\n    <hr />\r\n    <ngb-alert [type]=\"alert.type\" (close)=\"closeAlert(alert)\" *ngFor=\"let alert of alerts\">{{ alert.message }}</ngb-alert>\r\n    <hr />\r\n    <div class=\"row\">\r\n        <div class=\"col-lg-8\">\r\n            <div class=\"card card-default\">\r\n                <div class=\"card-header\">\r\n                    <i class=\"fa fa-clock-o fa-fw\"></i> Responsive Timeline\r\n                </div>\r\n                <!-- /.card-header -->\r\n                <app-timeline></app-timeline>\r\n                <!-- /.card-body -->\r\n            </div>\r\n            <!-- /.card -->\r\n        </div>\r\n        <!-- /.col-lg-8 -->\r\n        <div class=\"col-lg-4\">\r\n            <div class=\"card card-default mb-3\">\r\n                <div class=\"card-header\">\r\n                    <i class=\"fa fa-bell fa-fw\"></i> Notifications card\r\n                </div>\r\n                <!-- /.card-header -->\r\n                <app-notification></app-notification>\r\n                <!-- /.card-body -->\r\n            </div>\r\n            <!-- /.card -->\r\n\r\n            <app-chat></app-chat>\r\n            <!-- /.card .chat-card -->\r\n        </div>\r\n        <!-- /.col-lg-4 -->\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div>\r\n    <h2 class=\"text-muted\">Dashboard <small>Statistics Overview</small></h2>     \r\n    <hr>\r\n    <div class=\"row\">\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'primary'\" [icon]=\"'fa-calendar'\" [count]=\"7\" [label]=\"'New Appointments'\" ></app-stat>\r\n        </div>\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'warning'\" [icon]=\"'fa-user-md'\" [count]=\"1\" [label]=\"'Awaiting Confirmation'\" ></app-stat>\r\n        </div>\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'success'\" [icon]=\"'fa-users'\" [count]=\"25\" [label]=\"'Active Patients'\" ></app-stat>\r\n        </div>\r\n        <div class=\"col-xl-3 col-lg-6\">\r\n            <app-stat [bgClass]=\"'danger'\" [icon]=\"'fa-upload'\" [count]=\"124\" [label]=\"'Archived Appointments'\"></app-stat>\r\n        </div>\r\n    </div>\r\n    <hr />     \r\n</div>\r\n"
 
 /***/ }),
 
@@ -304,28 +304,6 @@ var DashboardComponent = /** @class */ (function () {
     function DashboardComponent() {
         this.alerts = [];
         this.sliders = [];
-        this.sliders.push({
-            imagePath: 'assets/images/slider1.jpg',
-            label: 'First slide label',
-            text: 'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-        }, {
-            imagePath: 'assets/images/slider2.jpg',
-            label: 'Second slide label',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-        }, {
-            imagePath: 'assets/images/slider3.jpg',
-            label: 'Third slide label',
-            text: 'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-        });
-        this.alerts.push({
-            id: 1,
-            type: 'success',
-            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Voluptates est animi quibusdam praesentium quam, et perspiciatis,\n                consectetur velit culpa molestias dignissimos\n                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum"
-        }, {
-            id: 2,
-            type: 'warning',
-            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Voluptates est animi quibusdam praesentium quam, et perspiciatis,\n                consectetur velit culpa molestias dignissimos\n                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum"
-        });
     }
     DashboardComponent.prototype.ngOnInit = function () { };
     DashboardComponent.prototype.closeAlert = function (alert) {
