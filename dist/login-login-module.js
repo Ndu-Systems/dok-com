@@ -77,8 +77,9 @@ module.exports = ":host {\n  display: block; }\n\n.login-page {\n  position: abs
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _router_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../router.animations */ "./src/app/router.animations.ts");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services */ "./src/app/services/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _router_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../router.animations */ "./src/app/router.animations.ts");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services */ "./src/app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -91,14 +92,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(accountService) {
+    function LoginComponent(router, accountService) {
+        this.router = router;
         this.accountService = accountService;
         this.Email = "doc@mail.com";
         this.Password = "pass";
     }
-    LoginComponent.prototype.ngOnInit = function () { };
+    LoginComponent.prototype.ngOnInit = function () {
+        localStorage.clear();
+    };
     LoginComponent.prototype.onLoggedin = function () {
+        var _this = this;
         this.accountService.loginUser(this.Email, this.Password)
             .subscribe(function (response) {
             var user = response;
@@ -106,6 +112,7 @@ var LoginComponent = /** @class */ (function () {
                 //   this.showSuccess();
                 setTimeout(function () {
                     localStorage.setItem('currentUser', JSON.stringify({ username: user.Email }));
+                    _this.router.navigate(['/dashboard']);
                 }, 2000);
             }
             else {
@@ -118,9 +125,10 @@ var LoginComponent = /** @class */ (function () {
             selector: 'app-login',
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/login/login.component.scss")],
-            animations: [Object(_router_animations__WEBPACK_IMPORTED_MODULE_1__["routerTransition"])()]
+            animations: [Object(_router_animations__WEBPACK_IMPORTED_MODULE_2__["routerTransition"])()]
         }),
-        __metadata("design:paramtypes", [_services__WEBPACK_IMPORTED_MODULE_2__["AccountService"]])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services__WEBPACK_IMPORTED_MODULE_3__["AccountService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
