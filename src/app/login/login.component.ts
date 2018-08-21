@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
+import { Message } from 'primeng/api';
 import { AccountService } from '../services';
 
 @Component({
@@ -12,12 +13,20 @@ import { AccountService } from '../services';
 export class LoginComponent implements OnInit {
     Email : any = "doc@mail.com"
     Password : any ="pass"
-    
+    msgs: Message[] = [];
+
     constructor( 
        private router: Router,
         private accountService : AccountService
     ) {}
-
+    showSuccess() {
+        this.msgs = [];
+        this.msgs.push({ severity: 'success', summary: 'Success Message', detail: 'Successfully Verified' });
+      }
+      showError(msg) {
+        this.msgs = [];
+        this.msgs.push({ severity: 'warn', summary: 'Validation Message', detail: `${msg}` });
+      }
     ngOnInit() {
       localStorage.clear();
     }
@@ -27,7 +36,7 @@ export class LoginComponent implements OnInit {
         .subscribe((response) =>{
           let user = response;                 
             if(user.Email!== undefined){
-            //   this.showSuccess();
+              this.showSuccess();
               setTimeout(() => {            
                 localStorage.setItem('currentUser',JSON.stringify({username:user.Email}));    
                 this.router.navigate(['/dashboard']);
@@ -35,7 +44,7 @@ export class LoginComponent implements OnInit {
               }, 2000);                           
             }        
           else{
-            // this.showError("Email/Password is not verified");
+            this.showError("Email/Password is not verified");
           }
         }); 
     }

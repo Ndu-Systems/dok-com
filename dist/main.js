@@ -355,7 +355,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************!*\
   !*** ./src/app/shared/index.ts ***!
   \*********************************/
-/*! exports provided: SharedPipesModule, SelectService, PageHeaderModule, StatModule, AuthGuard */
+/*! exports provided: SharedPipesModule, SelectService, PageHeaderModule, StatModule, AuthGuard, PrimeNg */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -373,6 +373,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _services_select_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/select.service */ "./src/app/shared/services/select.service.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SelectService", function() { return _services_select_service__WEBPACK_IMPORTED_MODULE_3__["SelectService"]; });
+
+/* harmony import */ var _primeng__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./primeng */ "./src/app/shared/primeng/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PrimeNg", function() { return _primeng__WEBPACK_IMPORTED_MODULE_4__["PrimeNg"]; });
+
 
 
 
@@ -674,6 +678,49 @@ var SharedPipesModule = /** @class */ (function () {
     return SharedPipesModule;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/app/shared/primeng/index.ts":
+/*!*****************************************!*\
+  !*** ./src/app/shared/primeng/index.ts ***!
+  \*****************************************/
+/*! exports provided: PrimeNg */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _prime_ng__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./prime-ng */ "./src/app/shared/primeng/prime-ng.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PrimeNg", function() { return _prime_ng__WEBPACK_IMPORTED_MODULE_0__["PrimeNg"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/primeng/prime-ng.ts":
+/*!********************************************!*\
+  !*** ./src/app/shared/primeng/prime-ng.ts ***!
+  \********************************************/
+/*! exports provided: PrimeNg */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PrimeNg", function() { return PrimeNg; });
+/* harmony import */ var primeng_chart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! primeng/chart */ "./node_modules/primeng/chart.js");
+/* harmony import */ var primeng_chart__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(primeng_chart__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var primeng_growl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/growl */ "./node_modules/primeng/growl.js");
+/* harmony import */ var primeng_growl__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(primeng_growl__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
+/* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var PrimeNg = [
+    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"]
+];
 
 
 /***/ }),

@@ -51,7 +51,7 @@ var LoginRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row justify-content-md-center\">\r\n        <div class=\"col-md-4\">\r\n            <img src=\"assets/images/logo.png\" width=\"150px\" class=\"user-avatar\" />\r\n            <h1>Doc-Com.io</h1>\r\n            <h3><small>patient management system</small></h3>\r\n            <form>\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\"  [(ngModel)]=\"Email\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\" id=\"Email\" placeholder=\"Email\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"Password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\" id=\"Password\" placeholder=\"Password\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\"  (click)=\"onLoggedin()\"> Log in </a>\r\n                &nbsp;\r\n                <!-- <a class=\"btn rounded-btn\" [routerLink]=\"['/signup']\">Register</a> -->\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<p-growl [(value)]=\"msgs\"></p-growl>\r\n<div class=\"login-page\" [@routerTransition]>\r\n    <div class=\"row justify-content-md-center\">\r\n        <div class=\"col-md-4\">\r\n            <img src=\"assets/images/logo.png\" width=\"150px\" class=\"user-avatar\" />\r\n            <h1>Doc-Com.io</h1>\r\n            <h3><small>patient management system</small></h3>\r\n            <form>\r\n                <div class=\"form-content\">\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\"  [(ngModel)]=\"Email\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\" id=\"Email\" placeholder=\"Email\">\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"password\" [(ngModel)]=\"Password\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control input-underline input-lg\" id=\"Password\" placeholder=\"Password\">\r\n                    </div>\r\n                </div>\r\n                <a class=\"btn rounded-btn\"  (click)=\"onLoggedin()\"> Log in </a>\r\n                &nbsp;\r\n                <!-- <a class=\"btn rounded-btn\" [routerLink]=\"['/signup']\">Register</a> -->\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -99,7 +99,16 @@ var LoginComponent = /** @class */ (function () {
         this.accountService = accountService;
         this.Email = "doc@mail.com";
         this.Password = "pass";
+        this.msgs = [];
     }
+    LoginComponent.prototype.showSuccess = function () {
+        this.msgs = [];
+        this.msgs.push({ severity: 'success', summary: 'Success Message', detail: 'Successfully Verified' });
+    };
+    LoginComponent.prototype.showError = function (msg) {
+        this.msgs = [];
+        this.msgs.push({ severity: 'warn', summary: 'Validation Message', detail: "" + msg });
+    };
     LoginComponent.prototype.ngOnInit = function () {
         localStorage.clear();
     };
@@ -109,14 +118,14 @@ var LoginComponent = /** @class */ (function () {
             .subscribe(function (response) {
             var user = response;
             if (user.Email !== undefined) {
-                //   this.showSuccess();
+                _this.showSuccess();
                 setTimeout(function () {
                     localStorage.setItem('currentUser', JSON.stringify({ username: user.Email }));
                     _this.router.navigate(['/dashboard']);
                 }, 2000);
             }
             else {
-                // this.showError("Email/Password is not verified");
+                _this.showError("Email/Password is not verified");
             }
         });
     };
@@ -153,6 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services */ "./src/app/services/index.ts");
+/* harmony import */ var _shared_primeng__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/primeng */ "./src/app/shared/primeng/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -165,14 +175,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var LoginModule = /** @class */ (function () {
     function LoginModule() {
     }
     LoginModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_2__["LoginRoutingModule"]],
+            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"]].concat(_shared_primeng__WEBPACK_IMPORTED_MODULE_6__["PrimeNg"], [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_2__["LoginRoutingModule"]]),
             declarations: [_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]],
+            exports: _shared_primeng__WEBPACK_IMPORTED_MODULE_6__["PrimeNg"].slice(),
             providers: [_services__WEBPACK_IMPORTED_MODULE_5__["AccountService"]]
         })
     ], LoginModule);
