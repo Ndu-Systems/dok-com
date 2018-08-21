@@ -658,7 +658,7 @@ module.exports = "<div>\r\n  <app-page-header [heading]=\"'Add Patient'\" [icon]
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: rgba(255, 255, 255, 0.8);\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n"
+module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: #0c0c0c;\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n"
 
 /***/ }),
 
@@ -673,6 +673,8 @@ module.exports = ".justify-content-center {\n  display: flex !important;\n  just
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddPatientComponent", function() { return AddPatientComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services */ "./src/app/services/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -683,8 +685,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var AddPatientComponent = /** @class */ (function () {
-    function AddPatientComponent() {
+    function AddPatientComponent(router, patientService) {
+        this.router = router;
+        this.patientService = patientService;
     }
     AddPatientComponent.prototype.ngOnInit = function () {
     };
@@ -736,6 +742,12 @@ var AddPatientComponent = /** @class */ (function () {
             City: this.City,
             PostCode: this.PostCode,
         };
+        this.patientService.addPatient(data)
+            .subscribe(function (response) {
+            if (response == 1) {
+                alert("patient added successfully");
+            }
+        });
     };
     AddPatientComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -743,7 +755,8 @@ var AddPatientComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./add-patient.component.html */ "./src/app/views/patients/add-patient/add-patient.component.html"),
             styles: [__webpack_require__(/*! ./add-patient.component.scss */ "./src/app/views/patients/add-patient/add-patient.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"],
+            _services__WEBPACK_IMPORTED_MODULE_2__["PatientService"]])
     ], AddPatientComponent);
     return AddPatientComponent;
 }());
@@ -804,7 +817,7 @@ module.exports = "<div>\r\n  <app-page-header [heading]=\"'Patients'\" [icon]=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: rgba(255, 255, 255, 0.8);\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n"
+module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: #0c0c0c;\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n"
 
 /***/ }),
 
