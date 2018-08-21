@@ -1,18 +1,20 @@
+ 
 import { HomeComponent } from './views/home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { AddPatientComponent } from './views/patients';
+import { AddPatientComponent, PatientsComponent } from './views/patients';
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'dashboards/v1' },
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
   {
-    path: 'dashboards', children:
+    path: 'dashboard', children:
       [
-        { path: 'v1', component: HomeComponent },
+        { path: '', component: HomeComponent },
       ]
   },
   {
     path: 'patients',children: 
     [
+      {path: '', component: PatientsComponent },
       {path:'add', component: AddPatientComponent}
     ]
   }
