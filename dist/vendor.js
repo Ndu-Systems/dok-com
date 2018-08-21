@@ -29,7 +29,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵPRE_STYLE", function() { return ɵPRE_STYLE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵAnimationGroupPlayer", function() { return AnimationGroupPlayer; });
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -997,7 +997,7 @@ var NoopAnimationPlayer = /** @class */ (function () {
         }
     };
     NoopAnimationPlayer.prototype.reset = function () { };
-    NoopAnimationPlayer.prototype.setPosition = function (p) { };
+    NoopAnimationPlayer.prototype.setPosition = function (position) { };
     NoopAnimationPlayer.prototype.getPosition = function () { return 0; };
     /** @internal */
     NoopAnimationPlayer.prototype.triggerCallback = function (phaseName) {
@@ -1208,7 +1208,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm5/animations.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -5804,7 +5804,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -5890,6 +5890,8 @@ var LocationStrategy = /** @class */ (function () {
  * representing the URL prefix that should be preserved when generating and recognizing
  * URLs.
  *
+ * @usageNotes
+ *
  * ### Example
  *
  * ```typescript
@@ -5921,7 +5923,9 @@ var APP_BASE_HREF = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionTok
  * Depending on which {@link LocationStrategy} is used, `Location` will either persist
  * to the URL's path or the URL's hash segment.
  *
- * Note: it's better to use {@link Router#navigate} service to trigger route changes. Use
+ * @usageNotes
+ *
+ * It's better to use {@link Router#navigate} service to trigger route changes. Use
  * `Location` only if you need to interact with or create normalized URLs outside of
  * routing.
  *
@@ -5933,6 +5937,7 @@ var APP_BASE_HREF = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionTok
  * - `/my/app/user/123/` **is not** normalized
  *
  * ### Example
+ *
  * {@example common/location/ts/path_location_component.ts region='LocationComponent'}
  *
  */
@@ -6097,6 +6102,8 @@ function _stripIndexHtml(url) {
  * For instance, if you call `location.go('/foo')`, the browser's URL will become
  * `example.com#/foo`.
  *
+ * @usageNotes
+ *
  * ### Example
  *
  * {@example common/location/ts/hash_location_component.ts region='LocationComponent'}
@@ -6184,6 +6191,8 @@ var HashLocationStrategy = /** @class */ (function (_super) {
  * Similarly, if you add `<base href='/my/app'/>` to the document and call
  * `location.go('/foo')`, the browser's URL will become
  * `example.com/my/app/foo`.
+ *
+ * @usageNotes
  *
  * ### Example
  *
@@ -8542,9 +8551,9 @@ var NgClass = /** @class */ (function () {
         this._initialClasses = [];
     }
     Object.defineProperty(NgClass.prototype, "klass", {
-        set: function (v) {
+        set: function (value) {
             this._removeClasses(this._initialClasses);
-            this._initialClasses = typeof v === 'string' ? v.split(/\s+/) : [];
+            this._initialClasses = typeof value === 'string' ? value.split(/\s+/) : [];
             this._applyClasses(this._initialClasses);
             this._applyClasses(this._rawClass);
         },
@@ -8552,12 +8561,12 @@ var NgClass = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(NgClass.prototype, "ngClass", {
-        set: function (v) {
+        set: function (value) {
             this._removeClasses(this._rawClass);
             this._applyClasses(this._initialClasses);
             this._iterableDiffer = null;
             this._keyValueDiffer = null;
-            this._rawClass = typeof v === 'string' ? v.split(/\s+/) : v;
+            this._rawClass = typeof value === 'string' ? value.split(/\s+/) : value;
             if (this._rawClass) {
                 if (Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵisListLikeIterable"])(this._rawClass)) {
                     this._iterableDiffer = this._iterableDiffers.find(this._rawClass).create();
@@ -8685,6 +8694,8 @@ var NgClass = /** @class */ (function () {
  * `NgComponentOutlet` requires a component type, if a falsy value is set the view will clear and
  * any existing component will get destroyed.
  *
+ * @usageNotes
+ *
  * ### Fine tune control
  *
  * You can control the component creation process by using the following optional attributes:
@@ -8719,7 +8730,8 @@ var NgClass = /** @class */ (function () {
  *                                   ngModuleFactory: moduleFactory;">
  * </ng-container>
  * ```
- * ## Example
+ *
+ * ### A simple example
  *
  * {@example common/ngComponentOutlet/ts/module.ts region='SimpleExample'}
  *
@@ -8821,6 +8833,8 @@ var NgForOfContext = /** @class */ (function () {
  * The `NgForOf` directive instantiates a template once per item from an iterable. The context
  * for each instantiated template inherits from the outer context with the given loop variable
  * set to the current item from the iterable.
+ *
+ * @usageNotes
  *
  * ### Local Variables
  *
@@ -9028,13 +9042,16 @@ function getTypeNameForDebugging(type) {
  *  - `then` template is the inline template of `ngIf` unless bound to a different value.
  *  - `else` template is blank unless it is bound.
  *
- * ## Most common usage
+ *
+ * @usageNotes
+ *
+ * ### Most common usage
  *
  * The most common usage of the `ngIf` directive is to conditionally show the inline template as
  * seen in this example:
  * {@example common/ngIf/ts/module.ts region='NgIfSimple'}
  *
- * ## Showing an alternative template using `else`
+ * ### Showing an alternative template using `else`
  *
  * If it is necessary to display a template when the `expression` is falsy use the `else` template
  * binding as shown. Note that the `else` binding points to a `<ng-template>` labeled `#elseBlock`.
@@ -9043,7 +9060,7 @@ function getTypeNameForDebugging(type) {
  *
  * {@example common/ngIf/ts/module.ts region='NgIfElse'}
  *
- * ## Using non-inlined `then` template
+ * ### Using non-inlined `then` template
  *
  * Usually the `then` template is the inlined template of the `ngIf`, but it can be changed using
  * a binding (just like `else`). Because `then` and `else` are bindings, the template references can
@@ -9051,7 +9068,7 @@ function getTypeNameForDebugging(type) {
  *
  * {@example common/ngIf/ts/module.ts region='NgIfThenElse'}
  *
- * ## Storing conditional result in a variable
+ * ### Storing conditional result in a variable
  *
  * A common pattern is that we need to show a set of properties from the same object. If the
  * object is undefined, then we have to use the safe-traversal-operator `?.` to guard against
@@ -9562,10 +9579,10 @@ var NgStyle = /** @class */ (function () {
         this._renderer = _renderer;
     }
     Object.defineProperty(NgStyle.prototype, "ngStyle", {
-        set: function (v) {
-            this._ngStyle = v;
-            if (!this._differ && v) {
-                this._differ = this._differs.find(v).create();
+        set: function (values) {
+            this._ngStyle = values;
+            if (!this._differ && values) {
+                this._differ = this._differs.find(values).create();
             }
         },
         enumerable: true,
@@ -9620,11 +9637,6 @@ var NgStyle = /** @class */ (function () {
 /**
  * @ngModule CommonModule
  *
- * @usageNotes
- * ```
- * <ng-container *ngTemplateOutlet="templateRefExp; context: contextExp"></ng-container>
- * ```
- *
  * @description
  *
  * Inserts an embedded view from a prepared `TemplateRef`.
@@ -9633,12 +9645,16 @@ var NgStyle = /** @class */ (function () {
  * `[ngTemplateOutletContext]` should be an object, the object's keys will be available for binding
  * by the local template `let` declarations.
  *
- * Note: using the key `$implicit` in the context object will set its value as default.
+ * @usageNotes
+ * ```
+ * <ng-container *ngTemplateOutlet="templateRefExp; context: contextExp"></ng-container>
+ * ```
  *
- * ## Example
+ * Using the key `$implicit` in the context object will set its value as default.
+ *
+ * ### Example
  *
  * {@example common/ngTemplateOutlet/ts/module.ts region='NgTemplateOutlet'}
- *
  *
  */
 var NgTemplateOutlet = /** @class */ (function () {
@@ -10006,6 +10022,8 @@ var DateFormatter = /** @class */ (function () {
  * - this pipe uses the Internationalization API. Therefore it is only reliable in Chrome and Opera
  *   browsers.
  *
+ * @usageNotes
+ *
  * ### Examples
  *
  * Assuming `dateObj` is (year: 2010, month: 9, day: 3, hour: 12 PM, minute: 05, second: 08)
@@ -10153,10 +10171,11 @@ function formatNumber$1(pipe, locale, value, style, digits, currency, currencyAs
  * WARNING: this pipe uses the Internationalization API which is not yet available in all browsers
  * and may require a polyfill. See [Browser Support](guide/browser-support) for details.
  *
+ * @usageNotes
+ *
  * ### Example
  *
  * {@example common/pipes/ts/number_pipe.ts region='DeprecatedNumberPipe'}
- *
  *
  */
 var DeprecatedDecimalPipe = /** @class */ (function () {
@@ -10186,6 +10205,8 @@ var DeprecatedDecimalPipe = /** @class */ (function () {
  *
  * WARNING: this pipe uses the Internationalization API which is not yet available in all browsers
  * and may require a polyfill. See [Browser Support](guide/browser-support) for details.
+ *
+ * @usageNotes
  *
  * ### Example
  *
@@ -10226,6 +10247,8 @@ var DeprecatedPercentPipe = /** @class */ (function () {
  *
  * WARNING: this pipe uses the Internationalization API which is not yet available in all browsers
  * and may require a polyfill. See [Browser Support](guide/browser-support) for details.
+ *
+ * @usageNotes
  *
  * ### Example
  *
@@ -10306,8 +10329,9 @@ var _observableStrategy = new ObservableStrategy();
  * changes. When the component gets destroyed, the `async` pipe unsubscribes automatically to avoid
  * potential memory leaks.
  *
+ * @usageNotes
  *
- * ## Examples
+ * ### Examples
  *
  * This example binds a `Promise` to the view. Clicking the `Resolve` button resolves the
  * promise.
@@ -10318,7 +10342,6 @@ var _observableStrategy = new ObservableStrategy();
  * to the view. The Observable continuously updates the view with the current time.
  *
  * {@example common/pipes/ts/async_pipe.ts region='AsyncPipeObservable'}
- *
  *
  */
 var AsyncPipe = /** @class */ (function () {
@@ -10698,7 +10721,9 @@ var _INTERPOLATION_REGEXP = /#/g;
  *
  * Maps a value to a string that pluralizes the value according to locale rules.
  *
- *  ## Example
+ * @usageNotes
+ *
+ * ### Example
  *
  * {@example common/pipes/ts/i18n_pipe.ts region='I18nPluralPipeComponent'}
  *
@@ -10750,7 +10775,9 @@ var I18nPluralPipe = /** @class */ (function () {
  * If none of the keys of the `mapping` match the `value`, then the content
  * of the `other` key is returned when present, otherwise an empty string is returned.
  *
- * ## Example
+ * @usageNotes
+ *
+ * ### Example
  *
  * {@example common/pipes/ts/i18n_pipe.ts region='I18nSelectPipeComponent'}
  *
@@ -10801,9 +10828,8 @@ var I18nSelectPipe = /** @class */ (function () {
  *
  * The following component uses a JSON pipe to convert an object
  * to JSON format, and displays the string in both formats for comparison.
-
- * {@example common/pipes/ts/json_pipe.ts region='JsonPipe'}
  *
+ * {@example common/pipes/ts/json_pipe.ts region='JsonPipe'}
  *
  */
 var JsonPipe = /** @class */ (function () {
@@ -10949,7 +10975,6 @@ function defaultComparator(keyValueA, keyValueB) {
  * ### Example
  *
  * <code-example path="common/pipes/ts/number_pipe.ts" region='NumberPipe'></code-example>
- *
  *
  */
 var DecimalPipe = /** @class */ (function () {
@@ -11175,6 +11200,8 @@ function strToNumber(value) {
  *
  * Creates a new `Array` or `String` containing a subset (slice) of the elements.
  *
+ * @usageNotes
+ *
  * All behavior is based on the expected behavior of the JavaScript API `Array.prototype.slice()`
  * and `String.prototype.slice()`.
  *
@@ -11191,13 +11218,14 @@ function strToNumber(value) {
  *
  * produces the following:
  *
- *     <li>b</li>
- *     <li>c</li>
+ * ```html
+ * <li>b</li>
+ * <li>c</li>
+ * ```
  *
- * ## String Examples
+ * ### String Examples
  *
  * {@example common/pipes/ts/slice_pipe.ts region='SlicePipe_string'}
- *
  *
  */
 var SlicePipe = /** @class */ (function () {
@@ -11370,7 +11398,7 @@ function isPlatformWorkerUi(platformId) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.1.0');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.1.2');
 
 /**
  * @license
@@ -11597,7 +11625,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -11853,10 +11881,10 @@ var HttpHeaders = /** @class */ (function () {
 var HttpUrlEncodingCodec = /** @class */ (function () {
     function HttpUrlEncodingCodec() {
     }
-    HttpUrlEncodingCodec.prototype.encodeKey = function (k) { return standardEncoding(k); };
-    HttpUrlEncodingCodec.prototype.encodeValue = function (v) { return standardEncoding(v); };
-    HttpUrlEncodingCodec.prototype.decodeKey = function (k) { return decodeURIComponent(k); };
-    HttpUrlEncodingCodec.prototype.decodeValue = function (v) { return decodeURIComponent(v); };
+    HttpUrlEncodingCodec.prototype.encodeKey = function (key) { return standardEncoding(key); };
+    HttpUrlEncodingCodec.prototype.encodeValue = function (value) { return standardEncoding(value); };
+    HttpUrlEncodingCodec.prototype.decodeKey = function (key) { return decodeURIComponent(key); };
+    HttpUrlEncodingCodec.prototype.decodeValue = function (value) { return decodeURIComponent(value); };
     return HttpUrlEncodingCodec;
 }());
 function paramParser(rawParams, codec) {
@@ -13815,7 +13843,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compileInjectable", function() { return compileInjectable; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -14941,7 +14969,7 @@ var Version = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new Version('6.1.0');
+var VERSION = new Version('6.1.2');
 
 /**
  * @license
@@ -36857,6 +36885,14 @@ var AotSummaryResolver = /** @class */ (function () {
             summaries.forEach(function (summary) { return _this.summaryCache.set(summary.symbol, summary); });
             if (moduleName) {
                 this.knownFileNameToModuleNames.set(filePath, moduleName);
+                if (filePath.endsWith('.d.ts')) {
+                    // Also add entries to map the ngfactory & ngsummary files to their module names.
+                    // This is necessary to resolve ngfactory & ngsummary files to their AMD module
+                    // names when building angular with Bazel from source downstream.
+                    // See https://github.com/bazelbuild/rules_typescript/pull/223 for context.
+                    this.knownFileNameToModuleNames.set(filePath.replace(/\.d\.ts$/, '.ngfactory.d.ts'), moduleName + '.ngfactory');
+                    this.knownFileNameToModuleNames.set(filePath.replace(/\.d\.ts$/, '.ngsummary.d.ts'), moduleName + '.ngsummary');
+                }
             }
             importAs.forEach(function (importAs) { _this.importAs.set(importAs.symbol, importAs.importAs); });
         }
@@ -38747,7 +38783,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -38846,11 +38882,13 @@ function defineInjector(options) {
  * @usageNotes
  * ### Basic Example
  *
+ * #### Plain InjectionToken
+ *
  * {@example core/di/ts/injector_spec.ts region='InjectionToken'}
  *
- * ### Tree-shakeable Example
+ * #### Tree-shakable InjectionToken
  *
- * {@example core/di/ts/injector_spec.ts region='ShakeableInjectionToken'}
+ * {@example core/di/ts/injector_spec.ts region='ShakableInjectionToken'}
  *
  */
 var InjectionToken = /** @class */ (function () {
@@ -40390,7 +40428,7 @@ var Version = /** @class */ (function () {
     }
     return Version;
 }());
-var VERSION = new Version('6.1.0');
+var VERSION = new Version('6.1.2');
 
 /**
  * @license
@@ -41745,13 +41783,10 @@ function isObservable(obj) {
  */
 /**
  * A function that will be executed when an application is initialized.
- * @experimental
  */
 var APP_INITIALIZER = new InjectionToken('Application Initializer');
 /**
  * A class that reflects the state of running {@link APP_INITIALIZER}s.
- *
- * @experimental
  */
 var ApplicationInitStatus = /** @class */ (function () {
     function ApplicationInitStatus(appInits) {
@@ -57560,7 +57595,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -60190,31 +60225,31 @@ var AbstractControl = /** @class */ (function () {
  * Instantiate a `FormControl`, with an initial value.
  *
  * ```ts
- * const ctrl = new FormControl('some value');
- * console.log(ctrl.value);     // 'some value'
+ * const control = new FormControl('some value');
+ * console.log(control.value);     // 'some value'
  *```
  *
  * The following example initializes the control with a form state object. The `value`
  * and `disabled` keys are required in this case.
  *
  * ```ts
- * const ctrl = new FormControl({ value: 'n/a', disabled: true });
- * console.log(ctrl.value);     // 'n/a'
- * console.log(ctrl.status);    // 'DISABLED'
+ * const control = new FormControl({ value: 'n/a', disabled: true });
+ * console.log(control.value);     // 'n/a'
+ * console.log(control.status);    // 'DISABLED'
  * ```
  *
  * The following example initializes the control with a sync validator.
  *
  * ```ts
- * const ctrl = new FormControl('', Validators.required);
- * console.log(ctrl.value);      // ''
- * console.log(ctrl.status);     // 'INVALID'
+ * const control = new FormControl('', Validators.required);
+ * console.log(control.value);      // ''
+ * console.log(control.status);     // 'INVALID'
  * ```
  *
  * The following example initializes the control using an options object.
  *
  * ```ts
- * const ctrl = new FormControl('', {
+ * const control = new FormControl('', {
  *    validators: Validators.required,
  *    asyncValidators: myAsyncValidator
  * });
@@ -60225,7 +60260,7 @@ var AbstractControl = /** @class */ (function () {
  * Set the `updateOn` option to `'blur'` to update on the blur `event`.
  *
  * ```ts
- * const ctrl = new FormControl('', { updateOn: 'blur' });
+ * const control = new FormControl('', { updateOn: 'blur' });
  * ```
  *
  * ### Configure the control to update on a submit event
@@ -60233,7 +60268,7 @@ var AbstractControl = /** @class */ (function () {
  * Set the `updateOn` option to `'submit'` to update on a submit `event`.
  *
  * ```ts
- * const ctrl = new FormControl('', { updateOn: 'submit' });
+ * const control = new FormControl('', { updateOn: 'submit' });
  * ```
  *
  * ### Reset the control back to an initial value
@@ -60243,7 +60278,7 @@ var AbstractControl = /** @class */ (function () {
  * (these are the only two properties that cannot be calculated).
  *
  * ```ts
- * const ctrl = new FormControl('Nancy');
+ * const control = new FormControl('Nancy');
  *
  * console.log(control.value); // 'Nancy'
  *
@@ -60255,15 +60290,15 @@ var AbstractControl = /** @class */ (function () {
  * ### Reset the control back to an initial value and disabled
  *
  * ```
- * const ctrl = new FormControl('Nancy');
+ * const control = new FormControl('Nancy');
  *
  * console.log(control.value); // 'Nancy'
- * console.log(this.control.status); // 'DISABLED'
+ * console.log(control.status); // 'VALID'
  *
  * control.reset({ value: 'Drew', disabled: true });
  *
- * console.log(this.control.value); // 'Drew'
- * console.log(this.control.status); // 'DISABLED'
+ * console.log(control.value); // 'Drew'
+ * console.log(control.status); // 'DISABLED'
  *
 */
 var FormControl = /** @class */ (function (_super) {
@@ -62945,7 +62980,7 @@ var FormBuilder = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.0');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.2');
 
 /**
  * @license
@@ -63133,7 +63168,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -63562,7 +63597,7 @@ var CachedResourceLoader = /** @class */ (function (_super) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.0');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.2');
 
 /**
  * @license
@@ -63634,7 +63669,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_animations_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/animations/browser */ "./node_modules/@angular/animations/fesm5/browser.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -64169,7 +64204,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -66650,7 +66685,7 @@ var By = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["Version"]('6.1.0');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["Version"]('6.1.2');
 
 /**
  * @license
@@ -66767,7 +66802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /**
- * @license Angular v6.1.0
+ * @license Angular v6.1.2
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -72113,7 +72148,7 @@ function provideRouterInitializer() {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.0');
+var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.2');
 
 /**
  * @license
