@@ -17,8 +17,8 @@ if (isset($data->Email) )
 	$AddressLine3 	= $data->AddressLine3; 
 	$City 	= $data->City; 
 	$PostCode 	= $data->PostCode; 
-	$CreateUserId 	= $data->CreateUserId; 
-	$ModifyUserId 	= $data->ModifyUserId; 
+	$CreateUserId 	= 1; 
+	$ModifyUserId 	= 1; 
 	$StatusId = 1;
 
 	$result = $conn->prepare("SELECT * FROM patient WHERE Email = ?"); 

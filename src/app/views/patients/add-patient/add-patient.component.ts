@@ -82,9 +82,13 @@ export class AddPatientComponent implements OnInit {
       // ModifyUserId: this.ModifyUserId,
       // ModifyDate: this.ModifyDate,
       // StatusId: this.StatusId;
-
     };
-
+     this.patientService.addPatient(data)
+     .subscribe(response => {
+        if(response == 1){
+          alert ("patient added successfully")
+        }
+     });
     
   }
 
