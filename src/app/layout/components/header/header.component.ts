@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { SelectService } from '../../../shared';
 
 @Component({
     selector: 'app-header',
@@ -10,7 +12,10 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
     user : any
-    constructor(private translate: TranslateService, public router: Router) {
+ 
+    constructor(private translate: TranslateService, public router: Router
+       
+        ) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
         this.translate.setDefaultLang('en');
@@ -31,8 +36,12 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
         this.user = JSON.parse(localStorage.getItem('currentUser'))
         if(!this.user.username)
-            this.user.username = "doctor"
+            this.user.username = "doctor" 
          
+    }
+
+    changePassword(){
+        this.router.navigate(['/user/change-password', this.user.userid])
     }
 
     isToggled(): boolean {

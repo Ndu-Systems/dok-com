@@ -20,10 +20,10 @@
                     <i class="fa fa-user"></i> Hello {{user.username}} <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu>
-                    <!-- <a class="dropdown-item" href="javascript:void(0)">
-                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                   <a class="dropdown-item" href="javascript:void(0)"  (click)="changePassword()">
+                        <i class="fa fa-fw fa-lock"></i> {{ 'Change-Password' | translate }}
                     </a>
-                    <a class="dropdown-item" href="javascript:void(0)">
+                     <!-- <a class="dropdown-item" href="javascript:void(0)">
                         <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}
                     </a>
                     <a class="dropdown-item" href="javascript:void(0)">

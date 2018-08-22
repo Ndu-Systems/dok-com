@@ -67,7 +67,6 @@ var HeaderComponent = /** @class */ (function () {
     }
     HeaderComponent.prototype.ngOnInit = function () {
         this.user = JSON.parse(localStorage.getItem('currentUser'));
-        debugger;
         if (!this.user.username)
             this.user.username = "doctor";
     };

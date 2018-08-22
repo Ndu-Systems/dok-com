@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
             if(user.Email!== undefined){
               this.showSuccess();
               setTimeout(() => {            
-                localStorage.setItem('currentUser',JSON.stringify({username:user.Email}));    
+                localStorage.setItem('currentUser',JSON.stringify({username:user.Email,userid:user.UserId}));    
                 this.router.navigate(['/dashboard']);
             
               }, 2000);                           

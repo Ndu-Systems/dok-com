@@ -786,7 +786,6 @@ var AddPatientComponent = /** @class */ (function () {
     };
     AddPatientComponent.prototype.add = function () {
         var _this = this;
-        debugger;
         this.msg = undefined;
         if (this.Email == undefined || this.Email === '') {
             this.showError("Please fill in Required Fields");
@@ -871,6 +870,137 @@ var AddPatientComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _add_patient_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add-patient.component */ "./src/app/views/patients/add-patient/add-patient.component.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AddPatientComponent", function() { return _add_patient_component__WEBPACK_IMPORTED_MODULE_0__["AddPatientComponent"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/patients/edit-patient/edit-patient.component.html":
+/*!*************************************************************************!*\
+  !*** ./src/app/views/patients/edit-patient/edit-patient.component.html ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div>\n  <app-page-header [heading]=\"'Edit Patient'\" [icon]=\"'fa-edit'\"></app-page-header>\n  <p-growl [(value)]=\"msgs\"></p-growl>\n  <div class=\"row\">\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\n      <div class=\"card mb-3\">\n        <div class=\"card-header\">\n        </div>\n        <div class=\"card-body table-responsive\">\n          <div class=\"col-lg-10 offset-1\">\n            <form role=\"form\" *ngIf=\"patient$ | async as patient\" >           \n              \n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">First Name:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-user\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].FirstName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"First Name\"\n                      aria-label=\"FirstName\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!-- Surname -->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">Surname:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-user\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].Surname\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Surname\"\n                      aria-label=\"Surname\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!-- Email -->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">Email:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-envelope\"></li>\n                      </span>\n                    </div>\n                    <input type=\"email\" [(ngModel)]=\"patient[0].Email\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Email\" aria-label=\"Email\"\n                      aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!-- Cellphone -->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">Cellphone #:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-phone\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].Cellphone\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Cellphone Number\"\n                      aria-label=\"Cellphone\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!-- AddressLine1 -->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">Address Line 1:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-home\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].AddressLine1\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Address Line 1\"\n                      aria-label=\"AddressLine1\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!-- AddressLine2 -->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">Address Line 2:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-home\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].AddressLine2\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"AddressLine2\"\n                      aria-label=\"AddressLine2\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!--AddressLine3-->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">Address Line 3:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-home\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].AddressLine3\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Address Line 3\"\n                      aria-label=\"AddressLine3\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!--City-->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">City:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-home\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].City\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"City\" aria-label=\"City\"\n                      aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n\n              <!--PostCode-->\n              <fieldset class=\"form-group\">\n                <div class=\"row\">\n                  <label class=\"col-md-2\">PostCode:</label>\n                  <div class=\"input-group mb-3 col-md-6 \">\n                    <div class=\"input-group-prepend\">\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\n                        <li class=\"fa fa-home\"></li>\n                      </span>\n                    </div>\n                    <input type=\"text\" [(ngModel)]=\"patient[0].PostCode\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Postal Code\"\n                      aria-label=\"PostCode\" aria-describedby=\"basic-addon1\">\n                  </div>\n                </div>\n              </fieldset>\n              <div class=\"justify-content-center\">\n                <a  class=\"btn rounded-btn\" (click)=\"save(patient[0])\">Save</a> &nbsp;\n                <a  class=\"btn rounded-btn\" [routerLink]=\"['/patients']\">Abort</a>\n              </div>\n            </form>\n\n          </div>\n        </div>\n      </div>\n\n    </div>\n\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/views/patients/edit-patient/edit-patient.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/views/patients/edit-patient/edit-patient.component.scss ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: #0c0c0c;\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n"
+
+/***/ }),
+
+/***/ "./src/app/views/patients/edit-patient/edit-patient.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/views/patients/edit-patient/edit-patient.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: EditPatientComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditPatientComponent", function() { return EditPatientComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared */ "./src/app/shared/index.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _services_patient__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/patient */ "./src/app/services/patient/index.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EditPatientComponent = /** @class */ (function () {
+    function EditPatientComponent(selectService, route, router, confirmationService, patientService) {
+        this.selectService = selectService;
+        this.route = route;
+        this.router = router;
+        this.confirmationService = confirmationService;
+        this.patientService = patientService;
+        this.msgs = [];
+    }
+    EditPatientComponent.prototype.ngOnInit = function () {
+        this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
+        this.patient$ = this.selectService.select("patient WHERE  PatientId = " + this.patientId);
+    };
+    EditPatientComponent.prototype.showSuccess = function () {
+        this.msgs = [];
+        this.msgs.push({ severity: 'success', summary: 'Success Message', detail: 'Patient Updated Successfully' });
+    };
+    EditPatientComponent.prototype.save = function (patient) {
+        var _this = this;
+        var data = {
+            FirstName: patient.FirstName,
+            Surname: patient.Surname,
+            Email: patient.Email,
+            Cellphone: patient.Cellphone,
+            AddressLine1: patient.AddressLine1,
+            AddressLine2: patient.AddressLine2,
+            AddressLine3: patient.AddressLine3,
+            City: patient.City,
+            PostCode: patient.PostCode,
+            GlobalKey: patient.GlobalKey,
+            ModifyUserId: 1,
+            StatusId: patient.StatusId,
+        };
+        this.patientService.updatePatient(data)
+            .subscribe(function (response) {
+            if (response == 1) {
+                _this.showSuccess();
+                setTimeout(function () {
+                    _this.router.navigate(['/patients/view', patient.PatientId]);
+                }, 2000);
+            }
+        });
+    };
+    EditPatientComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-edit-patient',
+            template: __webpack_require__(/*! ./edit-patient.component.html */ "./src/app/views/patients/edit-patient/edit-patient.component.html"),
+            styles: [__webpack_require__(/*! ./edit-patient.component.scss */ "./src/app/views/patients/edit-patient/edit-patient.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_shared__WEBPACK_IMPORTED_MODULE_1__["SelectService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            primeng_api__WEBPACK_IMPORTED_MODULE_3__["ConfirmationService"],
+            _services_patient__WEBPACK_IMPORTED_MODULE_4__["PatientService"]])
+    ], EditPatientComponent);
+    return EditPatientComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/patients/edit-patient/index.ts":
+/*!******************************************************!*\
+  !*** ./src/app/views/patients/edit-patient/index.ts ***!
+  \******************************************************/
+/*! exports provided: EditPatientComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _edit_patient_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit-patient.component */ "./src/app/views/patients/edit-patient/edit-patient.component.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EditPatientComponent", function() { return _edit_patient_component__WEBPACK_IMPORTED_MODULE_0__["EditPatientComponent"]; });
 
 
 
@@ -991,12 +1121,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _view_patient__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./view-patient */ "./src/app/views/patients/view-patient/index.ts");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/api.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(primeng_api__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _edit_patient__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./edit-patient */ "./src/app/views/patients/edit-patient/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1016,7 +1148,7 @@ var PatientsModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], ng2_search_filter__WEBPACK_IMPORTED_MODULE_5__["Ng2SearchPipeModule"]].concat(_shared__WEBPACK_IMPORTED_MODULE_3__["PrimeNg"], [ngx_pagination__WEBPACK_IMPORTED_MODULE_6__["NgxPaginationModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _patients_routing__WEBPACK_IMPORTED_MODULE_0__["PatientsRoutes"], _shared__WEBPACK_IMPORTED_MODULE_3__["PageHeaderModule"]]),
-            declarations: [_list_patients__WEBPACK_IMPORTED_MODULE_7__["ListPatientsComponent"], _add_patient__WEBPACK_IMPORTED_MODULE_8__["AddPatientComponent"], _view_patient__WEBPACK_IMPORTED_MODULE_10__["ViewPatientComponent"]],
+            declarations: [_list_patients__WEBPACK_IMPORTED_MODULE_7__["ListPatientsComponent"], _add_patient__WEBPACK_IMPORTED_MODULE_8__["AddPatientComponent"], _view_patient__WEBPACK_IMPORTED_MODULE_10__["ViewPatientComponent"], _edit_patient__WEBPACK_IMPORTED_MODULE_12__["EditPatientComponent"]],
             exports: _shared__WEBPACK_IMPORTED_MODULE_3__["PrimeNg"].slice(),
             providers: [_services__WEBPACK_IMPORTED_MODULE_9__["PatientService"], primeng_api__WEBPACK_IMPORTED_MODULE_11__["ConfirmationService"]]
         })
@@ -1043,12 +1175,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _list_patients__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./list-patients */ "./src/app/views/patients/list-patients/index.ts");
 /* harmony import */ var _add_patient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./add-patient */ "./src/app/views/patients/add-patient/index.ts");
 /* harmony import */ var _view_patient__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./view-patient */ "./src/app/views/patients/view-patient/index.ts");
+/* harmony import */ var _edit_patient__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./edit-patient */ "./src/app/views/patients/edit-patient/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1063,6 +1197,9 @@ var routes = [
     },
     {
         path: 'view/:id', component: _view_patient__WEBPACK_IMPORTED_MODULE_4__["ViewPatientComponent"]
+    },
+    {
+        path: 'edit/:id', component: _edit_patient__WEBPACK_IMPORTED_MODULE_5__["EditPatientComponent"]
     }
 ];
 var PatientsRoutes = /** @class */ (function () {
@@ -1105,7 +1242,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <app-page-header [heading]=\"'View Patient'\" [icon]=\"'fa-search'\"></app-page-header>\r\n  <p-growl [(value)]=\"msgs\"></p-growl>\r\n  <p-confirmDialog header=\"Confirmation\" icon=\"pi pi-exclamation-triangle\" width=\"425\"></p-confirmDialog>\r\n  <div class=\"row\">\r\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\r\n      <div class=\"card mb-3\">\r\n        <div class=\"card-header\">\r\n        </div>\r\n        <div class=\"card-body table-responsive\">\r\n          <div class=\"col-lg-10 offset-1\">\r\n            <table class=\"table\">\r\n              <thead class=\"mdb-color darken-3\">\r\n                <tr>\r\n                  <th>Details</th>\r\n                  <th>Value</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody *ngIf=\"patient$ | async as patient\">\r\n                <tr>\r\n                  <td>Full Name:</td>\r\n                  <td>{{patient[0].FirstName}} {{patient[0].Surname}}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td>Contact Number:</td>\r\n                  <td>{{patient[0].Cellphone}}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td>Email:</td>\r\n                  <td>{{patient[0].Email}}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td></td>\r\n                  <td>\r\n                    <a class=\"btn rounded-btn\"  (click)=\"archivePatient(patient[0])\" ><li class=\"fa fa-trash\"></li> Archive</a>                  \r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<div>\r\n  <app-page-header [heading]=\"'View Patient'\" [icon]=\"'fa-user'\"></app-page-header>\r\n  <p-growl [(value)]=\"msgs\"></p-growl>\r\n  <p-confirmDialog header=\"Confirmation\" icon=\"pi pi-exclamation-triangle\" width=\"425\"></p-confirmDialog>\r\n  <div class=\"row\">\r\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\r\n      <div class=\"card mb-3\">\r\n        <div class=\"card-header\">\r\n        </div>\r\n        <div class=\"card-body table-responsive\">\r\n          <div class=\"col-lg-10 offset-1\">\r\n            <table class=\"table\">\r\n              <thead class=\"mdb-color darken-3\">\r\n                <tr>\r\n                  <th>Details</th>\r\n                  <th>Value</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody *ngIf=\"patient$ | async as patient\">\r\n                <tr>\r\n                  <td>Full Name:</td>\r\n                  <td>{{patient[0].FirstName}} {{patient[0].Surname}}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td>Contact Number:</td>\r\n                  <td>{{patient[0].Cellphone}}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td>Email:</td>\r\n                  <td>{{patient[0].Email}}</td>\r\n                </tr>\r\n                <tr>\r\n                  <td></td>\r\n                  <td>\r\n                    \r\n                    <a class=\"btn rounded-btn\"  (click)=\"edit(patient[0])\" ><li class=\"fa fa-edit\"></li> Edit</a>    &nbsp;\r\n                    <a class=\"btn rounded-btn\"  (click)=\"archivePatient(patient[0])\" ><li class=\"fa fa-trash\"></li> Archive</a>              \r\n\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1169,7 +1306,6 @@ var ViewPatientComponent = /** @class */ (function () {
     };
     ViewPatientComponent.prototype.archivePatient = function (patient) {
         var _this = this;
-        debugger;
         this.confirmationService.confirm({
             message: 'Are you sure that you want to perform this action?',
             accept: function () {
@@ -1191,12 +1327,10 @@ var ViewPatientComponent = /** @class */ (function () {
             PostCode: patient.PostCode,
             GlobalKey: patient.GlobalKey,
             ModifyUserId: 1,
-            ModifyDate: patient.ModifyDate,
             StatusId: 2,
         };
         this.patientService.updatePatient(data)
             .subscribe(function (response) {
-            debugger;
             if (response == 1) {
                 _this.showSuccess();
                 setTimeout(function () {
@@ -1204,6 +1338,9 @@ var ViewPatientComponent = /** @class */ (function () {
                 }, 2000);
             }
         });
+    };
+    ViewPatientComponent.prototype.edit = function (patient) {
+        this.router.navigate(['/patients/edit', patient.PatientId]);
     };
     ViewPatientComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
