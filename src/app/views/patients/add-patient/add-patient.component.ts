@@ -37,7 +37,6 @@ export class AddPatientComponent implements OnInit {
     this.msgs.push({ severity: 'warn', summary: 'Validation Message', detail: `${msg}` });
   }
   add(){ 
-    debugger
     this.msg = undefined;
     if(this.Email == undefined || this.Email === '') {
       this.showError("Please fill in Required Fields");

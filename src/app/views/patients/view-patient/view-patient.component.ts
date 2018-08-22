@@ -34,7 +34,6 @@ export class ViewPatientComponent implements OnInit {
   }
 
   archivePatient(patient) {
-    debugger
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
       accept: () => {
@@ -62,7 +61,6 @@ export class ViewPatientComponent implements OnInit {
     
     this.patientService.updatePatient(data)
         .subscribe(response => {
-          debugger
           if(response == 1){
             this.showSuccess();
             setTimeout(()=>{

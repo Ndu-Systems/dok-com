@@ -194,6 +194,9 @@ var PatientService = /** @class */ (function () {
     PatientService.prototype.addPatient = function (data) {
         return this.http.post(this.url + "/patient/add-patient.php", data);
     };
+    PatientService.prototype.updatePatient = function (data) {
+        return this.http.post(this.url + "/patient/edit-patient.php", data);
+    };
     PatientService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
