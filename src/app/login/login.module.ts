@@ -9,7 +9,7 @@ import { PrimeNg } from '../shared/primeng';
 
 @NgModule({
     imports: [CommonModule,FormsModule,
-        ... PrimeNg  ,
+        ... PrimeNg,
         ReactiveFormsModule, LoginRoutingModule],
     declarations: [LoginComponent],
     exports: [... PrimeNg],

@@ -1,5 +1,7 @@
+
 <div>
   <app-page-header [heading]="'Add Patient'" [icon]="'fa-user-plus'"></app-page-header>
+  <p-growl [(value)]="msgs"></p-growl>
   <div class="row">
     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div class="card mb-3">
@@ -7,10 +9,8 @@
         </div>
         <div class="card-body table-responsive">
           <div class="col-lg-10 offset-1">
-            <form role="form">             
-              <div class="row py-3">
-                <h4>{{msg}}</h4>
-              </div>
+            <form role="form">           
+              
               <fieldset class="form-group">
                 <div class="row">
                   <label class="col-md-2">First Name:</label>

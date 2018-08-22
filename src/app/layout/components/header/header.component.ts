@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
-
+    user : any
     constructor(private translate: TranslateService, public router: Router) {
 
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
@@ -28,7 +28,13 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.user = JSON.parse(localStorage.getItem('currentUser'))
+        debugger
+        if(!this.user.username)
+            this.user.username = "doctor"
+         
+    }
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');
@@ -46,7 +52,7 @@ export class HeaderComponent implements OnInit {
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        localStorage.removeItem('currentUser');
     }
 
     changeLang(language: string) {

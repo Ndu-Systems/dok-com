@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../../../services';
- 
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-add-patient',
@@ -19,6 +19,7 @@ export class AddPatientComponent implements OnInit {
   AddressLine3: string;
   City: string;
   PostCode: string;  
+  msgs: Message[] = [];
   msg :string;
   constructor(    private router : Router,
                   private patientService: PatientService) {
@@ -27,42 +28,49 @@ export class AddPatientComponent implements OnInit {
   
   ngOnInit() {
   }
-
+  showSuccess() {
+    this.msgs = [];
+    this.msgs.push({ severity: 'success', summary: 'Success Message', detail: 'Patient Added Successfully' });
+  }
+  showError(msg) {
+    this.msgs = [];
+    this.msgs.push({ severity: 'warn', summary: 'Validation Message', detail: `${msg}` });
+  }
   add(){ 
+    debugger
     this.msg = undefined;
     if(this.Email == undefined || this.Email === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
     if(this.FirstName === undefined || this.FirstName === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
     if(this.Surname === undefined || this.Surname === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
     if(this.Cellphone === undefined || this.Cellphone === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
     if(this.AddressLine1 === undefined || this.AddressLine1 === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
     if(this.AddressLine2 === undefined || this.AddressLine2 === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
     if(this.AddressLine3 === undefined || this.AddressLine3 === '') {
       this.AddressLine3 = " ";       
     }
     if(this.City === undefined || this.City === '') {
-      this.msg = "Please fill in Required Fields";
-      return false;
+      this.showError("Please fill in Required Fields");      return false;
     }
     if(this.PostCode === undefined || this.PostCode === '') {
-      this.msg = "Please fill in Required Fields";
+      this.showError("Please fill in Required Fields");
       return false;
     }
 
@@ -87,7 +95,11 @@ export class AddPatientComponent implements OnInit {
      this.patientService.addPatient(data)
      .subscribe(response => {
         if(response == 1){
-          alert ("patient added successfully")
+          this.showSuccess();
+              setTimeout(() => {          
+                 this.router.navigate(['/patients']);
+            
+              }, 2000);  
         }
      });
     

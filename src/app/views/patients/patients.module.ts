@@ -1,7 +1,7 @@
 import { PatientsRoutes } from './patients.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageHeaderModule } from '../../shared'; 
+import { PageHeaderModule, PrimeNg } from '../../shared'; 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -13,9 +13,10 @@ import { PatientService } from '../../services';
 
  
 @NgModule({
-    imports: [CommonModule,FormsModule,Ng2SearchPipeModule,NgxPaginationModule,
+    imports: [CommonModule,FormsModule,Ng2SearchPipeModule, ... PrimeNg,NgxPaginationModule,
         ReactiveFormsModule, PatientsRoutes, PageHeaderModule ],
     declarations: [ListPatientsComponent, AddPatientComponent],
+    exports: [ ... PrimeNg],
     providers: [PatientService]
 })
 
