@@ -1,21 +1,19 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { SelectService } from '../../../shared';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, Message } from 'primeng/api';
 import { PatientService } from '../../../services/patient';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-view-patient',
-  templateUrl: './view-patient.component.html',
-  styleUrls: ['./view-patient.component.scss']
+  selector: 'app-edit-patient',
+  templateUrl: './edit-patient.component.html',
+  styleUrls: ['./edit-patient.component.scss']
 })
-export class ViewPatientComponent implements OnInit {
-
+export class EditPatientComponent implements OnInit {
   patient$: Observable<any>
   patientId: number
   msgs: Message[] = [];
-
   constructor(
     private selectService: SelectService,
     private route: ActivatedRoute,
@@ -30,19 +28,10 @@ export class ViewPatientComponent implements OnInit {
   }
   showSuccess() {
     this.msgs = [];
-    this.msgs.push({ severity: 'warn', summary: 'Success Message', detail: 'Patient Archived Successfully' });
+    this.msgs.push({ severity: 'success', summary: 'Success Message', detail: 'Patient Updated Successfully' });
   }
 
-  archivePatient(patient) {
-    this.confirmationService.confirm({
-      message: 'Are you sure that you want to perform this action?',
-      accept: () => {
-        this.archive(patient);
-      }
-    });
-  }
-
-  archive(patient){
+  save(patient){
     let data = { 
       FirstName: patient.FirstName,
       Surname: patient.Surname ,
@@ -55,7 +44,7 @@ export class ViewPatientComponent implements OnInit {
       PostCode: patient.PostCode ,
       GlobalKey: patient.GlobalKey ,   
       ModifyUserId: 1,      
-      StatusId: 2,
+      StatusId: patient.StatusId,
     };
     
     this.patientService.updatePatient(data)
@@ -63,15 +52,10 @@ export class ViewPatientComponent implements OnInit {
           if(response == 1){
             this.showSuccess();
             setTimeout(()=>{
-              this.router.navigate(['/patients']);
+              this.router.navigate(['/patients/view', patient.PatientId]);
             },2000);
           }
         })
-  
-  }
-
-  edit(patient){
-    this.router.navigate(['/patients/edit', patient.PatientId]);
   }
 
 }

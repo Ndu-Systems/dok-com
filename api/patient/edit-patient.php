@@ -19,7 +19,7 @@ if (isset($data->Email) )
 	$PostCode 	= $data->PostCode; 
     $GlobalKey= $data->GlobalKey;  
     $ModifyUserId= $data->ModifyUserId;
-    $ModifyDate= $data->ModifyDate;
+  
     $StatusId= $data->StatusId;
 
 	$result = $conn->prepare("SELECT * FROM patient WHERE GlobalKey = ?"); 
