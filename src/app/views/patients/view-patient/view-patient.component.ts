@@ -2,7 +2,8 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { SelectService } from '../../../shared';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, Message } from 'primeng/api';
+import { PatientService } from '../../../services/patient';
 
 @Component({
   selector: 'app-view-patient',
@@ -11,18 +12,65 @@ import { ConfirmationService } from 'primeng/api';
 })
 export class ViewPatientComponent implements OnInit {
 
-  patient$ : Observable<any>
-  patientId : number
+  patient$: Observable<any>
+  patientId: number
+  msgs: Message[] = [];
+
   constructor(
-    private selectService : SelectService,  
+    private selectService: SelectService,
     private route: ActivatedRoute,
-    private router : Router,
+    private router: Router,
     private confirmationService: ConfirmationService
+    , private patientService : PatientService
   ) { }
 
   ngOnInit() {
     this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
     this.patient$ = this.selectService.select(`patient WHERE  PatientId = ${this.patientId}`);
+  }
+  showSuccess() {
+    this.msgs = [];
+    this.msgs.push({ severity: 'warn', summary: 'Success Message', detail: 'Patient Archived Successfully' });
+  }
+
+  archivePatient(patient) {
+    debugger
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to perform this action?',
+      accept: () => {
+        this.archive(patient);
+      }
+    });
+  }
+
+  archive(patient){
+    let data = { 
+      FirstName: patient.FirstName,
+      Surname: patient.Surname ,
+      Email: patient.Email ,
+      Cellphone: patient.Cellphone ,
+      AddressLine1: patient.AddressLine1 ,
+      AddressLine2: patient.AddressLine2 ,
+      AddressLine3: patient.AddressLine3 ,
+      City: patient.City ,
+      PostCode: patient.PostCode ,
+      GlobalKey: patient.GlobalKey ,   
+      ModifyUserId: 1,
+      ModifyDate: patient.ModifyDate,
+      StatusId: 2,
+    };
+    
+    this.patientService.updatePatient(data)
+        .subscribe(response => {
+          debugger
+          if(response == 1){
+            this.showSuccess();
+            setTimeout(()=>{
+              this.router.navigate(['/patients']);
+            },2000);
+          }
+        })
+  
   }
 
 }

@@ -16,4 +16,8 @@ export class PatientService {
     return this.http.post<any>(`${this.url}/patient/add-patient.php`,data);
   }  
 
+  updatePatient(data): Observable<any>{
+    return this.http.post<any>(`${this.url}/patient/edit-patient.php`,data);
+  } 
+
 }
