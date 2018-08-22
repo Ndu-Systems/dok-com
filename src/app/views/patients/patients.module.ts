@@ -8,16 +8,16 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ListPatientsComponent } from './list-patients';
 import { AddPatientComponent } from './add-patient';
 import { PatientService } from '../../services';
+import { ViewPatientComponent } from './view-patient';
+import { ConfirmationService } from 'primeng/api';
  
-
-
  
 @NgModule({
     imports: [CommonModule,FormsModule,Ng2SearchPipeModule, ... PrimeNg,NgxPaginationModule,
         ReactiveFormsModule, PatientsRoutes, PageHeaderModule ],
-    declarations: [ListPatientsComponent, AddPatientComponent],
+    declarations: [ListPatientsComponent, AddPatientComponent, ViewPatientComponent],
     exports: [ ... PrimeNg],
-    providers: [PatientService]
+    providers: [PatientService,ConfirmationService]
 })
 
 export class PatientsModule {}

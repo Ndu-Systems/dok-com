@@ -13,11 +13,14 @@ export class ListPatientsComponent implements OnInit {
   patients$ : Observable<any>;  
   searchText:string;
   constructor(
-    private selectService : SelectService 
+    private selectService : SelectService ,
+    private route : Router
   ) { }
 
   ngOnInit() {
     this.patients$ = this.selectService.select("patient WHERE  StatusId = 1 ORDER BY CreateDate DESC ");
   }
-
+  view(patient){ 
+    this.route.navigate(['/patients/view', patient.PatientId]);
+  }
 }

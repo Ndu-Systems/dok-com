@@ -29,6 +29,7 @@
                 <th>Email</th>
                 <th>Cellphone</th>
                 <th>City</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -39,6 +40,7 @@
                 <td>{{item.Email}}</td>
                 <td>{{item.Cellphone}}</td>
                 <td>{{item.City}}</td>
+                <td><a class="btn rounded-btn" [routerLink]="['/patients/view']" (click)="view(item)" >View</a></td>
               </tr>
             </tbody>
           </table>
