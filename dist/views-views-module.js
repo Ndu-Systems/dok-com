@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top\">\r\n    <a class=\"navbar-brand\" href=\"#\">Dok | Comm</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" (click)=\"toggleSidebar()\">\r\n        <!-- <span class=\"navbar-toggler-icon\"></span> -->\r\n        <i class=\"fa fa-bars text-muted\" aria-hidden=\"true\"></i>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\">       \r\n        <ul class=\"navbar-nav ml-auto\">         \r\n            <li class=\"nav-item\">\r\n                <a href=\"javascript:void(0)\" class=\"nav-link mt-1\"\r\n                    style=\"padding: 0.375rem 1rem !important; border-color: #999;\"\r\n                    (click)=\"rltAndLtr()\"\r\n                >\r\n                    RTL/LTR\r\n                </a>\r\n            </li> &nbsp;      \r\n           \r\n            <li class=\"nav-item dropdown\" ngbDropdown>\r\n                <a href=\"javascript:void(0)\" class=\"nav-link\" ngbDropdownToggle>\r\n                    <i class=\"fa fa-user\"></i> Hello {{user.username}} <b class=\"caret\"></b>\r\n                </a>\r\n                <div class=\"dropdown-menu-right\" ngbDropdownMenu>\r\n                    <!-- <a class=\"dropdown-item\" href=\"javascript:void(0)\">\r\n                        <i class=\"fa fa-fw fa-user\"></i> {{ 'Profile' | translate }}\r\n                    </a>\r\n                    <a class=\"dropdown-item\" href=\"javascript:void(0)\">\r\n                        <i class=\"fa fa-fw fa-envelope\"></i> {{ 'Inbox' | translate }}\r\n                    </a>\r\n                    <a class=\"dropdown-item\" href=\"javascript:void(0)\">\r\n                        <i class=\"fa fa-fw fa-gear\"></i> {{ 'Settings' | translate }}\r\n                    </a> -->\r\n                    <a class=\"dropdown-item\" [routerLink]=\"['/login']\" (click)=\"onLoggedout()\">\r\n                        <i class=\"fa fa-fw fa-power-off\"></i> {{ 'Log Out' | translate }}\r\n                    </a>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n"
+module.exports = "<nav class=\"navbar navbar-expand-lg fixed-top\">\r\n    <a class=\"navbar-brand\" href=\"#\">Dok | Comm</a>\r\n    <button class=\"navbar-toggler\" type=\"button\" (click)=\"toggleSidebar()\">\r\n        <!-- <span class=\"navbar-toggler-icon\"></span> -->\r\n        <i class=\"fa fa-bars text-muted\" aria-hidden=\"true\"></i>\r\n    </button>\r\n    <div class=\"collapse navbar-collapse\">       \r\n        <ul class=\"navbar-nav ml-auto\">         \r\n            <li class=\"nav-item\">\r\n                <a href=\"javascript:void(0)\" class=\"nav-link mt-1\"\r\n                    style=\"padding: 0.375rem 1rem !important; border-color: #999;\"\r\n                    (click)=\"rltAndLtr()\"\r\n                >\r\n                    RTL/LTR\r\n                </a>\r\n            </li> &nbsp;      \r\n           \r\n            <li class=\"nav-item dropdown\" ngbDropdown>\r\n                <a href=\"javascript:void(0)\" class=\"nav-link\" ngbDropdownToggle>\r\n                    <i class=\"fa fa-user\"></i> Hello {{user.username}} <b class=\"caret\"></b>\r\n                </a>\r\n                <div class=\"dropdown-menu-right\" ngbDropdownMenu>\r\n                   <a class=\"dropdown-item\" href=\"javascript:void(0)\"  (click)=\"changePassword()\">\r\n                        <i class=\"fa fa-fw fa-lock\"></i> {{ 'Change-Password' | translate }}\r\n                    </a>\r\n                     <!-- <a class=\"dropdown-item\" href=\"javascript:void(0)\">\r\n                        <i class=\"fa fa-fw fa-envelope\"></i> {{ 'Inbox' | translate }}\r\n                    </a>\r\n                    <a class=\"dropdown-item\" href=\"javascript:void(0)\">\r\n                        <i class=\"fa fa-fw fa-gear\"></i> {{ 'Settings' | translate }}\r\n                    </a> -->\r\n                    <a class=\"dropdown-item\" [routerLink]=\"['/login']\" (click)=\"onLoggedout()\">\r\n                        <i class=\"fa fa-fw fa-power-off\"></i> {{ 'Log Out' | translate }}\r\n                    </a>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -69,6 +69,9 @@ var HeaderComponent = /** @class */ (function () {
         this.user = JSON.parse(localStorage.getItem('currentUser'));
         if (!this.user.username)
             this.user.username = "doctor";
+    };
+    HeaderComponent.prototype.changePassword = function () {
+        this.router.navigate(['/user/change-password', this.user.userid]);
     };
     HeaderComponent.prototype.isToggled = function () {
         var dom = document.querySelector('body');
@@ -275,6 +278,7 @@ var routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
             { path: 'dashboard', loadChildren: '../layout/dashboard/dashboard.module#DashboardModule' },
             { path: 'patients', loadChildren: './patients/patients.module#PatientsModule' },
+            { path: 'user', loadChildren: './user/user.module#UserModule' }
         ]
     }
 ];
@@ -301,7 +305,7 @@ var ViewsRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-sidebar (collapsedEvent)=\"receiveCollapsed($event)\"></app-sidebar>\n<section class=\"main-container\" [ngClass]=\"{collapsed: collapedSideBar}\"> \n    <router-outlet></router-outlet>\n</section>\n"
+module.exports = "<app-header></app-header>\r\n<app-sidebar (collapsedEvent)=\"receiveCollapsed($event)\"></app-sidebar>\r\n<section class=\"main-container\" [ngClass]=\"{collapsed: collapedSideBar}\"> \r\n    <router-outlet></router-outlet>\r\n</section>\r\n"
 
 /***/ }),
 

@@ -61,7 +61,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"access-denied-access-denied-module":"access-denied-access-denied-module","common":"common","login-login-module":"login-login-module","patients-patients-module":"patients-patients-module","signup-signup-module":"signup-signup-module","layout-dashboard-dashboard-module~views-views-module":"layout-dashboard-dashboard-module~views-views-module","layout-dashboard-dashboard-module":"layout-dashboard-dashboard-module","views-views-module":"views-views-module","not-found-not-found-module":"not-found-not-found-module","server-error-server-error-module":"server-error-server-error-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"access-denied-access-denied-module":"access-denied-access-denied-module","common":"common","login-login-module":"login-login-module","signup-signup-module":"signup-signup-module","layout-dashboard-dashboard-module~views-views-module":"layout-dashboard-dashboard-module~views-views-module","layout-dashboard-dashboard-module":"layout-dashboard-dashboard-module","views-views-module":"views-views-module","not-found-not-found-module":"not-found-not-found-module","patients-patients-module~user-user-module":"patients-patients-module~user-user-module","patients-patients-module":"patients-patients-module","user-user-module":"user-user-module","server-error-server-error-module":"server-error-server-error-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

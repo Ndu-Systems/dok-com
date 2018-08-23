@@ -18,8 +18,7 @@ export class EditPatientComponent implements OnInit {
     private selectService: SelectService,
     private route: ActivatedRoute,
     private router: Router,
-    private confirmationService: ConfirmationService
-    , private patientService : PatientService
+    private patientService : PatientService
   ) { }
 
   ngOnInit() {

@@ -120,7 +120,7 @@ var LoginComponent = /** @class */ (function () {
             if (user.Email !== undefined) {
                 _this.showSuccess();
                 setTimeout(function () {
-                    localStorage.setItem('currentUser', JSON.stringify({ username: user.Email }));
+                    localStorage.setItem('currentUser', JSON.stringify({ username: user.Email, userid: user.UserId }));
                     _this.router.navigate(['/dashboard']);
                 }, 2000);
             }

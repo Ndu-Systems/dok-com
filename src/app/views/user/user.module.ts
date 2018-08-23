@@ -6,12 +6,13 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserRouting } from './user.routing';
 import { ChangePasswordComponent } from './change-password';
+import { UserService } from '../../services/user';
 
 @NgModule({
     imports: [CommonModule, FormsModule, UserRouting, Ng2SearchPipeModule, ...PrimeNg, NgxPaginationModule,
         ReactiveFormsModule, PageHeaderModule],
     declarations: [ChangePasswordComponent],
     exports: [...PrimeNg],
-    providers: []
+    providers: [UserService]
 })
 export class UserModule {}

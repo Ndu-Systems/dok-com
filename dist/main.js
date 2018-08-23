@@ -29,6 +29,7 @@ var map = {
 	],
 	"./patients/patients.module": [
 		"./src/app/views/patients/patients.module.ts",
+		"patients-patients-module~user-user-module",
 		"common",
 		"patients-patients-module"
 	],
@@ -40,6 +41,12 @@ var map = {
 		"./src/app/signup/signup.module.ts",
 		"common",
 		"signup-signup-module"
+	],
+	"./user/user.module": [
+		"./src/app/views/user/user.module.ts",
+		"patients-patients-module~user-user-module",
+		"common",
+		"user-user-module"
 	],
 	"./views/views.module": [
 		"./src/app/views/views.module.ts",
