@@ -12,5 +12,7 @@ export class AccountService {
   public loginUser(Email: String, Password: String): Observable<any> {
     return this.httpClient.get<any>(`${this.url}/account/SignIn.php?Email=${Email}&Password=${Password}`);
   }
-
+  public changePassword(data): Observable<any> {
+    return this.httpClient.post<any>(`${this.url}/account/PasswordReset.php`, data);
+  }
 }

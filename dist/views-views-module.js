@@ -305,7 +305,7 @@ var ViewsRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\r\n<app-sidebar (collapsedEvent)=\"receiveCollapsed($event)\"></app-sidebar>\r\n<section class=\"main-container\" [ngClass]=\"{collapsed: collapedSideBar}\"> \r\n    <router-outlet></router-outlet>\r\n</section>\r\n"
+module.exports = "<app-header></app-header>\n<app-sidebar (collapsedEvent)=\"receiveCollapsed($event)\"></app-sidebar>\n<section class=\"main-container\" [ngClass]=\"{collapsed: collapedSideBar}\"> \n    <router-outlet></router-outlet>\n</section>\n"
 
 /***/ }),
 

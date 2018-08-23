@@ -8,19 +8,21 @@ $data = json_decode(file_get_contents("php://input"));
 if (isset($data->Email) ){  
 	$Password  = $data->Password;              
 	$Email     = $data->Email;  
-	$hashPassword = password_hash($Password, PASSWORD_DEFAULT);
+    $ModifyUserId = $data->UserId;
+
    
-   $result = $conn->prepare("SELECT * FROM users WHERE Email = ?"); 
+   $result = $conn->prepare("SELECT * FROM user WHERE Email = ?"); 
    $result->execute(array($Email));
    if ($result->rowCount() == 1) {
    
    $result = $conn->prepare("
-	   UPDATE users SET  
-	   Password=?,
-	   token =?
-	   WHERE Email = ?
+   UPDATE user 
+   SET Password = ?,
+   ModifyUserId = ?,
+   ModifyDate = now()
+   WHERE Email = ?
    "); 
-   if($result->execute(array($hashPassword,null,$Email))){
+   if($result->execute(array($Password,$ModifyUserId,$Email))){
 	   echo 1;
    }else{
 	   echo json_encode("error while trying to update password please try again");

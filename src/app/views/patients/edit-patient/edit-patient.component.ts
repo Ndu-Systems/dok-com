@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectService } from '../../../shared';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConfirmationService, Message } from 'primeng/api';
+import {  Message } from 'primeng/api';
 import { PatientService } from '../../../services/patient';
 import { Observable } from 'rxjs';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-edit-patient',
   templateUrl: './edit-patient.component.html',
-  styleUrls: ['./edit-patient.component.scss']
+  styleUrls: ['./edit-patient.component.scss'],
+  animations: [routerTransition()]
 })
 export class EditPatientComponent implements OnInit {
   patient$: Observable<any>

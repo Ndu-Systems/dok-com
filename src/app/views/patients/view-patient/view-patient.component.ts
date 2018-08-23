@@ -4,11 +4,13 @@ import { SelectService } from '../../../shared';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, Message } from 'primeng/api';
 import { PatientService } from '../../../services/patient';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-view-patient',
   templateUrl: './view-patient.component.html',
-  styleUrls: ['./view-patient.component.scss']
+  styleUrls: ['./view-patient.component.scss'],
+  animations: [routerTransition()]
 })
 export class ViewPatientComponent implements OnInit {
 

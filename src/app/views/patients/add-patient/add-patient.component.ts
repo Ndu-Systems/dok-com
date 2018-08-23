@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../../../services';
 import { Message } from 'primeng/api';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-add-patient',
   templateUrl: './add-patient.component.html',
-  styleUrls: ['./add-patient.component.scss']
+  styleUrls: ['./add-patient.component.scss'],
+  animations: [routerTransition()]
 })
 export class AddPatientComponent implements OnInit {
 
