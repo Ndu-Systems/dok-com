@@ -8,6 +8,13 @@
             <i class="fa fa-fw fa-users"></i>&nbsp;
             <span>{{ 'Patients' | translate }}</span>
         </a>
+        <a [routerLink]="['/apointments']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-calendar"></i>&nbsp;
+            <span>{{ 'Apointments' | translate }}</span>
+        </a>
+
+
+
         <!-- <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-calendar"></i>&nbsp;
             <span>{{ 'Appointments' | translate }}</span>
