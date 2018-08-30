@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { routerTransition } from '../../../router.animations';
 
 @Component({
   selector: 'app-apointments',
   templateUrl: './apointments.component.html',
-  styleUrls: ['./apointments.component.scss']
+  styleUrls: ['./apointments.component.scss'],
+  animations: [routerTransition()]
 })
 export class ApointmentsComponent implements OnInit {
   events: any[];
