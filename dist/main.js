@@ -18,6 +18,12 @@ var map = {
 		"./src/app/access-denied/access-denied.module.ts",
 		"access-denied-access-denied-module"
 	],
+	"./apointment/apointment.module": [
+		"./src/app/views/apointment/apointment.module.ts",
+		"apointment-apointment-module~patients-patients-module~user-user-module",
+		"common",
+		"apointment-apointment-module"
+	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
 		"common",
@@ -29,7 +35,7 @@ var map = {
 	],
 	"./patients/patients.module": [
 		"./src/app/views/patients/patients.module.ts",
-		"patients-patients-module~user-user-module",
+		"apointment-apointment-module~patients-patients-module~user-user-module",
 		"common",
 		"patients-patients-module"
 	],
@@ -44,7 +50,7 @@ var map = {
 	],
 	"./user/user.module": [
 		"./src/app/views/user/user.module.ts",
-		"patients-patients-module~user-user-module",
+		"apointment-apointment-module~patients-patients-module~user-user-module",
 		"common",
 		"user-user-module"
 	],
@@ -722,11 +728,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_growl__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(primeng_growl__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primeng/confirmdialog */ "./node_modules/primeng/confirmdialog.js");
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var primeng_schedule__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/schedule */ "./node_modules/primeng/schedule.js");
+/* harmony import */ var primeng_schedule__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(primeng_schedule__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 var PrimeNg = [
-    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"]
+    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"], primeng_schedule__WEBPACK_IMPORTED_MODULE_3__["ScheduleModule"]
 ];
 
 

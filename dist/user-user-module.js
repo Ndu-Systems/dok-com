@@ -108,7 +108,8 @@ var ChangePasswordComponent = /** @class */ (function () {
         }
         var data = {
             Password: this.NewPassword,
-            Email: user.Email
+            Email: user.Email,
+            UserId: 1
         };
         this.accountService.changePassword(data)
             .subscribe(function (response) {

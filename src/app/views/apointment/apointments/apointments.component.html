@@ -20,10 +20,10 @@
           </div>
         </div>
         <div class="card-body table-responsive">
-          <p-schedule [events]="events"></p-schedule>
-
+          <!-- <p-schedule [events]="events"></p-schedule> -->
+          <app-calendar-scheduler></app-calendar-scheduler>
           <div class="justify-content-center">
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
           </div>
         </div>
       </div>

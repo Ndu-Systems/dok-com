@@ -6,12 +6,21 @@ import { PageHeaderModule, PrimeNg } from '../../shared';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CalendarSchedulerComponent } from './calendar-scheduler';
+import {HttpModule} from '@angular/http';
 
 @NgModule({
   imports: [
-    CommonModule,ApointmentRoutingModule,PageHeaderModule,FormsModule,Ng2SearchPipeModule, ...PrimeNg, NgxPaginationModule
+    CommonModule,
+    ApointmentRoutingModule,
+    PageHeaderModule,
+    FormsModule,
+    Ng2SearchPipeModule, 
+    ...PrimeNg, 
+    NgxPaginationModule,
+    HttpModule
   ],
-  declarations: [ApointmentsComponent],
+  declarations: [ApointmentsComponent, CalendarSchedulerComponent],
   exports:[...PrimeNg]
 })
 export class ApointmentModule { }
