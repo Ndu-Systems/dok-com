@@ -1,3 +1,7 @@
+@angular/http@6.1.2
+MIT
+MIT
+
 dhtmlx-scheduler@5.0.1
 GPL-2.0
 GNU GENERAL PUBLIC LICENSE

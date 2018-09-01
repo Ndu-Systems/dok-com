@@ -8,6 +8,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CalendarSchedulerComponent } from './calendar-scheduler';
 import {HttpModule} from '@angular/http';
+import { AppointmentService } from '../../services/appointment';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import {HttpModule} from '@angular/http';
     HttpModule
   ],
   declarations: [ApointmentsComponent, CalendarSchedulerComponent],
-  exports:[...PrimeNg]
+  exports:[...PrimeNg],
+  providers: [AppointmentService]
 })
 export class ApointmentModule { }

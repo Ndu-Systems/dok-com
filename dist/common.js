@@ -47,11 +47,70 @@ var AccountService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/appointment/appointment.service.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/services/appointment/appointment.service.ts ***!
+  \*************************************************************/
+/*! exports provided: AppointmentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentService", function() { return AppointmentService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AppointmentService = /** @class */ (function () {
+    function AppointmentService() {
+    }
+    AppointmentService.prototype.getAppointment = function () {
+        return Promise.resolve([
+            { id: 1, start_date: "2018-08-28 00:00", end_date: "2018-08-28 13:00", text: "Appointment 1" }
+        ]);
+    };
+    AppointmentService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], AppointmentService);
+    return AppointmentService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/appointment/index.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/appointment/index.ts ***!
+  \***********************************************/
+/*! exports provided: AppointmentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _appointment_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./appointment.service */ "./src/app/services/appointment/appointment.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AppointmentService", function() { return _appointment_service__WEBPACK_IMPORTED_MODULE_0__["AppointmentService"]; });
+
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/index.ts":
 /*!***********************************!*\
   !*** ./src/app/services/index.ts ***!
   \***********************************/
-/*! exports provided: AccountService, PatientService, UserService */
+/*! exports provided: AccountService, PatientService, AppointmentService, UserService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -62,8 +121,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _patient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./patient */ "./src/app/services/patient/index.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PatientService", function() { return _patient__WEBPACK_IMPORTED_MODULE_1__["PatientService"]; });
 
-/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user */ "./src/app/services/user/index.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return _user__WEBPACK_IMPORTED_MODULE_2__["UserService"]; });
+/* harmony import */ var _appointment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./appointment */ "./src/app/services/appointment/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AppointmentService", function() { return _appointment__WEBPACK_IMPORTED_MODULE_2__["AppointmentService"]; });
+
+/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user */ "./src/app/services/user/index.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return _user__WEBPACK_IMPORTED_MODULE_3__["UserService"]; });
+
 
 
 
