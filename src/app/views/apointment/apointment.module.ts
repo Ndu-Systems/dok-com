@@ -21,7 +21,7 @@ import { AppointmentService } from '../../services/appointment';
     NgxPaginationModule,
     HttpModule
   ],
-  declarations: [ApointmentsComponent, CalendarSchedulerComponent],
+  declarations: [ApointmentsComponent],
   exports:[...PrimeNg],
   providers: [AppointmentService]
 })
