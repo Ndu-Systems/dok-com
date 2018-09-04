@@ -75,5 +75,8 @@ export class ViewPatientComponent implements OnInit {
   edit(patient){
     this.router.navigate(['/patients/edit', patient.PatientId]);
   }
+  appointment(){
+    this.router.navigate(['/appointments/add', this.patientId]);
 
+  }
 }

@@ -9,6 +9,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CalendarSchedulerComponent } from './calendar-scheduler';
 import {HttpModule} from '@angular/http';
 import { AppointmentService } from '../../services/appointment';
+import { AddAppointmentComponent } from './add-appointment';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { AppointmentService } from '../../services/appointment';
     NgxPaginationModule,
     HttpModule
   ],
-  declarations: [ApointmentsComponent],
+  declarations: [ApointmentsComponent, AddAppointmentComponent],
   exports:[...PrimeNg],
   providers: [AppointmentService]
 })
