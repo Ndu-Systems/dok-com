@@ -7,7 +7,7 @@ export class Appointment {
 
 export interface IAppointment {
     AppointmentId: number;
-    CustomerId: number;
+    PatientId: number;
     StartDate: string;
     EndDate: string;
     Description: string;

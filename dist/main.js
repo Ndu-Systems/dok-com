@@ -10,7 +10,7 @@
 var map = {
 	"../layout/dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
-		"layout-dashboard-dashboard-module~views-views-module",
+		"apointment-apointment-module~layout-dashboard-dashboard-module~views-views-module",
 		"common",
 		"layout-dashboard-dashboard-module"
 	],
@@ -20,6 +20,7 @@ var map = {
 	],
 	"./apointment/apointment.module": [
 		"./src/app/views/apointment/apointment.module.ts",
+		"apointment-apointment-module~layout-dashboard-dashboard-module~views-views-module",
 		"apointment-apointment-module~patients-patients-module~user-user-module",
 		"common",
 		"apointment-apointment-module"
@@ -56,7 +57,7 @@ var map = {
 	],
 	"./views/views.module": [
 		"./src/app/views/views.module.ts",
-		"layout-dashboard-dashboard-module~views-views-module",
+		"apointment-apointment-module~layout-dashboard-dashboard-module~views-views-module",
 		"common",
 		"views-views-module"
 	]

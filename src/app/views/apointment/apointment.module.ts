@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CalendarSchedulerComponent } from './calendar-scheduler';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpModule} from '@angular/http';
 import { AppointmentService } from '../../services/appointment';
 import { AddAppointmentComponent } from './add-appointment';
@@ -19,6 +20,7 @@ import { AddAppointmentComponent } from './add-appointment';
     FormsModule,
     Ng2SearchPipeModule, 
     ...PrimeNg, 
+    NgbModule.forRoot(),
     NgxPaginationModule,
     HttpModule
   ],

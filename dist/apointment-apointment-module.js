@@ -1938,7 +1938,7 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.1.2')
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div [@routerTransition]>\r\n  <app-page-header [heading]=\"'Create Appointment'\" [icon]=\"'fa-edit'\"></app-page-header>\r\n  <p-growl [(value)]=\"msgs\"></p-growl>\r\n  <div class=\"row\">\r\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\r\n      <div class=\"card mb-3\">\r\n        <div class=\"card-header\">\r\n        </div>\r\n        <div class=\"card-body table-responsive\">\r\n          <div class=\"col-lg-10 offset-1\">\r\n            <form role=\"form\">           \r\n              \r\n              <fieldset class=\"form-group\">\r\n                <div class=\"row\">\r\n                  <label class=\"col-md-2\">Description: </label>\r\n                  <div class=\"input-group mb-3 col-md-6 \">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\r\n                        <li class=\"fa fa-edit\"></li>\r\n                      </span>\r\n                    </div>\r\n                    <input type=\"text\" [(ngModel)]=\"Description\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Enter Description\"\r\n                      aria-label=\"FirstName\" aria-describedby=\"basic-addon1\">\r\n                  </div>\r\n                </div>\r\n              </fieldset>\r\n              <fieldset class=\"form-group\">\r\n                 \r\n              </fieldset>\r\n             \r\n              <div class=\"justify-content-center\">\r\n                <a  class=\"btn rounded-btn\" (click)=\"add()\">Create Appointment</a> &nbsp;\r\n                <a  class=\"btn rounded-btn\" [routerLink]=\"['/patients']\">Abort</a>\r\n              </div>\r\n            </form>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<div [@routerTransition]>\r\n  <app-page-header [heading]=\"'Create Appointment'\" [icon]=\"'fa-edit'\"></app-page-header>\r\n  <p-growl [(value)]=\"msgs\"></p-growl>\r\n  <div class=\"row\">\r\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\r\n      <div class=\"card h-1000 mb-3\">\r\n        <div class=\"card-header\">\r\n        </div>\r\n        <div class=\"card-body table-responsive\">\r\n          <div class=\"col-lg-10 offset-1\">\r\n            <form role=\"form\">\r\n\r\n              <fieldset class=\"form-group\">\r\n                <div class=\"row\">\r\n                  <label class=\"col-md-2\">Description: </label>\r\n                  <div class=\"input-group mb-3 col-md-6 \">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\" id=\"basic-addon1\">\r\n                        <li class=\"fa fa-edit\"></li>\r\n                      </span>\r\n                    </div>\r\n                    <input type=\"text\" [(ngModel)]=\"Description\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Enter Description\"\r\n                      aria-label=\"FirstName\" aria-describedby=\"basic-addon1\">\r\n                  </div>\r\n                </div>\r\n              </fieldset>\r\n              <fieldset class=\"form-group\">\r\n                <div class=\"row\">                \r\n                  <label class=\"col-md-2\">Appointment Date: </label>\r\n                  <div class=\"input-group mb-3 col-md-6\">\r\n                    <div class=\"input-group datepicker-input\">\r\n                      <input class=\"form-control\" placeholder=\"yyyy-mm-dd\" name=\"dp\" [(ngModel)]=\"StartDate\" ngbDatepicker #c=\"ngbDatepicker\">\r\n                      <button class=\"input-group-addon\" (click)=\"c.toggle()\" type=\"button\">\r\n                        <!-- <img src=\"img/calendar-icon.svg\" style=\"width: 1.2rem; height: 1rem; cursor: pointer;\"/> -->\r\n                        <span class=\"fa fa-calendar\"></span>\r\n                      </button>\r\n                    </div>\r\n                  </div>                \r\n                </div>\r\n              </fieldset>\r\n              <fieldset class=\"form-group\">\r\n                  <div class=\"row\">                \r\n                    <label class=\"col-md-2\">From Time: </label>\r\n                    <div class=\"input-group mb-3 col-md-4\">\r\n                        <ngb-timepicker [(ngModel)]=\"defaultTime\"></ngb-timepicker>\r\n                    </div>                \r\n                  </div>\r\n              </fieldset>\r\n              <fieldset class=\"form-group\">\r\n                  <div class=\"row\">                \r\n                    <label class=\"col-md-2\">To Time: </label>\r\n                    <div class=\"input-group mb-3 col-md-4\">\r\n                        <ngb-timepicker [(ngModel)]=\"defaultTime\"></ngb-timepicker>\r\n                    </div>                \r\n                  </div>\r\n              </fieldset>\r\n\r\n              <div class=\"justify-content-center\">\r\n                <a class=\"btn rounded-btn\" (click)=\"add()\">Create Appointment</a> &nbsp;\r\n                <a class=\"btn rounded-btn\" [routerLink]=\"['/patients']\">Abort</a>\r\n              </div>\r\n            </form>\r\n\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1949,7 +1949,7 @@ module.exports = "\r\n<div [@routerTransition]>\r\n  <app-page-header [heading]=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: #0c0c0c;\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n"
+module.exports = ".justify-content-center {\n  display: flex !important;\n  justify-content: center !important;\n  padding-top: 2%; }\n\n.rounded-btn {\n  border-radius: 50px;\n  color: #0c0c0c;\n  border: 2px solid rgba(14, 13, 13, 0.8);\n  font-size: 18px;\n  line-height: 40px;\n  padding: 0 25px; }\n\n.rounded-btn:hover,\n.rounded-btn:focus,\n.rounded-btn:active,\n.rounded-btn:visited {\n  color: #0c0c0c;\n  border: 2px solid #04034d;\n  outline: none; }\n\n.card {\n  height: 700px; }\n"
 
 /***/ }),
 
@@ -1964,6 +1964,7 @@ module.exports = ".justify-content-center {\n  display: flex !important;\n  just
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddAppointmentComponent", function() { return AddAppointmentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _router_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../router.animations */ "./src/app/router.animations.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1974,8 +1975,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AddAppointmentComponent = /** @class */ (function () {
     function AddAppointmentComponent() {
+        this.defaultTime = { hour: 13, minute: 30 };
     }
     AddAppointmentComponent.prototype.ngOnInit = function () {
     };
@@ -1983,7 +1986,8 @@ var AddAppointmentComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-add-appointment',
             template: __webpack_require__(/*! ./add-appointment.component.html */ "./src/app/views/apointment/add-appointment/add-appointment.component.html"),
-            styles: [__webpack_require__(/*! ./add-appointment.component.scss */ "./src/app/views/apointment/add-appointment/add-appointment.component.scss")]
+            styles: [__webpack_require__(/*! ./add-appointment.component.scss */ "./src/app/views/apointment/add-appointment/add-appointment.component.scss")],
+            animations: [Object(_router_animations__WEBPACK_IMPORTED_MODULE_1__["routerTransition"])()]
         }),
         __metadata("design:paramtypes", [])
     ], AddAppointmentComponent);
@@ -2077,15 +2081,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var ng2_search_filter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng2-search-filter */ "./node_modules/ng2-search-filter/ng2-search-filter.es5.js");
 /* harmony import */ var ngx_pagination__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-pagination */ "./node_modules/ngx-pagination/dist/ngx-pagination.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _services_appointment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../services/appointment */ "./src/app/services/appointment/index.ts");
-/* harmony import */ var _add_appointment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./add-appointment */ "./src/app/views/apointment/add-appointment/index.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _services_appointment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../services/appointment */ "./src/app/services/appointment/index.ts");
+/* harmony import */ var _add_appointment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./add-appointment */ "./src/app/views/apointment/add-appointment/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -2109,12 +2115,13 @@ var ApointmentModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
                 ng2_search_filter__WEBPACK_IMPORTED_MODULE_6__["Ng2SearchPipeModule"]
             ].concat(_shared__WEBPACK_IMPORTED_MODULE_4__["PrimeNg"], [
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"].forRoot(),
                 ngx_pagination__WEBPACK_IMPORTED_MODULE_7__["NgxPaginationModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_8__["HttpModule"]
+                _angular_http__WEBPACK_IMPORTED_MODULE_9__["HttpModule"]
             ]),
-            declarations: [_apointments_apointments_component__WEBPACK_IMPORTED_MODULE_3__["ApointmentsComponent"], _add_appointment__WEBPACK_IMPORTED_MODULE_10__["AddAppointmentComponent"]],
+            declarations: [_apointments_apointments_component__WEBPACK_IMPORTED_MODULE_3__["ApointmentsComponent"], _add_appointment__WEBPACK_IMPORTED_MODULE_11__["AddAppointmentComponent"]],
             exports: _shared__WEBPACK_IMPORTED_MODULE_4__["PrimeNg"].slice(),
-            providers: [_services_appointment__WEBPACK_IMPORTED_MODULE_9__["AppointmentService"]]
+            providers: [_services_appointment__WEBPACK_IMPORTED_MODULE_10__["AppointmentService"]]
         })
     ], ApointmentModule);
     return ApointmentModule;
