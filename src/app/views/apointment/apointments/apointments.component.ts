@@ -1,5 +1,7 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
+import { SelectService } from '../../../shared';
 
 @Component({
   selector: 'app-apointments',
@@ -7,36 +9,17 @@ import { routerTransition } from '../../../router.animations';
   styleUrls: ['./apointments.component.scss'],
   animations: [routerTransition()]
 })
-export class ApointmentsComponent implements OnInit {
-  events: any[];
-
-  constructor() { }
+export class ApointmentsComponent implements OnInit { 
+  searchText:string;
+  appointments$ : Observable<any>
+  constructor(
+      private selectService : SelectService
+  ) { }
 
   ngOnInit() {
-    this.events = [
-      {
-          "title": "All Day Event",
-          "start": "2016-01-01"
-      },
-      {
-          "title": "Long Event",
-          "start": "2016-01-07",
-          "end": "2016-01-10"
-      },
-      {
-          "title": "Repeating Event",
-          "start": "2016-01-09T16:00:00"
-      },
-      {
-          "title": "Repeating Event",
-          "start": "2016-01-16T16:00:00"
-      },
-      {
-          "title": "Conference",
-          "start": "2016-01-11",
-          "end": "2016-01-13"
-      }
-  ];
+    this.appointments$ = 
+    this.selectService
+        .select("appointment ap INNER JOIN patient p ON ap.PatientId = p.PatientId ORDER BY ap.CreateDate DESC");
   }
 
 }
