@@ -11,6 +11,7 @@ import { routerTransition } from '../../../router.animations';
 export class AddAppointmentComponent implements OnInit {
   fromTime: any = {hour: 13, minute: 30};
   toTime: any = {hour: 15, minute: 30};
+  StartDate: any = "";
   constructor() { }
 
   ngOnInit() {

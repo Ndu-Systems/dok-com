@@ -58,6 +58,8 @@ var AccountService = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentService", function() { return AppointmentService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/config */ "./src/app/shared/config.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,21 +70,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var AppointmentService = /** @class */ (function () {
-    function AppointmentService() {
+    function AppointmentService(http) {
+        this.http = http;
+        this.url = _shared_config__WEBPACK_IMPORTED_MODULE_1__["API_URL"];
     }
     AppointmentService.prototype.getAppointment = function () {
         return Promise.resolve([
-            { id: 1, start_date: "2018-09-28 10:00", end_date: "2018-09-28 13:00", text: "Appointment 1" },
-            { id: 2, start_date: "2018-09-29 09:00", end_date: "2018-09-29 11:00", text: "Appointment 2" },
-            { id: 3, start_date: "2018-09-30 08:00", end_date: "2018-09-30 10:00", text: "Appointment 3" },
+            { id: 1, start_date: '2018-09-28 10:00', end_date: '2018-09-28 13:00', text: 'Appointment 1' },
+            { id: 2, start_date: '2018-09-29 09:00', end_date: '2018-09-29 11:00', text: 'Appointment 2' },
+            { id: 3, start_date: '2018-09-30 08:00', end_date: '2018-09-30 10:00', text: 'Appointment 3' },
         ]);
+    };
+    AppointmentService.prototype.addAppointment = function (data) {
+        return this.http.post(this.url + "/appointment/add-appointment.php", data);
     };
     AppointmentService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
     ], AppointmentService);
     return AppointmentService;
 }());

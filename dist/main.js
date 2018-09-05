@@ -291,8 +291,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_URL", function() { return API_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WEB_HOST", function() { return WEB_HOST; });
 var IS_LOCAL = true;
-var api = "http://ndu-systems.net/guliwe/api";
-var web = "http://ndu-systems.net";
+var api = 'http://ndu-systems.net/guliwe/api';
+var web = 'http://ndu-systems.net';
 if (IS_LOCAL) {
     api = 'http://localhost:8080/dok-com/api';
     web = 'http://localhost:4200';
