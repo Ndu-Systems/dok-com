@@ -2423,7 +2423,7 @@ var ApointmentsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div #scheduler_here class=\"dhx_cal_container\" style=\"width: 100%; height:100vh\">\n  <div class=\"dhx_cal_navline\">\n      <div class=\"dhx_cal_prev_button\">&nbsp;</div>\n      <div class=\"dhx_cal_next_button\">&nbsp;</div>\n      <div class=\"dhx_cal_today_button\"></div>\n      <div class=\"dhx_cal_date\"></div>\n      <div class=\"dhx_cal_tab\" name=\"day_tab\"></div>\n      <div class=\"dhx_cal_tab\" name=\"week_tab\"></div>\n      <div class=\"dhx_cal_tab\" name=\"month_tab\"></div>\n  </div>\n  <div class=\"dhx_cal_header\"></div>\n  <div class=\"dhx_cal_data\"></div>\n</div>"
+module.exports = "<div #scheduler_here class=\"dhx_cal_container\" style=\"width: 100%; height:100vh\">\r\n  <div class=\"dhx_cal_navline\">\r\n      <div class=\"dhx_cal_prev_button\">&nbsp;</div>\r\n      <div class=\"dhx_cal_next_button\">&nbsp;</div>\r\n      <div class=\"dhx_cal_today_button\"></div>\r\n      <div class=\"dhx_cal_date\"></div>\r\n      <div class=\"dhx_cal_tab\" name=\"day_tab\"></div>\r\n      <div class=\"dhx_cal_tab\" name=\"week_tab\"></div>\r\n      <div class=\"dhx_cal_tab\" name=\"month_tab\"></div>\r\n  </div>\r\n  <div class=\"dhx_cal_header\"></div>\r\n  <div class=\"dhx_cal_data\"></div>\r\n</div>"
 
 /***/ }),
 
