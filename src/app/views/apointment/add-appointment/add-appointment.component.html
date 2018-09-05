@@ -25,7 +25,7 @@
                 </div>
               </fieldset>
               <fieldset class="form-group">
-                <div class="row">                
+                <div class="row">
                   <label class="col-md-2">Appointment Date: </label>
                   <div class="input-group mb-3 col-md-6">
                     <div class="input-group datepicker-input">
@@ -35,24 +35,24 @@
                         <span class="fa fa-calendar"></span>
                       </button>
                     </div>
-                  </div>                
+                  </div>
                 </div>
               </fieldset>
               <fieldset class="form-group">
-                  <div class="row">                
-                    <label class="col-md-2">From Time: </label>
-                    <div class="input-group mb-3 col-md-4">
-                        <ngb-timepicker [(ngModel)]="defaultTime"></ngb-timepicker>
-                    </div>                
+                <div class="row">
+                  <label class="col-md-2">From Time: </label>
+                  <div class="mb-3 col-md-4">
+                    <ngb-timepicker [(ngModel)]="fromTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>                     
                   </div>
+                </div>                 
               </fieldset>
               <fieldset class="form-group">
-                  <div class="row">                
-                    <label class="col-md-2">To Time: </label>
-                    <div class="input-group mb-3 col-md-4">
-                        <ngb-timepicker [(ngModel)]="defaultTime"></ngb-timepicker>
-                    </div>                
-                  </div>
+                <div class="row">
+                  <label class="col-md-2">To Time: </label>
+                  <div class="mb-3 col-md-4">
+                    <ngb-timepicker [(ngModel)]="toTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                  </div>                 
+                </div>
               </fieldset>
 
               <div class="justify-content-center">
