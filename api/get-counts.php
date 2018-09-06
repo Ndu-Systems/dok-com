@@ -34,6 +34,15 @@ $counts->key ="awaiting-appointment";
 $counts->value =$result->rowCount();
 $rows[]= $counts;
 
+//Archived Appointments
+$result = $conn->prepare("SELECT * FROM appointment WHERE StatusId = ?");
+$result->execute(array(2));
+$counts = new Counts();
+$counts->key ="archived-appointment";
+$counts->value =$result->rowCount();
+$rows[]= $counts;
+
+
 echo json_encode($rows);
 ?>
 
