@@ -1,0 +1,11 @@
+.deskContent {     
+    width: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain; 
+}
+
+@media all and (min-width: 959px) {
+    .deskContent {display:block;}
+    .phoneContent {display:none;}
+}

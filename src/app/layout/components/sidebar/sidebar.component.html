@@ -28,11 +28,11 @@
                 <span>
                     <i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
             </a>
-          
+
             <div class="nested-menu">
                 <a class="list-group-item" (click)="addExpandClass('profile')">
                     <span>
-                        <i class="fa fa-user"></i>&nbsp; Doctor Who!</span>
+                        <i class="fa fa-user"></i>&nbsp; Hello {{user.username}}</span>
                 </a>
                 <li class="nested" [class.expand]="showMenu === 'profile'">
                     <ul class="submenu">
@@ -47,13 +47,12 @@
                                 <span>
                                     <i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span>
-                                    <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>
-                            </a>
                         </li> -->
+                        <li>
+                            <a class="dropdown-item" href="javascript:void(0)" (click)="changePassword()">
+                                <i class="fa fa-fw fa-lock"></i> {{ 'Change-Password' | translate }}
+                            </a>
+                        </li>
                         <li>
                             <a [routerLink]="['/login']" (click)="onLoggedout()">
                                 <span>

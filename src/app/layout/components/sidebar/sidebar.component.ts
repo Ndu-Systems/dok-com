@@ -7,12 +7,12 @@ import { TranslateService } from '@ngx-translate/core';
     templateUrl: './sidebar.component.html',
     styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent  implements OnInit {
     isActive: boolean = false;
     collapsed: boolean = false;
     showMenu: string = '';
     pushRightClass: string = 'push-right';
-
+    user : any
     @Output() collapsedEvent = new EventEmitter<boolean>();
     
     constructor(private translate: TranslateService, public router: Router) {
@@ -31,7 +31,11 @@ export class SidebarComponent {
             }
         });
     }
-
+    ngOnInit() {
+        this.user = JSON.parse(localStorage.getItem('currentUser'))
+        if(!this.user.username)
+            this.user.username = "doctor"          
+    }
     eventCalled() {
         this.isActive = !this.isActive;
     }
@@ -69,6 +73,9 @@ export class SidebarComponent {
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        localStorage.removeItem('currentUser');
+    }
+    changePassword(){
+        this.router.navigate(['/user/change-password', this.user.userid])
     }
 }
