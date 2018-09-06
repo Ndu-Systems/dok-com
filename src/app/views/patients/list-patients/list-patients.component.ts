@@ -14,6 +14,8 @@ export class ListPatientsComponent implements OnInit {
 
   patients$ : Observable<any>;  
   searchText:string;
+  p : any
+
   constructor(
     private selectService : SelectService ,
     private route : Router

@@ -19,6 +19,8 @@ export class ViewPatientComponent implements OnInit {
   msgs: Message[] = [];
   searchText : any
   appointments$ : Observable<any>
+  p : any
+
   constructor(
     private selectService: SelectService,
     private route: ActivatedRoute,
