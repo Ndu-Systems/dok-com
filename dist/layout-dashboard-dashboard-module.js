@@ -805,12 +805,21 @@ var CalendarSchedulerComponent = /** @class */ (function () {
         this.appointmentService = appointmentService;
     }
     CalendarSchedulerComponent.prototype.ngOnInit = function () {
+        //set current date first
+        this.currentDate();
         scheduler.config.xml_date = "%Y-%m-%d %H:%i";
-        scheduler.init(this.schedulerContainer.nativeElement, new Date(2018, 8, 1));
+        scheduler.init(this.schedulerContainer.nativeElement, new Date(this.yyyy, this.mm, this.dd));
         this.appointmentService.getAppointment()
             .then(function (data) {
             scheduler.parse(data, "json");
         });
+    };
+    CalendarSchedulerComponent.prototype.currentDate = function () {
+        var today = new Date();
+        this.dd = today.getDate();
+        this.mm = today.getMonth();
+        +1; //January = 0
+        this.yyyy = today.getFullYear();
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])("scheduler_here"),

@@ -30,7 +30,6 @@ export class CalendarSchedulerComponent implements OnInit {
   }
 
   currentDate(){
-    debugger
    let today = new Date();
    this.dd = today.getDate();
    this.mm = today.getMonth(); + 1; //January = 0

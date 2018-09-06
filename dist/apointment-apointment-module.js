@@ -1965,6 +1965,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddAppointmentComponent", function() { return AddAppointmentComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _router_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../router.animations */ "./src/app/router.animations.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_appointment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/appointment */ "./src/app/services/appointment/index.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1976,13 +1978,33 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var AddAppointmentComponent = /** @class */ (function () {
-    function AddAppointmentComponent() {
-        this.fromTime = { hour: 13, minute: 30 };
-        this.toTime = { hour: 15, minute: 30 };
+    function AddAppointmentComponent(route, router, appointmentService) {
+        this.route = route;
+        this.router = router;
+        this.appointmentService = appointmentService;
+        this.fromTime = { hour: 12, minute: 30 };
+        this.toTime = { hour: 12, minute: 30 };
         this.StartDate = "";
+        this.Description = "";
     }
     AddAppointmentComponent.prototype.ngOnInit = function () {
+        this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
+    };
+    AddAppointmentComponent.prototype.add = function () {
+        var _objStartDate = JSON.parse(this.StartDate);
+        console.log(_objStartDate, 'jsonObj');
+        var data = {
+            PatientId: this.patientId,
+            StartDate: _objStartDate.year + '-' + _objStartDate.month + '-' + _objStartDate.day,
+            EndDate: this.StartDate,
+            Description: this.Description,
+            FromTime: this.fromTime,
+            ToTime: this.toTime
+        };
+        console.log(data, "data");
     };
     AddAppointmentComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1991,7 +2013,9 @@ var AddAppointmentComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./add-appointment.component.scss */ "./src/app/views/apointment/add-appointment/add-appointment.component.scss")],
             animations: [Object(_router_animations__WEBPACK_IMPORTED_MODULE_1__["routerTransition"])()]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _services_appointment__WEBPACK_IMPORTED_MODULE_3__["AppointmentService"]])
     ], AddAppointmentComponent);
     return AddAppointmentComponent;
 }());
@@ -2140,7 +2164,7 @@ var ApointmentModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div [@routerTransition]>\r\n  <app-page-header [heading]=\"'Appointments'\" [icon]=\"'fa-calendar'\"></app-page-header>\r\n  <div class=\"row\">\r\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\r\n      <div class=\"card mb-3\">\r\n        <div class=\"card-header\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n              <a class=\"btn rounded-btn\" [routerLink]=\"['/patients']\">New Appointment </a>\r\n            </div>\r\n            <div class=\"input-group mb-3 col-md-6\">\r\n              <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text\" id=\"basic-addon1\">\r\n                  <li class=\"fa fa-search\"></li>\r\n                </span>\r\n              </div>\r\n              <input type=\"text\" [(ngModel)]=\"searchText\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Search...\"\r\n                aria-label=\"Search\" aria-describedby=\"basic-addon1\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"card-body table-responsive\">\r\n          <table class=\"table table-bordered\" *ngIf=\"appointments$ | async as appointments\">\r\n            <thead>\r\n              <tr>\r\n                <th>#</th>\r\n                <th>Patient Full Name</th>\r\n                <th>Email Address</th>\r\n                <th>Cellphone</th>\r\n                <th>Appointment Date</th>\r\n                <th>Description</th>\r\n                <!-- <th>Actions</th> -->\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of appointments | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }\">\r\n                <th scope=\"row\">{{item.AppointmentId}}</th>\r\n                <td>{{item.FirstName}} {{item.Surname}}</td>                \r\n                <td>{{item.Email}}</td>\r\n                <td>{{item.Cellphone}}</td>\r\n                <td>From: {{item.StartDate}} To: {{item.EndDate}}</td>\r\n                <td>{{item.Description}}</td>\r\n                <!-- <td><a class=\"btn rounded-btn\" [routerLink]=\"['/patients/view']\" (click)=\"view(item)\" >View</a></td> -->\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n          <div class=\"justify-content-center\">\r\n            <pagination-controls (pageChange)=\"p = $event\"></pagination-controls>\r\n          </div>           \r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<div [@routerTransition]>\r\n  <app-page-header [heading]=\"'Appointments'\" [icon]=\"'fa-calendar'\"></app-page-header>\r\n  <div class=\"row\">\r\n    <div class=\"col col-xl-12 col-lg-12 col-md-12 col-sm-12\">\r\n      <div class=\"card mb-3\">\r\n        <div class=\"card-header\">\r\n          <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n              <a class=\"btn rounded-btn\" [routerLink]=\"['/patients']\">New Appointment </a>\r\n            </div>\r\n            <div class=\"input-group mb-3 col-md-6\">\r\n              <div class=\"input-group-prepend\">\r\n                <span class=\"input-group-text\" id=\"basic-addon1\">\r\n                  <li class=\"fa fa-search\"></li>\r\n                </span>\r\n              </div>\r\n              <input type=\"text\" [(ngModel)]=\"searchText\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Search...\"\r\n                aria-label=\"Search\" aria-describedby=\"basic-addon1\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"card-body table-responsive\">\r\n          <table class=\"table table-bordered\" *ngIf=\"appointments$ | async as appointments\">\r\n            <thead>\r\n              <tr>\r\n                <th>#</th>\r\n                <th>Patient Full Name</th>\r\n                <th>Email Address</th>\r\n                <th>Cellphone</th>\r\n                <th>Appointment Date</th>\r\n                <th>Description</th>\r\n                <!-- <th>Actions</th> -->\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of appointments | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }\">\r\n                <th scope=\"row\">{{item.AppointmentId}}</th>\r\n                <td>{{item.FirstName}} {{item.Surname}}</td>                \r\n                <td>{{item.Email}}</td>\r\n                <td>{{item.Cellphone}}</td>\r\n                <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>\r\n                <td>{{item.Description}}</td>\r\n                <!-- <td><a class=\"btn rounded-btn\" [routerLink]=\"['/patients/view']\" (click)=\"view(item)\" >View</a></td> -->\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n          <div class=\"justify-content-center\">\r\n            <pagination-controls (pageChange)=\"p = $event\"></pagination-controls>\r\n          </div>           \r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 

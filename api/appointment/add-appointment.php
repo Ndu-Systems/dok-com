@@ -5,20 +5,22 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 require "../conn.php";
 $data = json_decode(file_get_contents("php://input"));
 
-if (isset($data->CustomerId) )
+if (isset($data->PatientId) )
 {  
-	$CustomerId = $data->CustomerId;
+	$PatientId = $data->PatientId;
 	$StartDate = $data->StartDate;
 	$EndDate = $data->EndDate;
+	$FromTime = $data->FromTime;
+	$ToTime = $data->ToTime;
 	$Description = $data->Description;
 	$CreateUserId = 1;
  	$ModifyUserId = 1;
  	$StatusId = 1;
  
 
-		$result = $conn->prepare("INSERT INTO appointment ( CustomerId, StartDate, EndDate, Description, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
-		VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, CURRENT_TIMESTAMP, ?)"); 
-		if($result->execute(array( $CustomerId, $StartDate, $EndDate, $Description, $CreateUserId, $ModifyUserId, $StatusId))){
+		$result = $conn->prepare("INSERT INTO appointment ( PatientId, StartDate, EndDate,FromTime,ToTime, Description, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
+		VALUES (?, ?, ?, ?,?, ?, ?, CURRENT_TIMESTAMP, ?, CURRENT_TIMESTAMP, ?)"); 
+		if($result->execute(array( $PatientId, $StartDate, $EndDate,$FromTime,$ToTime, $Description, $CreateUserId, $ModifyUserId, $StatusId))){
 			echo 1;
 		}
 		else{
