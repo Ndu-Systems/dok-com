@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { SelectService } from '../../shared';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-dashboard',
@@ -10,11 +12,15 @@ import { routerTransition } from '../../router.animations';
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
+    counts$ : Observable<any>
+    constructor(
+        private selectService: SelectService
+    ) 
+    {}
 
-    constructor() {  
-    }
-
-    ngOnInit() {}
+    ngOnInit() {
+        this.counts$ = this.selectService.getCounts();
+     }
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);

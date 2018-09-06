@@ -47,8 +47,7 @@ export class CalendarSchedulerComponent implements OnInit {
             text : data.Description
           };
           this.appointmentList.push(objAppointment);
-        })
-        console.log(this.appointmentList, "appointments")
+        })    
         scheduler.parse(this.appointmentList, "json");
     });
   }

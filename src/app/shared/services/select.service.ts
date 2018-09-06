@@ -15,4 +15,7 @@ export class SelectService {
       return this.http.get<any>(`${this.url}/select.php?table=${table}`);
   }
 
+  getCounts(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.url}/get-counts.php`);
+  }
 }
