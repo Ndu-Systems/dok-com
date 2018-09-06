@@ -10,6 +10,8 @@ export interface IAppointment {
     PatientId: number;
     StartDate: string;
     EndDate: string;
+    FromTime: string;
+    ToTime: string;
     Description: string;
     CreateUserId: string;
     CreateDate: string;

@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@ang
 import "dhtmlx-scheduler"; 
 import {} from "@types/dhtmlxscheduler";
 import { AppointmentService } from '../../../services/appointment';
+import { Appointment } from '../../../models';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -15,6 +16,7 @@ export class CalendarSchedulerComponent implements OnInit {
   dd: any
   mm: any
   yyyy: any
+  appointmentList : Array<Appointment> = [];
 
   constructor(private appointmentService : AppointmentService) { }
 
@@ -23,10 +25,7 @@ export class CalendarSchedulerComponent implements OnInit {
     this.currentDate();
     scheduler.config.xml_date = "%Y-%m-%d %H:%i";
     scheduler.init(this.schedulerContainer.nativeElement, new Date(this.yyyy, this.mm, this.dd));
-    this.appointmentService.getAppointment()
-          .then((data) => {
-            scheduler.parse(data, "json");
-          });
+    this.getSchedule()
   }
 
   currentDate(){
@@ -34,6 +33,24 @@ export class CalendarSchedulerComponent implements OnInit {
    this.dd = today.getDate();
    this.mm = today.getMonth(); + 1; //January = 0
    this.yyyy = today.getFullYear();
+  }
+
+  getSchedule(){
+    this.appointmentService.getAppointment()
+    .subscribe((data) => {
+        this.appointmentList = [];
+        data.forEach(data => {
+          let objAppointment : Appointment ={
+            id : data.AppointmentId,
+            start_date : data.StartDate+" "+data.FromTime,
+            end_date : data.StartDate+ " "+ data.ToTime,
+            text : data.Description
+          };
+          this.appointmentList.push(objAppointment);
+        })
+        console.log(this.appointmentList, "appointments")
+        scheduler.parse(this.appointmentList, "json");
+    });
   }
 
 }
