@@ -12,6 +12,7 @@ import { SelectService } from '../../../shared';
 export class ApointmentsComponent implements OnInit { 
   searchText:string;
   appointments$ : Observable<any>
+  
   constructor(
       private selectService : SelectService
   ) { }

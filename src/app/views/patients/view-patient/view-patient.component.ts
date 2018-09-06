@@ -17,7 +17,8 @@ export class ViewPatientComponent implements OnInit {
   patient$: Observable<any>
   patientId: number
   msgs: Message[] = [];
-
+  searchText : any
+  appointments$ : Observable<any>
   constructor(
     private selectService: SelectService,
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class ViewPatientComponent implements OnInit {
   ngOnInit() {
     this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
     this.patient$ = this.selectService.select(`patient WHERE  PatientId = ${this.patientId}`);
+    this.appointments$  =this.selectService.select(`appointment WHERE  PatientId = ${this.patientId}`);
   }
   showSuccess() {
     this.msgs = [];
