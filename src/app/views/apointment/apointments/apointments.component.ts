@@ -10,21 +10,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./apointments.component.scss'],
   animations: [routerTransition()]
 })
-export class ApointmentsComponent implements OnInit { 
-  searchText:string;
-  appointments$ : Observable<any>
-  p : any
+export class ApointmentsComponent implements OnInit {
+  searchText: string;
+  appointments$: Observable<any>
+  p: any
   constructor(
-      private selectService : SelectService
-      ,private router : Router
+    private selectService: SelectService
+    , private router: Router
 
   ) { }
 
   ngOnInit() {
-    this.appointments$ = 
-    this.selectService
+    this.appointments$ =
+      this.selectService
         .select("appointment ap INNER JOIN patient p ON ap.PatientId = p.PatientId ORDER BY ap.CreateDate DESC");
   }
-  edit(appointment){
-    this.router.navigate(['/appointments/edit', appointment.AppointmentId]);  }
+  edit(appointment) {
+    this.router.navigate(['/appointments/edit', appointment.AppointmentId]);
+  }
 }
