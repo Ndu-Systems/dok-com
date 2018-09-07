@@ -19,4 +19,9 @@ constructor(private http: HttpClient) { }
     return this.http.post<any>(`${this.url}/appointment/add-appointment.php`, data);
   }
 
+  editAppointment(data): Observable<any>{
+    return this.http.post<any>(`${this.url}/appointment/edit-appointment.php`, data);
+
+  }
+
 }

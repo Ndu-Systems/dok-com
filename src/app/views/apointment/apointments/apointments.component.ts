@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { SelectService } from '../../../shared';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apointments',
@@ -15,6 +16,8 @@ export class ApointmentsComponent implements OnInit {
   p : any
   constructor(
       private selectService : SelectService
+      ,private router : Router
+
   ) { }
 
   ngOnInit() {
@@ -22,5 +25,6 @@ export class ApointmentsComponent implements OnInit {
     this.selectService
         .select("appointment ap INNER JOIN patient p ON ap.PatientId = p.PatientId ORDER BY ap.CreateDate DESC");
   }
-
+  edit(appointment){
+    this.router.navigate(['/appointments/edit', appointment.AppointmentId]);  }
 }
