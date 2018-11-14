@@ -34,7 +34,7 @@ $colors :(
 section {
     font-family: $font-family;
     // clip-path: polygon(100% 0, 100% 83%, 45% 100%, 0 100%, 0 0);
-    clip-path: polygon(0 0, 100% 0, 100% 48%, 0 83%);
+    // clip-path: polygon(0 0, 100% 0, 100% 48%, 0 83%);
     background-color: color(gray-dark);
     background-size: auto, cover;
     background-attachment: fixed, fixed;
@@ -46,12 +46,14 @@ section {
     #bg
     {         
         @include desktop{
-           clip-path: polygon(0 0, 51% 0, 51% 57%, 0 56%);
+        //    clip-path: polygon(0 0, 51% 0, 51% 57%, 0 56%);
          }
     }
 
      
 }
+
+
 
 
 
