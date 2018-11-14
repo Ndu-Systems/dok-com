@@ -24,13 +24,14 @@
         @function color($color_name){
             @return map-get($map: $colors, $key: $color_name );
         }
-    header a {
-        color: white;
-        text-decoration: none;
-        padding: $padding;
-        display: block;
-        text-transform: capitalize;
-    }
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: $padding;
+            display: block;
+            text-transform: capitalize;
+            border-bottom: 3px solid transparent;
+        }
 
     li.nav-item {
         a.signup {
@@ -39,4 +40,16 @@
             width: 9rem;
             height: 3.5rem;
         }
+    }
+
+    header nav{
+        background-color: color(gray-dark);
+    }
+
+    #navbarCollapse a:hover{
+        border-bottom: 3px solid color(sky-blue);
+    }
+
+    #navbarCollapse li.active {
+        border-bottom: 3px solid color(sky-blue);
     }
