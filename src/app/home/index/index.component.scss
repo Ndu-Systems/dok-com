@@ -5,9 +5,10 @@
 	blue : #4C5C96,
 	gray-dark : #4B4E5A,
 	gray-light: lighten(#4B4E5A, 55%), 
+	gray-trans:#4b4e5a4f,
 	red: #F60C0C,
 	sky-blue: #3498DB,
-	navy : #2C3E50  
+	navy : #2C3E50 ,
 	
 	);
 
@@ -40,7 +41,7 @@
 
 	button{
 		color: #ffffff;
-		background: #3498DB;
+		background: color(sky-blue);
 		border-radius: 100px;
 		width: 9rem;
 		height: 3.5rem;
@@ -419,6 +420,19 @@ body.is-preload #banner p {
 			.wrapper.spotlight .content {
 				width: 100%;
 				-ms-flex: 2;
+				color: #ffffff;
+				background: color(gray-trans);
+
+				a{
+					color: #ffffff;
+					text-decoration: none;
+				}
+			}
+
+			.wrapper.alt.spotlight .content{
+				hr{
+					border-top: 1px solid #ffffff;
+				}
 			}
 
 			.wrapper.spotlight:nth-child(2n - 1) .inner {
@@ -426,7 +440,14 @@ body.is-preload #banner p {
 				-webkit-flex-direction: row-reverse;
 				-ms-flex-direction: row-reverse;
 				flex-direction: row-reverse;
-				text-align: right;
+				text-align: left;
+
+				a{
+					text-align: right;
+				}
+				hr{
+					border-top: 1px solid #ffffff;
+				}
 			}
 
 			.wrapper.spotlight:nth-child(2n - 1) .image {
@@ -612,6 +633,25 @@ body.is-preload #banner p {
 		}
 
  
-	 
+	 .getQoute{
+		 color: white;
+
+		 button{
+			margin-left: 130px;
+			color: #ffffff;
+			background: color(sky-blue);
+			border-radius: 100px;
+			width: 9rem;
+			height: 3.5rem;
+		 }
+
+		 input{
+			width: 500px;
+		 }
+
+		 #emailHelp{
+			 color: color(sky-blue);
+		 }
+	 }
 
 		 
