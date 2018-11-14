@@ -5,6 +5,7 @@ import { AuthGuard } from './shared';
 
 const routes: Routes = [
     { path: '', loadChildren: './views/views.module#ViewsModule', canActivate: [AuthGuard] },
+    {path: 'home', loadChildren:'./home/home.module#HomeModule'}, 
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
     { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
     { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },
@@ -14,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, {useHash:true})],
     exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -73,7 +73,7 @@
                 <th>#</th>                
                 <th>Appointment Date</th>
                 <th>Description</th>
-                <!-- <th>Actions</th> -->
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -81,7 +81,10 @@
                 <th scope="row">{{item.AppointmentId}}</th>                
                 <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>
                 <td>{{item.Description}}</td>
-                <!-- <td><a class="btn rounded-btn" [routerLink]="['/patients/view']" (click)="view(item)" >View</a></td> -->
+                <td><a class="btn rounded-btn" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
+                  <a class="btn rounded-btn"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Archive</a>              
+                </td>
+                
               </tr>
             </tbody>
           </table>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AddAppointmentComponent } from './add-appointment';
+import { EditAppointmentComponent } from './edit-appointment';
 
 const routes: Routes = [
   {
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: 'add/:id', component:AddAppointmentComponent
+  },
+  {
+    path: 'edit/:id', component:EditAppointmentComponent
   }
 ];
 

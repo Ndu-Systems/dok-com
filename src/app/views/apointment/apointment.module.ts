@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpModule} from '@angular/http';
 import { AppointmentService } from '../../services/appointment';
 import { AddAppointmentComponent } from './add-appointment';
+import { EditAppointmentComponent } from './edit-appointment';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { AddAppointmentComponent } from './add-appointment';
     NgxPaginationModule,
     HttpModule
   ],
-  declarations: [ApointmentsComponent, AddAppointmentComponent],
+  declarations: [ApointmentsComponent, AddAppointmentComponent,EditAppointmentComponent],
   exports:[...PrimeNg],
   providers: [AppointmentService]
 })

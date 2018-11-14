@@ -29,7 +29,7 @@
                 <th>Cellphone</th>
                 <th>Appointment Date</th>
                 <th>Description</th>
-                <!-- <th>Actions</th> -->
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -40,7 +40,7 @@
                 <td>{{item.Cellphone}}</td>
                 <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>
                 <td>{{item.Description}}</td>
-                <!-- <td><a class="btn rounded-btn" [routerLink]="['/patients/view']" (click)="view(item)" >View</a></td> -->
+                <td><a class="btn rounded-btn" [routerLink]="['/appointments/edit']" (click)="edit(item)" >Edit</a></td>
               </tr>
             </tbody>
           </table>

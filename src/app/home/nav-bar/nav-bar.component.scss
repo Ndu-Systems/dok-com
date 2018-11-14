@@ -1,0 +1,56 @@
+
+   //variables
+        $padding : 15px;
+        $padding-account: 150px;
+        $boarders : 15px;
+        $desktop : 840px;
+        $font-family:  'Abel', 'sans-serif';
+        $width-val-mobile: 100%;
+        $height-val-mobile: 100%;
+
+
+        //map colors based off design
+        $colors :(
+        blue : #4C5C96,
+        gray-dark : #4B4E5A,
+        gray-light: lighten(#4B4E5A, 55%), 
+        red: #F60C0C,
+        sky-blue: #3498DB,
+        navy : #2C3E50  
+        
+        );
+
+        //functions
+        @function color($color_name){
+            @return map-get($map: $colors, $key: $color_name );
+        }
+        
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: $padding;
+            display: block;
+            text-transform: capitalize;
+            border-bottom: 3px solid transparent;
+        }
+
+    li.nav-item {
+        a.signup {
+            background:color(sky-blue);
+            border-radius: 100px;
+            width: 6rem;
+            height: 3.5rem;
+        }
+    }
+
+    header nav{
+        background-color: color(gray-dark);
+    }
+
+    #navbarCollapse a:hover{
+        border-bottom: 3px solid color(sky-blue);
+    }
+
+    #navbarCollapse li.active {
+        border-bottom: 3px solid color(sky-blue);
+    }
