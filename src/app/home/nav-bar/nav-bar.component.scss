@@ -24,6 +24,7 @@
         @function color($color_name){
             @return map-get($map: $colors, $key: $color_name );
         }
+        
         header a {
             color: white;
             text-decoration: none;
@@ -37,7 +38,7 @@
         a.signup {
             background:color(sky-blue);
             border-radius: 100px;
-            width: 9rem;
+            width: 6rem;
             height: 3.5rem;
         }
     }

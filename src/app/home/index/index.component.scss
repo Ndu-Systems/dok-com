@@ -1,4 +1,21 @@
 
+
+ //map colors based off design
+ $colors :(
+	blue : #4C5C96,
+	gray-dark : #4B4E5A,
+	gray-light: lighten(#4B4E5A, 55%), 
+	red: #F60C0C,
+	sky-blue: #3498DB,
+	navy : #2C3E50  
+	
+	);
+
+	//functions
+	@function color($color_name){
+		@return map-get($map: $colors, $key: $color_name );
+	}
+
 #page-wrapper {
     -moz-transition: -moz-filter 0.25s ease;
     -webkit-transition: -webkit-filter 0.25s ease;
@@ -11,10 +28,30 @@
 #banner {
     padding: 10em 0 4.75em 0 ;
 }
+
 #banner .inner {
     margin: 0 auto;
-    width: 55em;
+	width: 65em;
+	color: #ffffff;
+
+	span{
+		color: color(sky-blue);
+	}
+
+	button{
+		color: #ffffff;
+		background: #3498DB;
+		border-radius: 100px;
+		width: 9rem;
+		height: 3.5rem;
+	}
+
+	.imageSVG img{
+		width: 450px;
+		z-index: 2;
+	}
 }
+
 #banner h2 {
     -moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease, -moz-filter 0.25s ease;
     -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-filter 0.25s ease;
@@ -38,33 +75,6 @@
     margin-bottom: 0.8em;
     padding-bottom: 0.4em;
 }
-
-#banner p {
-    -moz-transition: opacity 0.5s ease, -moz-transform 0.5s ease, -moz-filter 0.25s ease;
-    -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease, -webkit-filter 0.25s ease;
-    -ms-transition: opacity 0.5s ease, -ms-transform 0.5s ease, -ms-filter 0.25s ease;
-    transition: opacity 0.5s ease, transform 0.5s ease, filter 0.25s ease;
-    -moz-transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    transform: translateX(0);
-    -moz-transition-delay: 0.8s;
-    -webkit-transition-delay: 0.8s;
-    -ms-transition-delay: 0.8s;
-    transition-delay: 0.8s;
-    -moz-filter: blur(0);
-    -webkit-filter: blur(0);
-    -ms-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-    font-family: Raleway, Helvetica, sans-serif;
-    font-size: 1em;
-    font-weight: 200;
-    letter-spacing: 0.1em;
-    line-height: 2;
-    text-transform: uppercase;
-}
-
 
 @media screen and (max-width: 1280px) {
 
@@ -456,19 +466,19 @@ body.is-preload #banner p {
 				}
 
 			.wrapper.spotlight.style4 {
-				background-color: #39477c;
-			}
+					background-color: #000000;
+				}
 
 				.wrapper.spotlight.style4:before, .wrapper.spotlight.style4:after {
 					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%2339477c%3B' /%3E%3C/svg%3E");
 				}
 
 				.wrapper.spotlight.style4:before {
-					box-shadow: inset 0 -1px 0 0 #39477c, 0 1px 0 0 #39477c;
+					box-shadow: inset 0 -1px 0 0 #000000, 0 1px 0 0 #000000;
 				}
 
 				.wrapper.spotlight.style4:after {
-					box-shadow: inset 0 -1px 0 0 #39477c, 0 1px 0 0 #39477c;
+					box-shadow: inset 0 -1px 0 0 #000000, 0 1px 0 0 #000000;
 				}
 
 			.wrapper.spotlight.style5 {
@@ -601,3 +611,7 @@ body.is-preload #banner p {
 
 		}
 
+ 
+	 
+
+		 
