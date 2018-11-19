@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2018 at 07:52 AM
+-- Generation Time: Nov 19, 2018 at 01:09 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -67,6 +67,13 @@ CREATE TABLE `medication` (
   `createdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `medication`
+--
+
+INSERT INTO `medication` (`medicaionId`, `name`, `description`, `createdate`) VALUES
+(1, 'pain killers', 'pain killers', '2018-11-19 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -115,6 +122,13 @@ CREATE TABLE `prescription` (
   `pulseRate` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `prescription`
+--
+
+INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`) VALUES
+(1, 1, 'Flue', '10', '10');
+
 -- --------------------------------------------------------
 
 --
@@ -129,6 +143,13 @@ CREATE TABLE `prescription_medication_drug` (
   `dosage` varchar(150) NOT NULL,
   `createdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prescription_medication_drug`
+--
+
+INSERT INTO `prescription_medication_drug` (`id`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`) VALUES
+(1, 1, 1, '1', '2 tablets 3 times a day', '2018-11-19 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -205,6 +226,12 @@ ALTER TABLE `patient`
   ADD PRIMARY KEY (`PatientId`);
 
 --
+-- Indexes for table `prescription`
+--
+ALTER TABLE `prescription`
+  ADD PRIMARY KEY (`prescriptionId`);
+
+--
 -- Indexes for table `prescription_medication_drug`
 --
 ALTER TABLE `prescription_medication_drug`
@@ -236,7 +263,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `medicaionId` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `medicaionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -245,10 +272,16 @@ ALTER TABLE `patient`
   MODIFY `PatientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `prescription`
+--
+ALTER TABLE `prescription`
+  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `prescription_medication_drug`
 --
 ALTER TABLE `prescription_medication_drug`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `statuses`
