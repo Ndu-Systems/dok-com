@@ -11,7 +11,6 @@ var map = {
 	"../layout/dashboard/dashboard.module": [
 		"./src/app/layout/dashboard/dashboard.module.ts",
 		"apointment-apointment-module~home-home-module~layout-dashboard-dashboard-module~views-views-module",
-		"common",
 		"layout-dashboard-dashboard-module"
 	],
 	"./access-denied/access-denied.module": [
@@ -22,13 +21,11 @@ var map = {
 		"./src/app/views/apointment/apointment.module.ts",
 		"apointment-apointment-module~home-home-module~layout-dashboard-dashboard-module~views-views-module",
 		"apointment-apointment-module~patients-patients-module~user-user-module",
-		"common",
 		"apointment-apointment-module"
 	],
 	"./home/home.module": [
 		"./src/app/home/home.module.ts",
 		"apointment-apointment-module~home-home-module~layout-dashboard-dashboard-module~views-views-module",
-		"common",
 		"home-home-module"
 	],
 	"./index/index.module": [
@@ -37,7 +34,7 @@ var map = {
 	],
 	"./login/login.module": [
 		"./src/app/login/login.module.ts",
-		"common",
+		"login-login-module~patients-patients-module",
 		"login-login-module"
 	],
 	"./not-found/not-found.module": [
@@ -47,7 +44,7 @@ var map = {
 	"./patients/patients.module": [
 		"./src/app/views/patients/patients.module.ts",
 		"apointment-apointment-module~patients-patients-module~user-user-module",
-		"common",
+		"login-login-module~patients-patients-module",
 		"patients-patients-module"
 	],
 	"./server-error/server-error.module": [
@@ -56,19 +53,16 @@ var map = {
 	],
 	"./signup/signup.module": [
 		"./src/app/signup/signup.module.ts",
-		"common",
 		"signup-signup-module"
 	],
 	"./user/user.module": [
 		"./src/app/views/user/user.module.ts",
 		"apointment-apointment-module~patients-patients-module~user-user-module",
-		"common",
 		"user-user-module"
 	],
 	"./views/views.module": [
 		"./src/app/views/views.module.ts",
 		"apointment-apointment-module~home-home-module~layout-dashboard-dashboard-module~views-views-module",
-		"common",
 		"views-views-module"
 	]
 };
@@ -744,13 +738,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_schedule__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(primeng_schedule__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/autocomplete */ "./node_modules/primeng/autocomplete.js");
 /* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/dialog */ "./node_modules/primeng/dialog.js");
+/* harmony import */ var primeng_dialog__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(primeng_dialog__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
 
 
 var PrimeNg = [
-    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"], primeng_schedule__WEBPACK_IMPORTED_MODULE_3__["ScheduleModule"], primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__["AutoCompleteModule"]
+    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"], primeng_schedule__WEBPACK_IMPORTED_MODULE_3__["ScheduleModule"], primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__["AutoCompleteModule"], primeng_dialog__WEBPACK_IMPORTED_MODULE_5__["DialogModule"]
 ];
 
 

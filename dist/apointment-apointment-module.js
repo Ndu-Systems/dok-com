@@ -1931,6 +1931,75 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('6.1.2')
 
 /***/ }),
 
+/***/ "./src/app/services/appointment/appointment.service.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/services/appointment/appointment.service.ts ***!
+  \*************************************************************/
+/*! exports provided: AppointmentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppointmentService", function() { return AppointmentService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_config__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/config */ "./src/app/shared/config.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AppointmentService = /** @class */ (function () {
+    function AppointmentService(http) {
+        this.http = http;
+        this.url = _shared_config__WEBPACK_IMPORTED_MODULE_1__["API_URL"];
+    }
+    AppointmentService.prototype.getAppointment = function () {
+        return this.http.get(this.url + "/appointment/get-appointments.php");
+    };
+    AppointmentService.prototype.addAppointment = function (data) {
+        return this.http.post(this.url + "/appointment/add-appointment.php", data);
+    };
+    AppointmentService.prototype.editAppointment = function (data) {
+        return this.http.post(this.url + "/appointment/edit-appointment.php", data);
+    };
+    AppointmentService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], AppointmentService);
+    return AppointmentService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/appointment/index.ts":
+/*!***********************************************!*\
+  !*** ./src/app/services/appointment/index.ts ***!
+  \***********************************************/
+/*! exports provided: AppointmentService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _appointment_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./appointment.service */ "./src/app/services/appointment/appointment.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AppointmentService", function() { return _appointment_service__WEBPACK_IMPORTED_MODULE_0__["AppointmentService"]; });
+
+
+
+
+/***/ }),
+
 /***/ "./src/app/views/apointment/add-appointment/add-appointment.component.html":
 /*!*********************************************************************************!*\
   !*** ./src/app/views/apointment/add-appointment/add-appointment.component.html ***!
