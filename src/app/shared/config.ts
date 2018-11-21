@@ -8,4 +8,3 @@ if (IS_LOCAL) {
 
 export const   API_URL = api;
 export const  WEB_HOST = web;
-

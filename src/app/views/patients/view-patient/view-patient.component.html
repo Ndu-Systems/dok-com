@@ -32,6 +32,7 @@
                 <tr>
                   <td></td>
                   <td>
+                    <a class="btn rounded-btn"  (click)="prescribe()" ><i class="fa fa-prescription-bottle-alt"></i>Prescribe</a>    &nbsp;
                     <a class="btn rounded-btn"  (click)="appointment()" ><li class="fa fa-calendar"></li> Create Appointment</a>    &nbsp;
                     <a class="btn rounded-btn"  (click)="edit(patient[0])" ><li class="fa fa-edit"></li> Edit</a>    &nbsp;
                     <a class="btn rounded-btn"  (click)="archivePatient(patient[0])" ><li class="fa fa-trash"></li> Archive</a>              
@@ -47,6 +48,58 @@
     </div>
 
   </div>
+
+  <div class="row">
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Patient's Prescriptions</h3>
+            </div>
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <li class="fa fa-search"></li>
+                </span>
+              </div>
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Search..."
+                aria-label="Search" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-bordered" *ngIf="prescriptions$ | async as prescriptions">
+            <thead>
+              <tr>
+                <th>Diagnosis</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of prescriptions | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{item.diagnosis}}</td>
+                <td>{{item.createdate| date:'mediumDate'}}</td>
+                <td><a class="btn rounded-btn" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
+                  <a class="btn rounded-btn"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Print</a>              
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+          <div class="justify-content-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>           
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
   <div class="row">
     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div class="card mb-3">

@@ -4,3 +4,27 @@
     position: relative;
     width: 100%;
  }
+ .dhx_cal_container{
+     background-color: #222;
+     color: #BDC3C7;
+     border: 1px solid gray;
+
+ }
+  
+ .dhx_cal_header{
+    background-color: #222;
+ }
+ .dhx_scale_bar{
+    background-color: #222;
+ }
+ 
+ .dhx_scale_holder {
+    position: absolute;
+    border-right: 1px solid #cecece;
+     background-image: none;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+ 

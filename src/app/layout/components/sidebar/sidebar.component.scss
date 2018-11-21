@@ -10,6 +10,8 @@ $topnav-background-color: #222;
     margin-bottom: 48px;
     border: none;
     border-radius: 0;
+    -webkit-box-shadow: 20px -10px 5px -18px #000000; 
+    box-shadow: 20px -10px 5px -18px #000000;
     overflow-y: auto;
     background-color: $topnav-background-color;
     bottom: 0;

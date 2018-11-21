@@ -1,3 +1,4 @@
+import { AddPrescriptionComponent } from './sub-componets/add-prescription/add-prescription.component';
 import { PatientsRoutes } from './patients.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -16,7 +17,7 @@ import { EditPatientComponent } from './edit-patient';
 @NgModule({
     imports: [CommonModule, FormsModule, Ng2SearchPipeModule, ...PrimeNg, NgxPaginationModule,
         ReactiveFormsModule, PatientsRoutes, PageHeaderModule],
-    declarations: [ListPatientsComponent, AddPatientComponent, ViewPatientComponent, EditPatientComponent],
+    declarations: [ListPatientsComponent, AddPatientComponent, ViewPatientComponent, EditPatientComponent,AddPrescriptionComponent],
     exports: [...PrimeNg],
     providers: [PatientService, ConfirmationService]
 })
