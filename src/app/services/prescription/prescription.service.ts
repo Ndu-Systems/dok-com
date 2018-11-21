@@ -1,3 +1,4 @@
+import { Prescription } from './../../models/prescription/prescription.models';
 import { Injectable } from '@angular/core';
 import { API_URL } from '../../shared/config';
 import { Observable } from 'rxjs';
@@ -15,6 +16,9 @@ export class PrescriptionService {
     addMedication(data:Drug): Observable<any> {
       return this.http.post<any>(`${this.url}/prescription/add-medication.php`, data);
     }
-  
+  addPrescription(data:Prescription): Observable<any>{
+    return this.http.post<any>(`${this.url}/prescription/add-prescription.php`, data);
+
+  }
 
 }

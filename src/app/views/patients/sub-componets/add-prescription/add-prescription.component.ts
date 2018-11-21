@@ -63,10 +63,10 @@ export class AddPrescriptionComponent implements OnInit {
                 // save the new drug in medication table and return the id
 
                 this.prescriptionService.addMedication(myDrug).subscribe(r=>{
-                    myDrug.medicaionId = r;
+                    myDrug.medicationId =  Number(r);
                 });
             } else{
-                myDrug.medicaionId = checkDrug[0].medicaionId;
+                myDrug.medicationId = Number(checkDrug[0].medicationId);
             }
 
             //now push the drug
@@ -83,6 +83,12 @@ export class AddPrescriptionComponent implements OnInit {
             patientId: this.patientId,
             drugs: this.selectedDrugs
         };
+
+        //save
+
+        this.prescriptionService.addPrescription(this.prescriptionObject).subscribe(r=>{
+            console.log(r)
+        })
     }
     popDrug(drug: Drug) {}
 }

@@ -1,11 +1,10 @@
 export interface Drug {
     id?: string;
     prescriptionId?: string;
-    medicationId?: string;
+    medicationId?: number;
     unit?: string;
     dosage?: string;
     createdate?: string;
-    medicaionId?: string;
     name?: string;
     description?: string;
     status?: string;
