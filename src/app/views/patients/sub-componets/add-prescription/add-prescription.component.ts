@@ -2,6 +2,7 @@ import { SelectService } from "./../../../../shared/services/select.service";
 import { Component, OnInit } from "@angular/core";
 import { Route, Router, ActivatedRoute } from "@angular/router";
 import { routerTransition } from "../../../../router.animations";
+import { Drug } from "../../../../models";
 
 @Component({
     selector: "app-add-prescription",
@@ -12,6 +13,7 @@ import { routerTransition } from "../../../../router.animations";
 export class AddPrescriptionComponent implements OnInit {
     patientId: number;
     drugs: Array<any>;
+    selectedDrugs: Array<Drug> = [{name:'TEST',description:'test',dosage:1,unit:2}];
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -39,5 +41,10 @@ export class AddPrescriptionComponent implements OnInit {
         this.results = this.results.filter(x =>
             x.toLowerCase().includes(event.query.toLowerCase())
         );
+    }
+    display: boolean = false;
+
+    showDialog() {
+        this.display = true;
     }
 }
