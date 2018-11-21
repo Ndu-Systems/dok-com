@@ -23,6 +23,7 @@ if(isset($UserId)){
     $prescription->diagnosis = $row->diagnosis;
     $prescription->boolPreasure = $row->boolPreasure;
     $prescription->pulseRate = $row->pulseRate;
+    $prescription->createdate = $row->createdate;
 
 	$prescription->GetDrugs($conn);
     // $prescription->GetUser($conn);
@@ -41,6 +42,7 @@ echo json_encode($rows);
     public $diagnosis;
     public $boolPreasure;
     public $pulseRate;
+    public $createdate;
 
     public $drugs;
     public $patient;

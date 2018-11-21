@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, Message } from 'primeng/api';
 import { PatientService } from '../../../services/patient';
 import { routerTransition } from '../../../router.animations';
-import { AppointmentService } from '../../../services';
+import { AppointmentService, PrescriptionService } from '../../../services';
 
 @Component({
   selector: 'app-view-patient',
@@ -20,6 +20,7 @@ export class ViewPatientComponent implements OnInit {
   msgs: Message[] = [];
   searchText : any
   appointments$ : Observable<any>
+  prescriptions$ : Observable<any>
   p : any
 
   constructor(
@@ -29,12 +30,14 @@ export class ViewPatientComponent implements OnInit {
     private confirmationService: ConfirmationService
     , private patientService : PatientService
     , private appointmentService : AppointmentService
+    , private prescriptionService : PrescriptionService
   ) { }
 
   ngOnInit() {
     this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
     this.patient$ = this.selectService.select(`patient WHERE  PatientId = ${this.patientId}`);
     this.appointments$  =this.selectService.select(`appointment WHERE  PatientId = ${this.patientId} AND StatusId = 1 ORDER BY ModifyDate DESC`);
+    this.prescriptions$  =this.prescriptionService.getPrescriptions(this.patientId);
   }
   showSuccess(msg) {
     this.msgs = [];
