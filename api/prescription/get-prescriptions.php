@@ -25,7 +25,7 @@ if(isset($UserId)){
     $prescription->pulseRate = $row->pulseRate;
 
 	$prescription->GetDrugs($conn);
-    $prescription->GetUser($conn);
+    // $prescription->GetUser($conn);
     
     $rows[] = $prescription;
         }
@@ -48,7 +48,7 @@ echo json_encode($rows);
 
     function GetDrugs($conn){
         $statement    = $conn->prepare("
-        select * from prescription_medication_drug inner join  medication on prescription_medication_drug.medicationId =  medication.medicaionId
+        select * from prescription_medication_drug inner join  medication on prescription_medication_drug.medicationId =  medication.medicationId
         where prescription_medication_drug.prescriptionId = ?");
         $statement->execute(array(
             $this->prescriptionId

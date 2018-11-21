@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2018 at 01:09 PM
+-- Generation Time: Nov 21, 2018 at 02:10 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -61,18 +61,24 @@ INSERT INTO `appointment` (`AppointmentId`, `PatientId`, `StartDate`, `EndDate`,
 --
 
 CREATE TABLE `medication` (
-  `medicaionId` int(10) NOT NULL,
+  `medicationId` int(10) NOT NULL,
   `name` varchar(250) NOT NULL,
   `description` text NOT NULL,
-  `createdate` datetime NOT NULL
+  `createdate` datetime NOT NULL,
+  `status` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `medication`
 --
 
-INSERT INTO `medication` (`medicaionId`, `name`, `description`, `createdate`) VALUES
-(1, 'pain killers', 'pain killers', '2018-11-19 00:00:00');
+INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `status`) VALUES
+(1, 'pain killers', 'pain killers', '2018-11-19 00:00:00', 1),
+(2, 'cough mixer', 'cough mixer', '2018-11-21 10:26:41', 1),
+(3, 'e', 'e', '2018-11-21 10:31:46', 1),
+(4, 'test 1', 'test 1', '2018-11-21 10:34:31', 1),
+(5, 'pain killers 2', 'pain killers 2', '2018-11-21 13:43:55', 1),
+(6, 'cough mixer 5', 'cough mixer 5', '2018-11-21 13:47:30', 1);
 
 -- --------------------------------------------------------
 
@@ -119,15 +125,19 @@ CREATE TABLE `prescription` (
   `patientId` int(10) NOT NULL,
   `diagnosis` text NOT NULL,
   `boolPreasure` varchar(150) NOT NULL,
-  `pulseRate` varchar(150) NOT NULL
+  `pulseRate` varchar(150) NOT NULL,
+  `createdate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prescription`
 --
 
-INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`) VALUES
-(1, 1, 'Flue', '10', '10');
+INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`) VALUES
+(1, 1, 'Flue', '10', '10', '0000-00-00 00:00:00'),
+(8, 3, 'hedeche', '22', '22', '2018-11-21 13:56:32'),
+(9, 3, 'sasds', 'dsad', '21', '2018-11-21 14:01:40'),
+(10, 3, 'flue johh', '22', '22', '2018-11-21 15:05:10');
 
 -- --------------------------------------------------------
 
@@ -149,7 +159,10 @@ CREATE TABLE `prescription_medication_drug` (
 --
 
 INSERT INTO `prescription_medication_drug` (`id`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`) VALUES
-(1, 1, 1, '1', '2 tablets 3 times a day', '2018-11-19 00:00:00');
+(1, 1, 1, '1', '2 tablets 3 times a day', '2018-11-19 00:00:00'),
+(2, 9, 1, '1', '1', '2018-11-21 14:01:40'),
+(3, 10, 6, '1', '2 time a day', '2018-11-21 15:05:10'),
+(4, 10, 5, '1', '3 time a day', '2018-11-21 15:05:10');
 
 -- --------------------------------------------------------
 
@@ -217,7 +230,7 @@ ALTER TABLE `appointment`
 -- Indexes for table `medication`
 --
 ALTER TABLE `medication`
-  ADD PRIMARY KEY (`medicaionId`);
+  ADD PRIMARY KEY (`medicationId`);
 
 --
 -- Indexes for table `patient`
@@ -263,7 +276,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `medicaionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `medicationId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -275,13 +288,13 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `prescription_medication_drug`
 --
 ALTER TABLE `prescription_medication_drug`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `statuses`
