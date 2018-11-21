@@ -56,6 +56,25 @@
                 </div>
               </fieldset>
 
+
+              <fieldset class="form-group">
+                <div class="row">
+                  <label class="col-md-2">Select Drugs:</label>
+                  <div class="input-group mb-3 col-md-6 ">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">
+                        <li class="fa fa-prescription-bottle-alt"></li>
+                      </span>
+                    </div>
+                    
+                      <p-autoComplete [(ngModel)]="text" [suggestions]="results"    (completeMethod)="search($event)"></p-autoComplete>
+                      <a  class="btn rounded-btn" (click)="add()">Add Prescription</a> &nbsp;
+
+                  </div>
+                </div>
+              </fieldset>
+
+
               <div class="justify-content-center">
                 <a  class="btn rounded-btn" (click)="add()">Add Prescription</a> &nbsp;
                 <a  class="btn rounded-btn" [routerLink]="['/patients/view',patientId]">Abort</a>

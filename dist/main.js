@@ -742,12 +742,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var primeng_schedule__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/schedule */ "./node_modules/primeng/schedule.js");
 /* harmony import */ var primeng_schedule__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(primeng_schedule__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/autocomplete */ "./node_modules/primeng/autocomplete.js");
+/* harmony import */ var primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
 
 var PrimeNg = [
-    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"], primeng_schedule__WEBPACK_IMPORTED_MODULE_3__["ScheduleModule"]
+    primeng_chart__WEBPACK_IMPORTED_MODULE_0__["ChartModule"], primeng_growl__WEBPACK_IMPORTED_MODULE_1__["GrowlModule"], primeng_confirmdialog__WEBPACK_IMPORTED_MODULE_2__["ConfirmDialogModule"], primeng_schedule__WEBPACK_IMPORTED_MODULE_3__["ScheduleModule"], primeng_autocomplete__WEBPACK_IMPORTED_MODULE_4__["AutoCompleteModule"]
 ];
 
 
