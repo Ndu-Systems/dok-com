@@ -26,7 +26,11 @@ html {
 body{
     background-color:  #222 ;
 }
+.card{
+    background-color: #222;
+    color: #95A5A6;
 
+}
 .card-table {
     background-color:  #222 ;
     color: #95A5A6;
@@ -39,7 +43,7 @@ body{
     }
      
 }
-.Search{
+.Search,.textbox-dark{
     background-color: #222;
     border: none;
     border-bottom: 2px solid #95A5A6;
@@ -86,6 +90,16 @@ body{
 
 .rounded-btn-success{
     border: 2px solid  #2ecc71 ;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    color: rgba(255, 255, 255, 0.8);
+    background: #222;
+    font-size: 18px;
+    line-height: 40px;
+    padding: 0 25px;
+}
+.rounded-btn-warning{
+    border: 2px solid  #F39C12 ;
     -webkit-border-radius: 50px;
     border-radius: 50px;
     color: rgba(255, 255, 255, 0.8);

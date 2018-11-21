@@ -20,7 +20,7 @@
                         <li class="fa fa-user"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].FirstName" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="First Name"
+                    <input type="text" [(ngModel)]="patient[0].FirstName" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="First Name"
                       aria-label="FirstName" aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -36,7 +36,7 @@
                         <li class="fa fa-user"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].Surname" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Surname"
+                    <input type="text" [(ngModel)]="patient[0].Surname" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="Surname"
                       aria-label="Surname" aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                         <li class="fa fa-envelope"></li>
                       </span>
                     </div>
-                    <input type="email" [(ngModel)]="patient[0].Email" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Email" aria-label="Email"
+                    <input type="email" [(ngModel)]="patient[0].Email" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="Email" aria-label="Email"
                       aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -68,7 +68,7 @@
                         <li class="fa fa-phone"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].Cellphone" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Cellphone Number"
+                    <input type="text" [(ngModel)]="patient[0].Cellphone" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="Cellphone Number"
                       aria-label="Cellphone" aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -84,7 +84,7 @@
                         <li class="fa fa-home"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].AddressLine1" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Address Line 1"
+                    <input type="text" [(ngModel)]="patient[0].AddressLine1" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="Address Line 1"
                       aria-label="AddressLine1" aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -100,7 +100,7 @@
                         <li class="fa fa-home"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].AddressLine2" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="AddressLine2"
+                    <input type="text" [(ngModel)]="patient[0].AddressLine2" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="AddressLine2"
                       aria-label="AddressLine2" aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -116,7 +116,7 @@
                         <li class="fa fa-home"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].AddressLine3" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Address Line 3"
+                    <input type="text" [(ngModel)]="patient[0].AddressLine3" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="Address Line 3"
                       aria-label="AddressLine3" aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -132,7 +132,7 @@
                         <li class="fa fa-home"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].City" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="City" aria-label="City"
+                    <input type="text" [(ngModel)]="patient[0].City" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="City" aria-label="City"
                       aria-describedby="basic-addon1">
                   </div>
                 </div>
@@ -148,14 +148,14 @@
                         <li class="fa fa-home"></li>
                       </span>
                     </div>
-                    <input type="text" [(ngModel)]="patient[0].PostCode" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Postal Code"
+                    <input type="text" [(ngModel)]="patient[0].PostCode" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark" placeholder="Postal Code"
                       aria-label="PostCode" aria-describedby="basic-addon1">
                   </div>
                 </div>
               </fieldset>
               <div class="justify-content-center">
-                <a  class="btn rounded-btn" (click)="save(patient[0])">Save</a> &nbsp;
-                <a  class="btn rounded-btn" [routerLink]="['/patients']">Abort</a>
+                <a  class="btn rounded-btn-success" (click)="save(patient[0])">Save</a> &nbsp;
+                <a  class="btn rounded-btn-warning" [routerLink]="['/patients']">Abort</a>
               </div>
             </form>
 
