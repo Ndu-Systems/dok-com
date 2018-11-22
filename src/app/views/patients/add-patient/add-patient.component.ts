@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../../../services';
 import { Message } from 'primeng/api';
@@ -13,6 +13,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   animations: [routerTransition()]
 })
 export class AddPatientComponent implements OnInit {
+  @Output() closePopupEmitter:EventEmitter<boolean> =new EventEmitter();
 
   
 
@@ -103,10 +104,8 @@ export class AddPatientComponent implements OnInit {
      .subscribe(response => {
         if(response == 1){
           this.showSuccess();
-              setTimeout(() => {          
-                 this.router.navigate(['/patients']);
-            
-              }, 2000);  
+          this.closePopupEmitter.emit(false);
+ 
         }
      });
     

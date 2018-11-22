@@ -18,13 +18,20 @@ export class ListPatientsComponent implements OnInit {
   patients$ : Observable<any>;  
   searchText:string;
   p : any
-
+    showAddModal:boolean = false;
   constructor(
     private selectService : SelectService ,
     private route : Router,
     private modalService: NgbModal
   ) { }
+showAdd(){
+    this.showAddModal = true;
+}
+onCloseAdd(b: boolean): void {
+    this.showAddModal = b;
+    this.patients$ = this.selectService.select("patient WHERE  StatusId = 1 ORDER BY CreateDate DESC ");
 
+}
   ngOnInit() {
     this.patients$ = this.selectService.select("patient WHERE  StatusId = 1 ORDER BY CreateDate DESC ");
   }
@@ -34,14 +41,6 @@ export class ListPatientsComponent implements OnInit {
 
   //modal
   closeResult: string;
-
-  open(content) {
-      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-          this.closeResult = `Add Customer Closed with: ${result}`;
-      }, (reason) => {
-          this.closeResult = `Add Customer Dismissed ${this.getDismissReason(reason)}`;
-      });
-  }
 
   private getDismissReason(reason: any): string {
       if (reason === ModalDismissReasons.ESC) {
