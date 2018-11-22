@@ -1,4 +1,4 @@
-export const IS_LOCAL = true;
+export const IS_LOCAL = false;
 let api = 'http://dokio.ndu-systems.net/api';
 let web = 'http://dokio.ndu-systems.net';
 if (IS_LOCAL) {
@@ -8,3 +8,4 @@ if (IS_LOCAL) {
 
 export const   API_URL = api;
 export const  WEB_HOST = web;
+    

@@ -19,6 +19,7 @@ export class AddPrescriptionComponent implements OnInit {
     diagnosis: any;
     boolPreasure: any;
     pulseRate: any;
+    msgs: any;
 
     selectedDrug: Drug = { name: "" };
 

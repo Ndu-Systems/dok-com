@@ -32,10 +32,10 @@
                 <tr>
                   <td></td>
                   <td>
-                    <a class="btn rounded-btn"  (click)="prescribe()" ><i class="fa fa-prescription-bottle-alt"></i>Prescribe</a>    &nbsp;
-                    <a class="btn rounded-btn"  (click)="appointment()" ><li class="fa fa-calendar"></li> Create Appointment</a>    &nbsp;
-                    <a class="btn rounded-btn"  (click)="edit(patient[0])" ><li class="fa fa-edit"></li> Edit</a>    &nbsp;
-                    <a class="btn rounded-btn"  (click)="archivePatient(patient[0])" ><li class="fa fa-trash"></li> Archive</a>              
+                    <a class="btn  rounded-btn-success"  (click)="prescribe()" ><i class="fa fa-prescription-bottle-alt"></i>Prescribe</a>    &nbsp;
+                    <a class="btn  rounded-btn-success"  (click)="appointment()" ><li class="fa fa-calendar"></li> Create Appointment</a>    &nbsp;
+                    <a class="btn  rounded-btn-info"  (click)="edit(patient[0])" ><li class="fa fa-edit"></li> Edit</a>    &nbsp;
+                    <a class="btn rounded-btn-warning"  (click)="archivePatient(patient[0])" ><li class="fa fa-trash"></li> Archive</a>              
 
                   </td>
                 </tr>
@@ -63,13 +63,13 @@
                   <li class="fa fa-search"></li>
                 </span>
               </div>
-              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Search..."
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search" placeholder="Search..."
                 aria-label="Search" aria-describedby="basic-addon1">
             </div>
           </div>
         </div>
         <div class="card-body table-responsive">
-          <table class="table table-bordered" *ngIf="prescriptions$ | async as prescriptions">
+          <table class="table card-table" *ngIf="prescriptions$ | async as prescriptions">
             <thead>
               <tr>
                 <th>Diagnosis</th>
@@ -81,8 +81,8 @@
               <tr *ngFor="let item of prescriptions | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
                 <td>{{item.diagnosis}}</td>
                 <td>{{item.createdate| date:'mediumDate'}}</td>
-                <td><a class="btn rounded-btn" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
-                  <a class="btn rounded-btn"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Print</a>              
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
+                  <a class="btn rounded-btn-warning"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Print</a>              
                 </td>
                 
               </tr>
@@ -114,13 +114,13 @@
                   <li class="fa fa-search"></li>
                 </span>
               </div>
-              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Search..."
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search" placeholder="Search..."
                 aria-label="Search" aria-describedby="basic-addon1">
             </div>
           </div>
         </div>
         <div class="card-body table-responsive">
-          <table class="table table-bordered" *ngIf="appointments$ | async as appointments">
+          <table class="table card-table" *ngIf="appointments$ | async as appointments">
             <thead>
               <tr>
                 <th>#</th>                
@@ -134,8 +134,8 @@
                 <th scope="row">{{item.AppointmentId}}</th>                
                 <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>
                 <td>{{item.Description}}</td>
-                <td><a class="btn rounded-btn" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
-                  <a class="btn rounded-btn"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Archive</a>              
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
+                  <a class="btn rounded-btn-warning"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Archive</a>              
                 </td>
                 
               </tr>

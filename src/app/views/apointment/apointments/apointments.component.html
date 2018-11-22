@@ -2,11 +2,11 @@
   <app-page-header [heading]="'Appointments'" [icon]="'fa-calendar'"></app-page-header>
   <div class="row">
     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <div class="card mb-3">
+      <div class="card card-table mb-3">
         <div class="card-header">
           <div class="row">
             <div class="col-md-6">
-              <a class="btn rounded-btn" [routerLink]="['/patients']">New Appointment </a>
+              <a class="btn rounded-btn-success" [routerLink]="['/patients']">New Appointment </a>
             </div>
             <div class="input-group mb-3 col-md-6">
               <div class="input-group-prepend">
@@ -14,7 +14,7 @@
                   <li class="fa fa-search"></li>
                 </span>
               </div>
-              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Search..."
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search" placeholder="Search..."
                 aria-label="Search" aria-describedby="basic-addon1">
             </div>
           </div>
@@ -40,7 +40,7 @@
                 <td>{{item.Cellphone}}</td>
                 <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>
                 <td>{{item.Description}}</td>
-                <td><a class="btn rounded-btn" [routerLink]="['/appointments/edit']" (click)="edit(item)" >Edit</a></td>
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="edit(item)" >Edit</a></td>
               </tr>
             </tbody>
           </table>
