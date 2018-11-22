@@ -1,4 +1,4 @@
-export const IS_LOCAL = false;
+export const IS_LOCAL = true;
 let api = 'http://dokio.ndu-systems.net/api';
 let web = 'http://dokio.ndu-systems.net';
 if (IS_LOCAL) {

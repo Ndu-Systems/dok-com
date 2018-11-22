@@ -111,3 +111,20 @@ body{
 .breadcrumb-item.active {
     color: #95A5A6;
 }
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #263238 ;
+    background-clip: padding-box;
+    border: none;
+    border-radius: none; 
+    color: #95A5A6;
+}
+
+button.close{
+    color: #95A5A6;
+}

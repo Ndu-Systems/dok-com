@@ -3,6 +3,7 @@ import { SelectService } from '../../../shared';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { routerTransition } from '../../../router.animations';
+import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-list-patients',
@@ -18,7 +19,8 @@ export class ListPatientsComponent implements OnInit {
 
   constructor(
     private selectService : SelectService ,
-    private route : Router
+    private route : Router,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -26,5 +28,26 @@ export class ListPatientsComponent implements OnInit {
   }
   view(patient){ 
     this.route.navigate(['/patients/view', patient.PatientId]);
+  }
+
+  //modal
+  closeResult: string;
+
+  open(content) {
+      this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+          this.closeResult = `Add Customer Closed with: ${result}`;
+      }, (reason) => {
+          this.closeResult = `Add Customer Dismissed ${this.getDismissReason(reason)}`;
+      });
+  }
+
+  private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+          return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+          return 'by clicking on a backdrop';
+      } else {
+          return `with: ${reason}`;
+      }
   }
 }

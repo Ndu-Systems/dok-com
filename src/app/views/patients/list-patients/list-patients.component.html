@@ -6,7 +6,8 @@
         <div class="card-header">
           <div class="row">
             <div class="col-md-6">
-              <a class="btn rounded-btn-success" [routerLink]="['/patients/add']">Add Patient </a>
+              <!-- <a class="btn rounded-btn-success" [routerLink]="['/patients/add']">Add Patient </a> -->
+              <a class="btn rounded-btn-success" (click)="open(content)">Add Patient </a>
             </div>
             <div class="input-group mb-3 col-md-6">
               <div class="input-group-prepend">
@@ -14,8 +15,8 @@
                   <li class="fa fa-search"></li>
                 </span>
               </div>
-              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search" placeholder="Search..."
-                aria-label="Search" aria-describedby="basic-addon1">
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search"
+                placeholder="Search..." aria-label="Search" aria-describedby="basic-addon1">
             </div>
           </div>
         </div>
@@ -40,7 +41,7 @@
                 <td>{{item.Email}}</td>
                 <td>{{item.Cellphone}}</td>
                 <td>{{item.City}}</td>
-                <td><a class="btn rounded-btn-info" [routerLink]="['/patients/view']" (click)="view(item)" >View</a></td>
+                <td><a class="btn rounded-btn-info" [routerLink]="['/patients/view']" (click)="view(item)">View</a></td>
               </tr>
             </tbody>
           </table>
@@ -51,6 +52,23 @@
       </div>
 
     </div>
+
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Patient</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="col-md-10 offset-1">
+          <app-add-patient></app-add-patient>
+       </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn rounded-btn-warning" (click)="c('Close click')">Close</button>
+      </div>
+    </ng-template>
 
   </div>
 </div>
