@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { routerTransition } from '../../../router.animations';
 import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { IAddPatient } from '../../../models';
 
 @Component({
   selector: 'app-list-patients',
@@ -13,6 +14,7 @@ import { NgbModal,ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ListPatientsComponent implements OnInit {
 
+  patient : IAddPatient;
   patients$ : Observable<any>;  
   searchText:string;
   p : any

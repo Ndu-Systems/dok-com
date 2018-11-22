@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PatientService } from '../../../services';
 import { Message } from 'primeng/api';
 import { routerTransition } from '../../../router.animations';
+import { IAddPatient } from '../../../models';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-add-patient',
@@ -11,6 +13,8 @@ import { routerTransition } from '../../../router.animations';
   animations: [routerTransition()]
 })
 export class AddPatientComponent implements OnInit {
+
+  
 
   FirstName: string;
   Surname: string;
@@ -24,9 +28,11 @@ export class AddPatientComponent implements OnInit {
   msgs: Message[] = [];
   msg :string;
   constructor(    private router : Router,
-                  private patientService: PatientService) {
+                  private patientService: PatientService,
+                  public activeModal: NgbActiveModal) {
     
    }
+ 
   
   ngOnInit() {
   }
@@ -38,7 +44,7 @@ export class AddPatientComponent implements OnInit {
     this.msgs = [];
     this.msgs.push({ severity: 'warn', summary: 'Validation Message', detail: `${msg}` });
   }
-  add(){ 
+  add(){   
     this.msg = undefined;
     if(this.Email == undefined || this.Email === '') {
       this.showError("Please fill in Required Fields");

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ViewsComponent } from './views.component'; 
 import { TranslateModule } from '@ngx-translate/core';
-import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
  
 import { SidebarComponent } from '../layout/components/sidebar/sidebar.component';
@@ -16,8 +16,10 @@ import { ViewsRoutingModule } from '.';
     TranslateModule,
     NgbDropdownModule.forRoot(),
     NgbModule.forRoot()
+  
   ],
   declarations: [ViewsComponent, SidebarComponent, HeaderComponent ]
+  ,providers: [NgbActiveModal]
 })
 export class ViewsModule { }
 
