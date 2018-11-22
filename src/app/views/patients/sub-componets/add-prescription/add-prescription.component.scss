@@ -26,3 +26,6 @@
 .card {
     height: 700px;
 }
+::ng-deep  .ui-dialog{
+    background: #222;
+    }
