@@ -112,19 +112,22 @@ body{
     color: #95A5A6;
 }
 
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: #263238 ;
-    background-clip: padding-box;
-    border: none;
-    border-radius: none; 
+p-dialog {
+    background:  #263238 ;
+    z-index: 1050;
+}
+
+.ui-widget-header { 
+    background:  #263238 ;
+    color: #95A5A6;
+}
+.ui-dialog {
+    background: #263238;
+}
+.ui-dialog .ui-dialog-titlebar-icon {
     color: #95A5A6;
 }
 
-button.close{
-    color: #95A5A6;
+.ui-dialog-content{
+    height: 700px;
 }
