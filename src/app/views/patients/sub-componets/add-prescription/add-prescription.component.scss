@@ -29,3 +29,42 @@
 ::ng-deep  .ui-dialog{
     background: #222;
     }
+
+    
+p-dialog {
+    background:  #263238 ;
+    z-index: 1050;
+}
+
+.ui-widget-header { 
+    background:  #263238 ;
+    color: #95A5A6;
+}
+.ui-dialog {
+    background: #263238;
+    label{
+        color: #95A5A6;
+    }
+}
+.ui-dialog .ui-dialog-titlebar-icon {
+    color: #95A5A6;
+}
+
+.ui-dialog-content{
+    height: 700px;
+}
+
+.ui-autocomplete .ui-autocomplete-input {
+    padding-right: 1.5em;
+    width: 272px;
+    background-color: #222;
+    border: none;
+    border-bottom: 2px solid #95A5A6;
+}
+.ui-widget-content a {
+    color: #95A5A6;
+}
+a:not([href]):not([tabindex]) {
+    color: #95A5A6;
+    text-decoration: none;
+}

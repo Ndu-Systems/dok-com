@@ -25,3 +25,28 @@
 ::ng-deep  .ui-dialog{
 background: #222;
 }
+
+
+p-dialog {
+    background:  #263238 ;
+    z-index: 1050;
+}
+
+
+
+.ui-dialog .ui-dialog-titlebar-icon {
+    color: #95A5A6;
+}
+
+.ui-dialog-content{
+    height: 700px;
+}
+
+
+.ui-widget-content a {
+    color: #95A5A6;
+}
+a:not([href]):not([tabindex]) {
+    color: #95A5A6;
+    text-decoration: none;
+}
