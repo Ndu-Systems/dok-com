@@ -101,6 +101,7 @@ body{
     font-size: 18px;
     line-height: 40px;
     padding: 0 25px;
+    
 }
 .rounded-btn-warning{
     border: 2px solid  #F39C12 ;
@@ -116,19 +117,23 @@ body{
     color: #95A5A6;
 }
 
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    pointer-events: auto;
-    background-color: #263238 ;
-    background-clip: padding-box;
-    border: none;
-    border-radius: none; 
+.ui-widget-header { 
+    background:  #263238 ;
     color: #95A5A6;
 }
-
-button.close{
-    color: #95A5A6;
+.ui-autocomplete .ui-autocomplete-input {
+    padding-right: 1.5em;
+    width: 272px;
+    background-color: #222;
+    border: none;
+    border-bottom: 2px solid #95A5A6;
+}
+.ui-dialog {
+    background: #263238;
+    label{
+        color: #95A5A6;
+    }
+}
+.ui-widget-content {   
+    color: #95A5A6; 
 }

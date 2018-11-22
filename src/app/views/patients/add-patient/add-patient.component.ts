@@ -13,9 +13,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   animations: [routerTransition()]
 })
 export class AddPatientComponent implements OnInit {
-  @Output() closePopupEmitter:EventEmitter<boolean> =new EventEmitter();
-
-  
+  @Output() closePopupEmitter:EventEmitter<boolean> =new EventEmitter(); 
 
   FirstName: string;
   Surname: string;
@@ -91,21 +89,14 @@ export class AddPatientComponent implements OnInit {
       AddressLine2: this.AddressLine2 ,
       AddressLine3: this.AddressLine3 ,
       City: this.City ,
-      PostCode: this.PostCode ,
-      // GlobalKey: this.GlobalKey ,
-      // CreateUserId: this.CreateUserId,
-      // CreateDate: this.CreateDate ,
-      // ModifyUserId: this.ModifyUserId,
-      // ModifyDate: this.ModifyDate,
-      // StatusId: this.StatusId;
+      PostCode: this.PostCode       
       
     };
      this.patientService.addPatient(data)
      .subscribe(response => {
         if(response == 1){
           this.showSuccess();
-          this.closePopupEmitter.emit(false);
- 
+          this.closePopupEmitter.emit(false); 
         }
      });
     
