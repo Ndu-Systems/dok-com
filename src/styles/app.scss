@@ -35,6 +35,10 @@ body{
     background-color:  #222 ;
     color: #95A5A6;
     border: none;
+    -webkit-box-shadow: 10px 10px 23px 0px rgba(28,27,28,1);
+    -moz-box-shadow: 10px 10px 23px 0px rgba(28,27,28,1);
+    box-shadow: 10px 10px 23px 0px rgba(28,27,28,1);
+
     td, th, tr{
         border:none;
     }
