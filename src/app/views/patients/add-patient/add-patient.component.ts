@@ -102,4 +102,8 @@ export class AddPatientComponent implements OnInit {
     
   }
 
+  abort(){
+    this.closePopupEmitter.emit(false); 
+  }
+
 }
