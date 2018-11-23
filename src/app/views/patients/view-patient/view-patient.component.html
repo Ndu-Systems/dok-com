@@ -8,7 +8,7 @@
         <div class="card-header">
         </div>
         <div class="card-body table-responsive">
-          <div class="col-lg-10 offset-1">
+          <!-- <div class="col-lg-10 offset-1">
             <table class="table">
               <thead class="mdb-color darken-3">
                 <tr>
@@ -16,7 +16,7 @@
                   <th>Value</th>
                 </tr>
               </thead>
-              <tbody *ngIf="patient$ | async as patient">
+              <tbody >
                 <tr>
                   <td>Full Name:</td>
                   <td>{{patient[0].FirstName}} {{patient[0].Surname}}</td>
@@ -41,14 +41,45 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> -->
         </div>
       </div>
 
     </div>
 
   </div>
-
+  <div class="row">
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card mb-3" *ngIf="patient$ | async as patient">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Patient's Details</h3>
+              </div>
+              <div class="input-group mb-3 col-md-6">
+                    <a class="btn  rounded-btn-info"  (click)="edit(patient[0])" >Edit Pateint</a>    &nbsp;
+                  <a class="btn rounded-btn-warning"  (click)="archivePatient(patient[0])" >Archive Pateint</a> 
+                </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                   <h4><b>Full Name:</b>&nbsp;{{patient[0].FirstName}} {{patient[0].Surname}}</h4>
+                   <h4><b>Identity #:</b>&nbsp;000000000000000</h4>                  
+                   </div>
+                   <div class="col-md-6">
+                     <h4><b>Email Address:</b>&nbsp; {{patient[0].Email}}</h4>
+                     <h4><b>Contact Number:</b>&nbsp;{{patient[0].Cellphone}}</h4>
+                   </div>
+            </div>        
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  
   <div class="row">
     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div class="card mb-3">
@@ -69,6 +100,9 @@
           </div>
         </div>
         <div class="card-body table-responsive">
+          <div class="row">
+              <a class="btn  rounded-btn-success"  (click)="prescribe()" >New Prescription</a>    &nbsp;
+          </div>
           <table class="table card-table" *ngIf="prescriptions$ | async as prescriptions">
             <thead>
               <tr>
@@ -120,6 +154,9 @@
           </div>
         </div>
         <div class="card-body table-responsive">
+          <div class="row">
+              <a class="btn  rounded-btn-success"  (click)="appointment()" >New Appointment</a>
+          </div>
           <table class="table card-table" *ngIf="appointments$ | async as appointments">
             <thead>
               <tr>
