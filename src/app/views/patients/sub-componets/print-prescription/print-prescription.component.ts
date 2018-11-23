@@ -39,7 +39,7 @@ export class PrintPrescriptionComponent implements OnInit {
       let pdf = new jspdf('p', 'mm', 'a4'); //A4 size of the pdf
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth,imgHeight);
-      pdf.save(`prescription for test.pdf`);//Generates pdf
+      pdf.save(`prescription for ${this.patient.FirstName} ${this.patient.Surname} ${this.patient.IdNumber}.pdf`);//Generates pdf
     })
   }
 }
