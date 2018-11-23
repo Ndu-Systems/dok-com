@@ -1,53 +1,7 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'View Patient'" [icon]="'fa-user'"></app-page-header>
   <p-growl [(value)]="msgs"></p-growl>
-  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>
-  <div class="row">
-    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
-      <div class="card mb-3">
-        <div class="card-header">
-        </div>
-        <div class="card-body table-responsive">
-          <!-- <div class="col-lg-10 offset-1">
-            <table class="table">
-              <thead class="mdb-color darken-3">
-                <tr>
-                  <th>Details</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody >
-                <tr>
-                  <td>Full Name:</td>
-                  <td>{{patient[0].FirstName}} {{patient[0].Surname}}</td>
-                </tr>
-                <tr>
-                  <td>Contact Number:</td>
-                  <td>{{patient[0].Cellphone}}</td>
-                </tr>
-                <tr>
-                  <td>Email:</td>
-                  <td>{{patient[0].Email}}</td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>
-                    <a class="btn  rounded-btn-success"  (click)="prescribe()" ><i class="fa fa-prescription-bottle-alt"></i>Prescribe</a>    &nbsp;
-                    <a class="btn  rounded-btn-success"  (click)="appointment()" ><li class="fa fa-calendar"></li> Create Appointment</a>    &nbsp;
-                    <a class="btn  rounded-btn-info"  (click)="edit(patient[0])" ><li class="fa fa-edit"></li> Edit</a>    &nbsp;
-                    <a class="btn rounded-btn-warning"  (click)="archivePatient(patient[0])" ><li class="fa fa-trash"></li> Archive</a>              
-
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
-        </div>
-      </div>
-
-    </div>
-
-  </div>
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>   
   <div class="row">
       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
         <div class="card mb-3" *ngIf="patient$ | async as patient">
