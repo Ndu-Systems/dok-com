@@ -17,6 +17,9 @@ if (isset($data->Email) )
 	$AddressLine3 	= $data->AddressLine3; 
 	$City 	= $data->City; 
 	$PostCode 	= $data->PostCode; 
+	$IdNumber = $data->IdNumber; 
+	$DOB =$data->DOB;
+	$Gender =$data->Gender;
 	$CreateUserId 	= 1; 
 	$ModifyUserId 	= 1; 
 	$StatusId = 1;
@@ -25,9 +28,9 @@ if (isset($data->Email) )
 	$result->execute(array($Email));
 		if ($result->rowCount() == 0) 
 		{
-				$result = $conn->prepare("INSERT INTO patient(  FirstName, Surname, Email,Cellphone, AddressLine1, AddressLine2, AddressLine3, City, PostCode, GlobalKey, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
-												VALUES ( ?,?,?,?,?,?,?,?,?,UUID(),?,now(),?,now(),?)"); 
-				if($result->execute(array($FirstName,$Surname,$Email,$Cellphone, $AddressLine1, $AddressLine2, $AddressLine3, $City,$PostCode,$CreateUserId,$ModifyUserId,$StatusId ))){
+				$result = $conn->prepare("INSERT INTO patient(  FirstName, Surname,IdNumber, DOB, Gender, Email,Cellphone, AddressLine1, AddressLine2, AddressLine3, City, PostCode, GlobalKey, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
+												VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,UUID(),?,now(),?,now(),?)"); 
+				if($result->execute(array($FirstName,$Surname,$IdNumber,$DOB,$Gender,$Email,$Cellphone, $AddressLine1, $AddressLine2, $AddressLine3, $City,$PostCode,$CreateUserId,$ModifyUserId,$StatusId ))){
 					echo 1;
 				}
 				else{

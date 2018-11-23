@@ -8,7 +8,7 @@ $data = json_decode(file_get_contents("php://input"));
 if (isset($data->name)) {
     $name          = $data->name;
     $description          = $data->name;
-    $status          = 1;
+    $StatusId          = 1;
 
     $check = $conn->prepare("SELECT * FROM medication WHERE name = ?");
     $check->execute(array(
@@ -18,12 +18,12 @@ if (isset($data->name)) {
         die(json_encode('MEDICATION_EXIST'));
     }
     
-    $result = $conn->prepare("INSERT INTO medication( name, description, createdate, status) 
+    $result = $conn->prepare("INSERT INTO medication( name, description, createdate, StatusId) 
                                                 VALUES (?,?,now(),?)");
     if ($result->execute(array(
         $name,
         $description,
-        $status
+        $StatusId
     ))) {
         echo $conn->lastInsertId();
 

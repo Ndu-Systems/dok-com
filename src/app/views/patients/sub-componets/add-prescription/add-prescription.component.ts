@@ -76,6 +76,7 @@ export class AddPrescriptionComponent implements OnInit {
             this.selectedDrugs.push(myDrug);
 
     }
+    
     add() {
         this.prescriptionObject = {
             diagnosis: this.diagnosis,
@@ -92,4 +93,5 @@ export class AddPrescriptionComponent implements OnInit {
         })
     }
     popDrug(drug: Drug) {}
+    
 }

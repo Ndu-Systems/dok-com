@@ -6,7 +6,7 @@ import { ConfirmationService, Message } from 'primeng/api';
 import { PatientService } from '../../../services/patient';
 import { routerTransition } from '../../../router.animations';
 import { AppointmentService, PrescriptionService } from '../../../services';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-view-patient',
   templateUrl: './view-patient.component.html',
@@ -31,6 +31,7 @@ export class ViewPatientComponent implements OnInit {
     , private patientService : PatientService
     , private appointmentService : AppointmentService
     , private prescriptionService : PrescriptionService
+    , private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -130,4 +131,25 @@ export class ViewPatientComponent implements OnInit {
           }
         })
   }
+
+    //modal
+    closeResult: string;
+
+    open(content) {
+        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+            this.closeResult = `Print Details Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Print Details Dismissed ${this.getDismissReason(reason)}`;
+        });
+    }
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return `with: ${reason}`;
+        }
+    }
 }
