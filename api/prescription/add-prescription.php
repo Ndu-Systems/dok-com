@@ -10,26 +10,27 @@ if (isset($data->patientId)) {
     $boolPreasure = $data->boolPreasure;
     $pulseRate = $data->pulseRate;
     $drugs = $data->drugs;
-    $status = 1;
+    $StatusId          = 1;
 
 
-    $result = $conn->prepare("INSERT INTO  prescription(patientId, diagnosis, boolPreasure, pulseRate,createdate) 
-                                                VALUES (?,?,?,?,now())");
+    $result = $conn->prepare("INSERT INTO  prescription(patientId, diagnosis, boolPreasure, pulseRate,createdate,StatusId) 
+                                                VALUES (?,?,?,?,now(), ?)");
     if ($result->execute(array(
         $patientId,
         $diagnosis,
         $boolPreasure,
-        $pulseRate
+        $pulseRate,
+        $StatusId
     ))) {
         $prescriptionId = $conn->lastInsertId();
 
         //run a loop and insert  to 
         foreach ($drugs as $drug) {
             $result_drug = $conn->prepare("INSERT INTO  prescription_medication_drug
-            (prescriptionId, medicationId, unit, dosage, createdate) 
-            VALUES (?,?,?,?,now())");
+            (prescriptionId, medicationId, unit, dosage, createdate, StatusId) 
+            VALUES (?,?,?,?,now(), ?)");
 
-            if ($result_drug->execute(array($prescriptionId, $drug->medicationId, $drug->unit, $drug->dosage))) {
+            if ($result_drug->execute(array($prescriptionId, $drug->medicationId, $drug->unit, $drug->dosage, 1))) {
                 $done = true;
             } else {
                 echo json_encode("prescription_medication_drug_error");

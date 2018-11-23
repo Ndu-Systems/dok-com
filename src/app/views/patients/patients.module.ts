@@ -12,12 +12,13 @@ import { PatientService } from '../../services';
 import { ViewPatientComponent } from './view-patient';
 import { ConfirmationService } from 'primeng/api';
 import { EditPatientComponent } from './edit-patient';
+import { PrintPrescriptionComponent } from './sub-componets/print-prescription';
 
 
 @NgModule({
     imports: [CommonModule, FormsModule, Ng2SearchPipeModule, ...PrimeNg, NgxPaginationModule,
         ReactiveFormsModule, PatientsRoutes, PageHeaderModule],
-    declarations: [ListPatientsComponent, AddPatientComponent, ViewPatientComponent, EditPatientComponent,AddPrescriptionComponent],
+    declarations: [ListPatientsComponent, AddPatientComponent, ViewPatientComponent, EditPatientComponent,AddPrescriptionComponent, PrintPrescriptionComponent],
     exports: [...PrimeNg],
     providers: [PatientService, ConfirmationService]
 })

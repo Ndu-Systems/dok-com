@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2018 at 09:36 AM
+-- Generation Time: Nov 23, 2018 at 11:19 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -61,15 +61,16 @@ CREATE TABLE `medication` (
   `name` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `createdate` datetime NOT NULL,
-  `status` int(10) NOT NULL
+  `StatusId` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `medication`
 --
 
-INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `status`) VALUES
-(1, 'Flue cough', 'Flue cough', '2018-11-23 10:24:25', 1);
+INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `StatusId`) VALUES
+(1, 'Flue cough', 'Flue cough', '2018-11-23 10:24:25', 1),
+(2, 'Panado', 'Panado', '2018-11-23 12:19:11', 1);
 
 -- --------------------------------------------------------
 
@@ -118,15 +119,17 @@ CREATE TABLE `prescription` (
   `diagnosis` text NOT NULL,
   `boolPreasure` varchar(150) NOT NULL,
   `pulseRate` varchar(150) NOT NULL,
-  `createdate` datetime NOT NULL
+  `createdate` datetime NOT NULL,
+  `StatusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prescription`
 --
 
-INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`) VALUES
-(1, 1, 'Flue', '100', '100', '2018-11-23 10:24:31');
+INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`, `StatusId`) VALUES
+(1, 1, 'Flue', '100', '100', '2018-11-23 10:24:31', 1),
+(2, 1, 'Headaches', '50', '50', '2018-11-23 12:19:13', 1);
 
 -- --------------------------------------------------------
 
@@ -140,15 +143,17 @@ CREATE TABLE `prescription_medication_drug` (
   `medicationId` int(10) NOT NULL,
   `unit` varchar(150) NOT NULL,
   `dosage` varchar(150) NOT NULL,
-  `createdate` datetime NOT NULL
+  `createdate` datetime NOT NULL,
+  `StatusId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prescription_medication_drug`
 --
 
-INSERT INTO `prescription_medication_drug` (`id`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`) VALUES
-(1, 1, 1, '1', '3', '2018-11-23 10:24:31');
+INSERT INTO `prescription_medication_drug` (`id`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`, `StatusId`) VALUES
+(1, 1, 1, '1', '3', '2018-11-23 10:24:31', 1),
+(2, 2, 2, '1', '3', '2018-11-23 12:19:14', 1);
 
 -- --------------------------------------------------------
 
@@ -262,7 +267,7 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `medicationId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `medicationId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -274,13 +279,13 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `prescription_medication_drug`
 --
 ALTER TABLE `prescription_medication_drug`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `statuses`
