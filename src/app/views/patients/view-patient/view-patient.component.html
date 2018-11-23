@@ -1,10 +1,10 @@
-<div [@routerTransition]>
+<div [@routerTransition] *ngIf="patient$ | async as patient">
   <app-page-header [heading]="'View Patient'" [icon]="'fa-user'"></app-page-header>
   <p-growl [(value)]="msgs"></p-growl>
   <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>   
   <div class="row">
       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
-        <div class="card mb-3" *ngIf="patient$ | async as patient">
+        <div class="card mb-3">
           <div class="card-header">
             <div class="row">
               <div class="col-md-6">
@@ -36,7 +36,7 @@
   
       </div>
   
-    </div>
+  </div>
   
   <div class="row">
     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -74,11 +74,25 @@
                 <td>{{item.diagnosis}}</td>
                 <td>{{item.createdate| date:'mediumDate'}}</td>
                 <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" > Edit</a> &nbsp;
-                  <a class="btn rounded-btn-success">Print</a>              
+                  <a class="btn rounded-btn-success" (click)="open(content)">Print</a>              
                 </td>
-                
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Print {{patient[0].FirstName}} {{patient[0].Surname}}'s Prescription</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <app-print-prescription [prescription]="item" [patient]="patient[0]"></app-print-prescription>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                    </div>
+                </ng-template>
               </tr>
             </tbody>
+
           </table>
           <div class="justify-content-center">
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
@@ -87,10 +101,8 @@
       </div>
 
     </div>
-
+   
   </div>
-
-
 
   <div class="row">
     <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -145,4 +157,5 @@
     </div>
 
   </div>
+
 </div>
