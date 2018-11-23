@@ -23,7 +23,11 @@ export class AddPatientComponent implements OnInit {
   AddressLine2: string;
   AddressLine3: string;
   City: string;
-  PostCode: string;  
+  PostCode: string;
+  IdNumber: string;
+  DOB: string;
+  Gender: string;
+
   msgs: Message[] = [];
   msg :string;
   constructor(    private router : Router,
@@ -81,6 +85,7 @@ export class AddPatientComponent implements OnInit {
     }
 
     let data = {
+
       FirstName: this.FirstName,
       Surname: this.Surname ,
       Email: this.Email ,
@@ -89,9 +94,13 @@ export class AddPatientComponent implements OnInit {
       AddressLine2: this.AddressLine2 ,
       AddressLine3: this.AddressLine3 ,
       City: this.City ,
-      PostCode: this.PostCode       
+      PostCode: this.PostCode,
+      IdNumber: this.IdNumber,
+      DOB : this.DOB,
+      Gender: this.Gender    
       
     };
+    debugger
      this.patientService.addPatient(data)
      .subscribe(response => {
         if(response == 1){

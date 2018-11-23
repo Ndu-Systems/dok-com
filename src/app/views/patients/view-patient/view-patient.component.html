@@ -19,13 +19,17 @@
           <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                   <h4><b>Full Name:</b>&nbsp;{{patient[0].FirstName}} {{patient[0].Surname}}</h4>
-                   <h4><b>Identity #:</b>&nbsp;000000000000000</h4>                  
-                   </div>
+                   <h5><b>Full Name:</b>&nbsp;{{patient[0].FirstName}} {{patient[0].Surname}}</h5>
+                   <h5><b>Identity #:</b>&nbsp;{{patient[0].IdNumber}}</h5>  
+                   <h5><b>DOB :</b>&nbsp;{{patient[0].DOB}}</h5>  
+                   <h5><b>Gender :</b>&nbsp;{{patient[0].Gender}}</h5>  
+                  </div>
                    <div class="col-md-6">
-                     <h4><b>Email Address:</b>&nbsp; {{patient[0].Email}}</h4>
-                     <h4><b>Contact Number:</b>&nbsp;{{patient[0].Cellphone}}</h4>                     
-                   </div>
+                     <h5><b>Email Address:</b>&nbsp; {{patient[0].Email}}</h5>
+                     <h5><b>Contact Number:</b>&nbsp;{{patient[0].Cellphone}}</h5>                     
+                     <h5><b>Address:</b>&nbsp;{{patient[0].AddressLine1}}, {{patient[0].AddressLine2}}, {{patient[0].AddressLine3}}</h5>                     
+                     <h5><b>City:</b>&nbsp;{{patient[0].City}}, {{patient[0].PostCode}}</h5>                     
+                    </div>
             </div>        
           </div>
         </div>
@@ -69,8 +73,8 @@
               <tr *ngFor="let item of prescriptions | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
                 <td>{{item.diagnosis}}</td>
                 <td>{{item.createdate| date:'mediumDate'}}</td>
-                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
-                  <a class="btn rounded-btn-warning"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Print</a>              
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" > Edit</a> &nbsp;
+                  <a class="btn rounded-btn-success">Print</a>              
                 </td>
                 
               </tr>
@@ -125,8 +129,8 @@
                 <th scope="row">{{item.AppointmentId}}</th>                
                 <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>
                 <td>{{item.Description}}</td>
-                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" ><li class="fa fa-edit"></li> Edit</a> &nbsp;
-                  <a class="btn rounded-btn-warning"  (click)="archiveAppointment(item)" ><li class="fa fa-trash"></li> Archive</a>              
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" >Edit</a> &nbsp;
+                  <a class="btn rounded-btn-warning"  (click)="archiveAppointment(item)" > Archive</a>              
                 </td>
                 
               </tr>

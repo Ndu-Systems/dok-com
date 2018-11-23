@@ -1,98 +1,127 @@
 <form role="form">
-  <fieldset class="form-group">
-     
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-user"></li>
-          </span>
-        </div>
-        <input type="text" [(ngModel)]="FirstName" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="First Name" aria-label="FirstName" aria-describedby="basic-addon1">
-      </div>
- 
-  </fieldset>
-  <fieldset class="form-group">
-     
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-user"></li>
-          </span>
-        </div>
-        <input type="text" [(ngModel)]="Surname" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon1">
-      </div>
- 
-  </fieldset>
-  <fieldset class="form-group">
-     
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-envelope"></li>
-          </span>
-        </div>
-        <input type="email" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
-      </div>
-     
-  </fieldset>
-  <fieldset class="form-group">
-    
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-phone"></li>
-          </span>
-        </div>
-        <input type="text" [(ngModel)]="Cellphone" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="Cellphone Number" aria-label="Cellphone" aria-describedby="basic-addon1">
-      </div>
- 
-  </fieldset>
-  <fieldset class="form-group">
- 
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-home"></li>
-          </span>
-        </div>
-        <input type="text" [(ngModel)]="AddressLine1" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="Address Line 1" aria-label="AddressLine1" aria-describedby="basic-addon1">
-      </div>
- 
-  </fieldset>
-  <fieldset class="form-group">
-  
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-home"></li>
-          </span>
-        </div>
-        <input type="text" [(ngModel)]="AddressLine2" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="AddressLine2" aria-label="AddressLine2" aria-describedby="basic-addon1">
-      </div>
-  
-  </fieldset>
-  <fieldset class="form-group">
- 
-      <div class="input-group mb-1">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">
-            <li class="fa fa-home"></li>
-          </span>
-        </div>
-        <input type="text" [(ngModel)]="AddressLine3" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-          placeholder="Address Line 3" aria-label="AddressLine3" aria-describedby="basic-addon1">
-      </div>
-    
-  </fieldset>
   <div class="form-row">
-      <fieldset class="form-group col-md-8 col-sm-12">
-          
+      <fieldset class="form-group col-md-6">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-user"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="FirstName" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="First Name" aria-label="FirstName" aria-describedby="basic-addon1">
+          </div> 
+      </fieldset>
+      <fieldset class="form-group col-md-6">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-user"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="Surname" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon1">
+          </div> 
+      </fieldset>
+      <fieldset class="form-group col-md-6">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-id-card"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="IdNumber" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="ID Number" aria-label="IdNumber" aria-describedby="basic-addon1">
+          </div> 
+      </fieldset>
+      <fieldset class="form-group col-md-6">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-calendar"></li>
+              </span>
+            </div>
+            <input type="date" [(ngModel)]="DOB" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Date Of Birth" aria-label="DOB" aria-describedby="basic-addon1">
+          </div> 
+      </fieldset>
+      <fieldset class="form-group col-md-6">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-user"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="Gender" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Gender" aria-label="Gender" aria-describedby="basic-addon1">
+          </div> 
+      </fieldset>
+  </div>
+  
+  <div class="form-row">
+      <fieldset class="form-group col-md-6">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-envelope"></li>
+              </span>
+            </div>
+            <input type="email" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+          </div>     
+      </fieldset>
+      <fieldset class="form-group col-md-6">    
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-phone"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="Cellphone" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Cellphone Number" aria-label="Cellphone" aria-describedby="basic-addon1">
+          </div>     
+      </fieldset>
+  </div>
+  <div class="form-row">
+      <fieldset class="form-group col-md-6"> 
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-home"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="AddressLine1" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Address Line 1" aria-label="AddressLine1" aria-describedby="basic-addon1">
+          </div>
+     
+      </fieldset>
+      <fieldset class="form-group col-md-6">      
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-home"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="AddressLine2" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="AddressLine2" aria-label="AddressLine2" aria-describedby="basic-addon1">
+          </div>
+      
+      </fieldset>
+      <fieldset class="form-group">     
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">
+                <li class="fa fa-home"></li>
+              </span>
+            </div>
+            <input type="text" [(ngModel)]="AddressLine3" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
+              placeholder="Address Line 3" aria-label="AddressLine3" aria-describedby="basic-addon1">
+          </div>
+        
+      </fieldset>
+  </div>
+ 
+  <div class="form-row">
+      <fieldset class="form-group col-md-6 col-sm-12">          
             <div class="input-group mb-1">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">
@@ -100,11 +129,10 @@
                 </span>
               </div>
               <input type="text" [(ngModel)]="City" [ngModelOptions]="{standalone: true}" class="form-control textbox-dark"
-                placeholder="City" aria-label="City" aria-describedby="basic-addon1">
-       
+                placeholder="City" aria-label="City" aria-describedby="basic-addon1">       
           </div>
         </fieldset>
-        <fieldset class="form-group col-md-4  col-sm-12">       
+        <fieldset class="form-group col-md-6  col-sm-12">       
             <div class="input-group mb-1">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">
@@ -119,7 +147,7 @@
   </div>
   
   <div class="justify-content-center">
-    <a class="btn rounded-btn-success" (click)="add()" style="color: #95A5A6;">Add Patient</a> &nbsp;
+    <a class="btn rounded-btn-success" (click)="add()" style="color: #95A5A6;">Add Patient</a> &nbsp;&nbsp;
                 <a class="btn rounded-btn-warning" (click)="abort()" style="color: #95A5A6;">Abort</a>
   </div>
 </form>
