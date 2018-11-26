@@ -59,6 +59,8 @@ export class AddPrescriptionComponent implements OnInit {
     }
 
     pushDrug(drug: Drug) {
+        alert(JSON.stringify(drug.name));
+        if(drug.name == "") return false;
         let checkDrug = this.drugs.filter(
             x => x.name.toLocaleLowerCase() === drug.name.toLocaleLowerCase()
         );
@@ -107,6 +109,7 @@ export class AddPrescriptionComponent implements OnInit {
             this.error = "Enter pulse rate";
             return false;
         }
+        
         this.prescriptionObject = {
             diagnosis: this.diagnosis,
             boolPreasure: this.boolPreasure,
