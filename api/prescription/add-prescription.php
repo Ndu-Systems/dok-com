@@ -36,6 +36,7 @@ if (isset($data->patientId)) {
                 echo json_encode("prescription_medication_drug_error");
             }
         }
+        echo 1;
 
     } else {
         echo json_encode("error while trying to create medication, please try again");

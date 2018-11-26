@@ -76,11 +76,11 @@ git <div [@routerTransition]>
                                             <th scope="row">{{item.name}}</th>
                                             <td>{{item.unit}}</td>
                                             <td>{{item.dosage}}</td>
-                                            <td><a class="btn rounded-btn" (click)="view(item)">X</a></td>
+                                            <td><a class="btn rounded-btn-warning" (click)="popDrug(item)">X</a></td>
                                         </tr>
                                         <tr>
                                             <td colspan="5">
-                                                <a class="btn rounded-btn" (click)="showDialog()">+</a>
+                                                <a class="btn rounded-btn-success" (click)="showDialog()">+</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -143,7 +143,8 @@ git <div [@routerTransition]>
                                                 </div>
                                             </fieldset>
                                             <div class="justify-content-center">
-                                                <a class="btn rounded-btn" (click)="pushDrug(selectedDrug)">Save</a>
+                                                <a class="btn rounded-btn-success" (click)="pushDrug(selectedDrug)">Save</a>&nbsp;
+                                                <a class="btn rounded-btn-warning" (click)="closeModal()">Close</a>
 
                                             </div>
                                         </form>
@@ -153,12 +154,12 @@ git <div [@routerTransition]>
 
 
                             <div class="justify-content-center">
-                                <a class="btn rounded-btn" (click)="add()">Add Prescription</a> &nbsp;
-                                <a class="btn rounded-btn" [routerLink]="['/patients/view',patientId]">Abort</a>
+                                <a class="btn rounded-btn-success" (click)="add()">Add Prescription</a> &nbsp;
+                                <a class="btn rounded-btn-warning" [routerLink]="['/patients/view',patientId]">Abort</a>
                             </div>
-                            <pre>
-                                {{prescriptionObject|json}}
-                            </pre>
+                           <p style="color:#e74c3c; ;padding:2%">
+                               {{error}}
+                           </p>
                         </form>
 
                     </div>
