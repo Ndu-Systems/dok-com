@@ -84,13 +84,6 @@ export class AddPrescriptionComponent implements OnInit {
         this.selectedDrug = {};
     }
     popDrug(drug: Drug) {
-        let checkDrug = this.drugs.filter(
-            x => x.name.toLocaleLowerCase() === drug.name.toLocaleLowerCase()
-        );
-        let myDrug = { ...drug };
-        if (!checkDrug.length) {
-        }
-   
         let index = this.selectedDrugs
             .map(x => Number(x.medicationId))
             .indexOf(drug.medicationId);
