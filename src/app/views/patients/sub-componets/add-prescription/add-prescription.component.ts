@@ -59,7 +59,6 @@ export class AddPrescriptionComponent implements OnInit {
     }
 
     pushDrug(drug: Drug) {
-        alert(JSON.stringify(drug.name));
         if(drug.name == "") return false;
         let checkDrug = this.drugs.filter(
             x => x.name.toLocaleLowerCase() === drug.name.toLocaleLowerCase()
