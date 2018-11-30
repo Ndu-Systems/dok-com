@@ -12,7 +12,7 @@ import { PrescriptionService } from "../../../../services";
     animations: [routerTransition()]
 })
 export class AddPrescriptionComponent implements OnInit {
-    patientId: number;
+    patientId: string;
     drugs: Array<Drug>;
     selectedDrugs: Array<Drug> = [];
     prescriptionObject: Prescription;
@@ -31,7 +31,7 @@ export class AddPrescriptionComponent implements OnInit {
         private prescriptionService: PrescriptionService,
         private selectService: SelectService
     ) {
-        this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
+        this.patientId = this.route.snapshot.paramMap.get("id");
         this.selectService
             .select(`medication WHERE StatusId=1`)
             .subscribe(x => (this.drugs = x));

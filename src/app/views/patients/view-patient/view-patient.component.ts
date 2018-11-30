@@ -16,7 +16,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class ViewPatientComponent implements OnInit {
 
   patient$: Observable<any>
-  patientId: number
+  patientId: string;
   msgs: Message[] = [];
   searchText : any
   appointments$ : Observable<any>
@@ -35,9 +35,9 @@ export class ViewPatientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
-    this.patient$ = this.selectService.select(`patient WHERE  PatientId = ${this.patientId}`);
-    this.appointments$  =this.selectService.select(`appointment WHERE  PatientId = ${this.patientId} AND StatusId = 1 ORDER BY ModifyDate DESC`);
+    this.patientId = this.route.snapshot.paramMap.get("id");
+    this.patient$ = this.selectService.select(`patient WHERE  PatientId = '${this.patientId}'`);
+    this.appointments$  =this.selectService.select(`appointment WHERE  PatientId = '${this.patientId}' AND StatusId = 1 ORDER BY ModifyDate DESC`);
     this.prescriptions$  =this.prescriptionService.getPrescriptions(this.patientId);
   }
   showSuccess(msg) {

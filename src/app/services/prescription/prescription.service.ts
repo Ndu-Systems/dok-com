@@ -20,7 +20,7 @@ export class PrescriptionService {
     return this.http.post<any>(`${this.url}/prescription/add-prescription.php`, data);
 
   }
-  getPrescriptions(id:number): Observable<any>{
+  getPrescriptions(id:any): Observable<any>{
     return this.http.get<any>(`${this.url}/prescription/get-prescriptions.php?UserId=${id}`);
 
   }

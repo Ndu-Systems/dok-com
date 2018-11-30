@@ -28,8 +28,8 @@ if (isset($data->Email) )
 	$result->execute(array($Email));
 		if ($result->rowCount() == 0) 
 		{
-				$result = $conn->prepare("INSERT INTO patient(  FirstName, Surname,IdNumber, DOB, Gender, Email,Cellphone, AddressLine1, AddressLine2, AddressLine3, City, PostCode, GlobalKey, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
-												VALUES ( ?,?,?,?,?,?,?,?,?,?,?,?,UUID(),?,now(),?,now(),?)"); 
+				$result = $conn->prepare("INSERT INTO patient(PatientId,  FirstName, Surname,IdNumber, DOB, Gender, Email,Cellphone, AddressLine1, AddressLine2, AddressLine3, City, PostCode, GlobalKey, CreateUserId, CreateDate, ModifyUserId, ModifyDate, StatusId) 
+												VALUES (uuid(), ?,?,?,?,?,?,?,?,?,?,?,?,UUID(),?,now(),?,now(),?)"); 
 				if($result->execute(array($FirstName,$Surname,$IdNumber,$DOB,$Gender,$Email,$Cellphone, $AddressLine1, $AddressLine2, $AddressLine3, $City,$PostCode,$CreateUserId,$ModifyUserId,$StatusId ))){
 					echo 1;
 				}

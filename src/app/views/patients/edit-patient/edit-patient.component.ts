@@ -14,7 +14,7 @@ import { routerTransition } from '../../../router.animations';
 })
 export class EditPatientComponent implements OnInit {
   patient$: Observable<any>
-  patientId: number
+  patientId: string;
   msgs: Message[] = [];
   constructor(
     private selectService: SelectService,
@@ -24,8 +24,8 @@ export class EditPatientComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
-    this.patient$ = this.selectService.select(`patient WHERE  PatientId = ${this.patientId}`);
+    this.patientId = this.route.snapshot.paramMap.get("id");
+    this.patient$ = this.selectService.select(`patient WHERE  PatientId = '${this.patientId}'`);
   }
   showSuccess() {
     this.msgs = [];

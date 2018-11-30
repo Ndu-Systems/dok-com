@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2018 at 11:19 AM
+-- Generation Time: Nov 30, 2018 at 08:37 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `appointment` (
   `AppointmentId` int(11) NOT NULL,
-  `PatientId` int(11) NOT NULL,
+  `PatientId` varchar(225) NOT NULL,
   `StartDate` varchar(225) NOT NULL,
   `EndDate` varchar(225) NOT NULL,
   `FromTime` varchar(25) NOT NULL,
@@ -48,7 +48,8 @@ CREATE TABLE `appointment` (
 --
 
 INSERT INTO `appointment` (`AppointmentId`, `PatientId`, `StartDate`, `EndDate`, `FromTime`, `ToTime`, `Description`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-(1, 1, '2018-11-23', '2018-11-23', '12:30', '14:30', 'Check Up ', 1, '2018-11-23 10:30:37', 1, '2018-11-23 10:30:37', 1);
+(0, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2018-12-1', '2018-12-1', '8:30', '10:30', 'Check Wound', 1, '2018-11-30 21:35:43', 1, '2018-11-30 21:35:43', 1),
+(1, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', '2018-11-23', '2018-11-23', '12:30', '14:30', 'Check Up ', 1, '2018-11-23 10:30:37', 1, '2018-11-23 10:30:37', 1);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,8 @@ CREATE TABLE `medication` (
 
 INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `StatusId`) VALUES
 (1, 'Flue cough', 'Flue cough', '2018-11-23 10:24:25', 1),
-(2, 'Panado', 'Panado', '2018-11-23 12:19:11', 1);
+(2, 'Panado', 'Panado', '2018-11-23 12:19:11', 1),
+(3, 'Cleanzing Agent', 'Cleanzing Agent', '2018-11-30 21:29:49', 1);
 
 -- --------------------------------------------------------
 
@@ -79,7 +81,7 @@ INSERT INTO `medication` (`medicationId`, `name`, `description`, `createdate`, `
 --
 
 CREATE TABLE `patient` (
-  `PatientId` int(11) NOT NULL,
+  `PatientId` varchar(225) NOT NULL,
   `FirstName` varchar(225) NOT NULL,
   `Surname` varchar(225) NOT NULL,
   `IdNumber` varchar(15) NOT NULL,
@@ -105,7 +107,9 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `Gender`, `Email`, `Cellphone`, `AddressLine1`, `AddressLine2`, `AddressLine3`, `City`, `PostCode`, `GlobalKey`, `CreateUserId`, `CreateDate`, `ModifyUserId`, `ModifyDate`, `StatusId`) VALUES
-(1, 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Boskruin', '12 Panther Road', 'Johannesburg', '2100', 'cce1d13f-eef7-11e8-9ddc-f48e38e878a3', 1, '2018-11-23 10:13:55', 1, '2018-11-23 10:20:07', 1);
+('8c5285ec-f4d3-11e8-bc75-f48e38e878a3', 'Freedom', 'Khanyile', '920725050208', '1992-07-25', 'Male', 'freedom.khanyile1@gmail.com', '0746958061', '12 Jacaranda Lane', 'Boskruin', '12 Panther Road', 'Johannesburg', '2100', 'cce1d13f-eef7-11e8-9ddc-f48e38e878a3', 1, '2018-11-23 10:13:55', 1, '2018-11-23 10:20:07', 1),
+('8c62d729-f4d3-11e8-bc75-f48e38e878a3', 'Jane', 'Zikhali', '530610050208', '1953-06-10', 'Female', 'Jane.Zikhali@gmail.com', '0748258825', 'Eyethu House', 'Maboneng', '1 Main Road', 'Johannesburg', '2100', 'c89b38be-792b-4f88-b44d-8370e03250aa', 1, '2018-11-28 22:01:23', 1, '2018-11-28 22:01:23', 1),
+('ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Nduduzo', 'Magwaza', '00000000000', '1998-08-24', 'Male', 'magwaza@mail.com', '0748508258', 'Angular', 'Road', '212', 'Johannesburg', '2194', 'ceb9d58d-f4d3-11e8-bc75-f48e38e878a3', 1, '2018-11-30 21:11:57', 1, '2018-11-30 21:35:51', 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,7 @@ INSERT INTO `patient` (`PatientId`, `FirstName`, `Surname`, `IdNumber`, `DOB`, `
 
 CREATE TABLE `prescription` (
   `prescriptionId` int(10) NOT NULL,
-  `patientId` int(10) NOT NULL,
+  `patientId` varchar(225) NOT NULL,
   `diagnosis` text NOT NULL,
   `boolPreasure` varchar(150) NOT NULL,
   `pulseRate` varchar(150) NOT NULL,
@@ -128,8 +132,9 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`prescriptionId`, `patientId`, `diagnosis`, `boolPreasure`, `pulseRate`, `createdate`, `StatusId`) VALUES
-(1, 1, 'Flue', '100', '100', '2018-11-23 10:24:31', 1),
-(2, 1, 'Headaches', '50', '50', '2018-11-23 12:19:13', 1);
+(1, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Flue', '100', '100', '2018-11-23 10:24:31', 1),
+(2, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Headaches', '50', '50', '2018-11-23 12:19:13', 1),
+(3, 'ceb9d536-f4d3-11e8-bc75-f48e38e878a3', 'Injection Failed', '55', '25', '2018-11-30 21:33:25', 1);
 
 -- --------------------------------------------------------
 
@@ -153,7 +158,8 @@ CREATE TABLE `prescription_medication_drug` (
 
 INSERT INTO `prescription_medication_drug` (`id`, `prescriptionId`, `medicationId`, `unit`, `dosage`, `createdate`, `StatusId`) VALUES
 (1, 1, 1, '1', '3', '2018-11-23 10:24:31', 1),
-(2, 2, 2, '1', '3', '2018-11-23 12:19:14', 1);
+(2, 2, 2, '1', '3', '2018-11-23 12:19:14', 1),
+(3, 3, 3, '2', '0', '2018-11-30 21:33:25', 1);
 
 -- --------------------------------------------------------
 
@@ -258,34 +264,22 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `appointment`
---
-ALTER TABLE `appointment`
-  MODIFY `AppointmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `medication`
 --
 ALTER TABLE `medication`
-  MODIFY `medicationId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `patient`
---
-ALTER TABLE `patient`
-  MODIFY `PatientId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `medicationId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prescription`
 --
 ALTER TABLE `prescription`
-  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `prescriptionId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prescription_medication_drug`
 --
 ALTER TABLE `prescription_medication_drug`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `statuses`

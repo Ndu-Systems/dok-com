@@ -16,7 +16,7 @@ export class AddAppointmentComponent implements OnInit {
   toTime: any = {hour: 12, minute: 30};
   StartDate: any = "";
   Description: any = "";
-  patientId : number
+  patientId : string
   msgs: Message[] = [];
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +26,7 @@ export class AddAppointmentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.patientId = parseInt(this.route.snapshot.paramMap.get("id"));
+    this.patientId = this.route.snapshot.paramMap.get("id");
   }
   showSuccess() {
     this.msgs = [];

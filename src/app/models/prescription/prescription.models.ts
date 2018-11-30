@@ -31,7 +31,7 @@ export interface Patient {
 
 export interface Prescription {
     prescriptionId?: string;
-    patientId?: number;
+    patientId?: string;
     diagnosis?: string;
     boolPreasure?: string;
     pulseRate?: string;
