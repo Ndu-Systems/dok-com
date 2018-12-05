@@ -109,4 +109,42 @@ $topnav-background-color: #222;
         font-weight: normal;
         text-decoration: none;
     }
+
+    @media only screen and (max-width: 767px) {
+        .login-form-1{            
+            background: #45558D;
+            color: #fff;
+
+            h3{
+                text-align: center;
+                color: inherit;
+                margin-right: 0;
+            }
+
+            .home{           
+                margin-right: 20em;    
+                a{
+                    color: #fff;
+                }
+            }
+        }
+        .login-form-2{
+            padding: 10%;
+            color: #45558D;
+            background: #fff;
+           
+            .btn-success {
+                color: #45558D;
+                background-color: transparent;             
+                width: 50%;
+                border-color: #45558D;
+                margin-top: 1.5em;
+                border-radius: 1rem;
+            }
+
+            .card-title, .p1 {
+                display: none;
+            }
+        }
+      }
 }
