@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
 $topnav-background-color: #222;
 :host {
     display: block;
@@ -8,100 +9,104 @@ $topnav-background-color: #222;
     left: 0;
     right: 0;
     bottom: 0;
-    overflow: auto;
-    background: $topnav-background-color;
+    overflow: auto;  
     text-align: center;
     color: #fff;
     padding: 3em;
-    .col-lg-4 {
-        padding: 0;
+    font-family: 'Abel', sans-serif;
+ 
+    background: url(../../assets/images/bg-image.png) no-repeat;
+    background-size: cover;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcbcbc+15,273e8c+51 */
+        background: #bcbcbc; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #bcbcbc 15%, #273e8c 51%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #bcbcbc 15%,#273e8c 51%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #bcbcbc 15%,#273e8c 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#273e8c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            
+            opacity: .9; 
+      }
+   
+    .form-control {
+        border-radius: 1.5rem;
     }
-    .input-lg {
-        height: 46px;
-        padding: 10px 16px;
-        font-size: 18px;
-        line-height: 1.3333333;
-        border-radius: 0;
+    .login-container{
+        margin-top: 10%;
+        margin-bottom: auto;
     }
-    .input-underline {
-        background: 0 0;
-        border: none;
-        box-shadow: none;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    .login-form-1{
+        padding: 5%;
+        background: #fff;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        .home{
+            color: #283747;
+            margin-right: 20em;
+
+            a{
+                color: inherit;
+            }
+        }
+    }
+    .login-form-1 h3{
+        text-align: center;
+        color: #283747;
+        margin-right: 11.5rem;
+    }
+    .login-form-2{
+        padding: 5%;
+        background: #45558D;
+        // box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+    .login-form-2 h3{
+        text-align: center;
         color: #fff;
-        border-radius: 0;
     }
-    .input-underline:focus {
-        border-bottom: 2px solid #fff;
-        box-shadow: none;
+    .login-container form{
+        padding: 10%;
     }
-    .rounded-btn-success {
-        -webkit-border-radius: 50px;
-        border-radius: 50px;
-        color: rgba(255, 255, 255, 0.8);
-        background: $topnav-background-color;
-        // border: 2px solid  #2ecc71 ;
-        font-size: 18px;
-        line-height: 40px;
-        padding: 0 25px;
+    .btnSubmit
+    {
+        width: 100%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        border: none;
+        cursor: pointer;
     }
-    .rounded-btn-info {
-        -webkit-border-radius: 50px;
-        border-radius: 50px;
-        color: rgba(255, 255, 255, 0.8);
-        background: $topnav-background-color;
-        // border: 2px solid ;
-        font-size: 18px;
-        line-height: 40px;
-        padding: 0 25px;
+    .login-form-1 .btnSubmit{
+        font-weight: normal;
+        color: #fff;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcbcbc+0,273e8c+43 */
+        background: #bcbcbc; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #bcbcbc 0%, #273e8c 43%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #bcbcbc 0%,#273e8c 43%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #bcbcbc 0%,#273e8c 43%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#273e8c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     }
-    .rounded-btn:hover,
-    .rounded-btn:focus,
-    .rounded-btn:active,
-    .rounded-btn:visited {
-        color: rgba(255, 255, 255, 1);
-        border: 2px solid rgba(255, 255, 255, 1);
-        outline: none;
-    }
-
-    h1 {
-        font-weight: 300;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        font-size: 36px;
-        small {
-            color: rgba(255, 255, 255, 0.7);
+    
+    .login-form-2 .btn-success {
+            color: #fff;
+            background-color: transparent;             
+            width: 50%;
+            border-color: #fff;
+            margin-top: 1.5em;
+            border-radius: 1rem;
         }
+    
+    .login-form-2 .ForgetPwd{
+        color: #fff;
+        font-weight: normal;
+        text-decoration: none;
     }
-
-    .form-group {
-        padding: 8px 0;
-        input::-webkit-input-placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        input:-moz-placeholder {
-            /* Firefox 18- */
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        input::-moz-placeholder {
-            /* Firefox 19+ */
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
-
-        input:-ms-input-placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
-        }
+    .login-form-1 .ForgetPwd{
+        color: #0062cc;
+        font-weight: normal;
+        text-decoration: none;
     }
-    .form-content {
-        padding: 40px 0;
-    }
-    .user-avatar {
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        border: 2px solid #fff;
-    }
-
-     
 }
