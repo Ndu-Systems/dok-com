@@ -4,7 +4,7 @@
         $padding-account: 150px;
         $boarders : 15px;
         $desktop : 840px;
-        $font-family:  'Abel', 'sans-serif';
+        $font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;
         $width-val-mobile: 100%;
         $height-val-mobile: 100%;
 
@@ -26,7 +26,7 @@
         }
         
         header a {
-            color: white;
+            color: #000000;
             text-decoration: none;
             padding: $padding;
             display: block;
@@ -40,11 +40,12 @@
             border-radius: 100px;
             width: 6rem;
             height: 3.5rem;
+            color: #fff;
         }
     }
 
     header nav{
-        background-color: color(gray-dark);
+        background-color: color(#fff);
     }
 
     #navbarCollapse a:hover{
