@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+$topnav-background-color: #222;
+:host {
+    display: block;
+}
+.login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;  
+    text-align: center;
+    color: #fff;
+    padding: 3em;
+    font-family: 'Abel', sans-serif;
+ 
+    background: url(../../assets/images/bg-image.png) no-repeat;
+    background-size: cover;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcbcbc+15,273e8c+51 */
+        background: #bcbcbc; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #bcbcbc 15%, #273e8c 51%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #bcbcbc 15%,#273e8c 51%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #bcbcbc 15%,#273e8c 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#273e8c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            
+            opacity: .9; 
+      }
+   
+    .form-control {
+        border-radius: 1.5rem;
+    }
+    .login-container{
+        margin-top: 10%;
+        margin-bottom: auto;
+    }
+    .login-form-1{
+        padding: 5%;
+        background: #fff;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        .home{
+            color: #283747;
+            margin-right: 20em;
+
+            a{
+                color: inherit;
+            }
+        }
+    }
+    .login-form-1 h3{
+        text-align: center;
+        color: #283747;
+        margin-right: 11.5rem;
+    }
+    .login-form-2{
+        padding: 5%;
+        background: #45558D;
+        // box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    }
+    .login-form-2 h3{
+        text-align: center;
+        color: #fff;
+    }
+    .login-container form{
+        padding: 10%;
+    }
+    .btnSubmit
+    {
+        width: 100%;
+        border-radius: 1rem;
+        padding: 1.5%;
+        border: none;
+        cursor: pointer;
+    }
+    .login-form-1 .btnSubmit{
+        font-weight: normal;
+        color: #fff;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcbcbc+0,273e8c+43 */
+        background: #bcbcbc; /* Old browsers */
+        background: -moz-linear-gradient(-45deg, #bcbcbc 0%, #273e8c 43%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #bcbcbc 0%,#273e8c 43%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #bcbcbc 0%,#273e8c 43%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbcbc', endColorstr='#273e8c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+    
+    .login-form-2 .btn-success {
+            color: #fff;
+            background-color: transparent;             
+            width: 50%;
+            border-color: #fff;
+            margin-top: 1.5em;
+            border-radius: 1rem;
+        }
+    
+    .login-form-2 .ForgetPwd{
+        color: #fff;
+        font-weight: normal;
+        text-decoration: none;
+    }
+    .login-form-1 .ForgetPwd{
+        color: #0062cc;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: 767px) {
+        .login-form-1{            
+            background: #45558D;
+            color: #fff;
+
+            h3{
+                text-align: center;
+                color: inherit;
+                margin-right: 0;
+            }
+
+            .home{           
+                margin-right: 20em;    
+                a{
+                    color: #fff;
+                }
+            }
+        }
+        .login-form-2{
+            padding: 10%;
+            color: #45558D;
+            background: #fff;
+           
+            .btn-success {
+                color: #45558D;
+                background-color: transparent;             
+                width: 50%;
+                border-color: #45558D;
+                margin-top: 1.5em;
+                border-radius: 1rem;
+            }
+
+            .card-title, .p1 {
+                display: none;
+            }
+        }
+      }
+}

@@ -1,0 +1,98 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>     
+    <hr>
+    <div class="row" *ngIf="counts$|async as counts">
+            <div class="col-xl-3 col-lg-6 pt-3">
+                    <!-- <app-stat [bgClass]="'success'" [icon]="'fa-users'" [count]="'25'" [label]="'Active Patients'" ></app-stat> -->
+                    <div class="card text-white success bg-dark-shine">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col col-xs-9 text-right">
+                                    <div class="d-block huge">{{counts[0].value}}</div>
+                                    <div class="d-block">Active Patients</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="float-left">View Details</span>
+                            <a href="javascript:void(0)" class="float-right card-inverse">
+                                <span ><i class="fa fa-arrow-circle-right"></i></span>
+                            </a>
+                        </div>
+                    </div>            
+                </div>
+        <div class="col-xl-3 col-lg-6 pt-3">
+            <!-- <app-stat [bgClass]="'primary'" [icon]="'fa-calendar'" [count]="7" [label]="'New Appointments'" ></app-stat> -->
+            <div class="card text-white primary bg-dark-shine">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-xs-3">
+                            <i class="fa fa-calendar fa-5x"></i>
+                        </div>
+                        <div class="col col-xs-9 text-right">
+                            <div class="d-block huge">{{counts[1].value}}</div>
+                            <div class="d-block">New Appointments</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="float-left">View Details</span>
+                    <a href="javascript:void(0)" class="float-right card-inverse">
+                        <span ><i class="fa fa-arrow-circle-right"></i></span>
+                    </a>
+                </div>
+            </div>     
+        </div>
+        <div class="col-xl-3 col-lg-6 pt-3">
+            <!-- <app-stat [bgClass]="'warning'" [icon]="'fa-user-md'" [count]="1" [label]="'Awaiting Confirmation'" ></app-stat> -->
+            <div class="card text-white warning bg-dark-shine">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-xs-3">
+                            <i class="fa fa-user-md fa-5x"></i>
+                        </div>
+                        <div class="col col-xs-9 text-right">
+                            <div class="d-block huge">{{counts[2].value}}</div>
+                            <div class="d-block">Awaiting Confirmation</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="float-left">View Details</span>
+                    <a href="javascript:void(0)" class="float-right card-inverse">
+                        <span ><i class="fa fa-arrow-circle-right"></i></span>
+                    </a>
+                </div>
+            </div>          
+        </div>        
+        <div class="col-xl-3 col-lg-6 pt-3">
+            <!-- <app-stat [bgClass]="'danger'" [icon]="'fa-upload'" [count]="124" [label]="'Archived Appointments'"></app-stat> -->
+            <div class="card text-white danger bg-dark-shine">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col col-xs-3">
+                            <i class="fa fa-upload fa-5x"></i>
+                        </div>
+                        <div class="col col-xs-9 text-right">
+                            <div class="d-block huge">{{counts[3].value}}</div>
+                            <div class="d-block">Archived Appointments</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="float-left">View Details</span>
+                    <a href="javascript:void(0)" class="float-right card-inverse">
+                        <span ><i class="fa fa-arrow-circle-right "></i></span>
+                    </a>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <hr />   
+    <div class="card-body table-responsive">
+        <app-calendar-scheduler></app-calendar-scheduler>
+    </div>  
+</div>

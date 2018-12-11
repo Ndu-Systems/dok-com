@@ -1,0 +1,40 @@
+<p-growl [(value)]="msgs"></p-growl> 
+<div class="login-page" [@routerTransition]>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form-1">
+                <h3><span class="fas fa-user-md"></span> Sign In</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email" value="" [(ngModel)]="Email" [ngModelOptions]="{standalone: true}"  />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" value="" [(ngModel)]="Password" [ngModelOptions]="{standalone: true}"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btnSubmit" value="Sign In"  (click)="onLoggedin()" />
+                    </div>
+                    <!-- <div class="form-group">
+                        <a href="#" class="ForgetPwd">Forget Password?</a>
+                    </div> -->
+                    <div class="form-group home">
+                        <a [routerLink]="['/home']">
+                            <li class="fas fa-home fa-2x"></li>
+                        </a>                     
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6 login-form-2">              
+                <div class="row">  
+                    <h4 class="card-title">Sign Up</h4>		 
+                    <div class="card-block">                        
+                        <p class="card-text text-justify p1">Interested in joining a network of medical surgeons who use or platform to simplify their day to day tasks on the fly?</p>
+                        <p class="card-text text-justify p2">Sign up now and our team of experts will follow up and have you running in no time.</p>
+                   </div> 
+                    <button type="button" class="btn btn-success">Sign Up</button>                
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

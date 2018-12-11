@@ -1,0 +1,88 @@
+<div id="invoice">
+
+    <div class="invoice overflow-auto" id="contentToConvert">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a target="_blank" href="https://ndu-systems.net/#/">
+                            <img src="assets/images/logo.png" width="75" height="75" data-holder-rendered="true" />
+                        </a>
+                    </div>
+                    <div class="col company-details">
+                        <h2 class="name">
+                            <a target="_blank" href="">
+                                DR Joe Doe
+                            </a>
+                        </h2>
+                        <div>Eyethu House</div>
+                        <div>Johannesburg</div>
+                        <div>docter@ndu-systems.net</div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">Prescribed TO:</div>
+                        <h2 class="to">{{patient.FirstName}} {{patient.Surname}}</h2>
+                        <div class="address">{{patient.AddressLine1}}, {{patient.AddressLine2}},
+                            {{patient.AddressLine3}}
+                            <br>{{patient.City}}, {{patient.PostCode}}
+                        </div>
+                        <div class="email">{{patient.Email}}</div>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">{{prescription.diagnosis}}</h1>
+                        <div class="date">Prescribed Date: {{prescription.createdate| date:'mediumDate'}}</div>
+                    </div>
+                </div>
+                <h3>Medication</h3>
+                <div class="row" *ngIf="medication$ | async as medicine">
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="text-left">DESCRIPTION</th>
+                                <th class="text-right">Unit (tablets or syrup)</th>
+                                <th class="text-right">Dosage (per day)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of medicine">
+                                <td class="no">{{item.medicationId}}</td>
+                                <td class="text-left">
+                                    {{item.name}}
+                                </td>
+                                <td class="unit">{{item.unit}}</td>
+                                <td class="qty">{{item.dosage}}</td>
+                            </tr>
+
+                        </tbody>
+                        <tfoot>
+
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="row pt-6">
+                    <div class="thanks">Thank you!</div>
+                    <div class="notices">
+                        <div>NOTICE:</div>
+                        <div class="notice">This is recommended by your GP further consultations are advised</div>
+                    </div>
+                </div>
+
+            </main>
+            <footer>
+                Prescription was created on a computer and is valid without the signature and seal.
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
+    </div>
+
+    <div>
+        <input type="button" class="btn btn-primary" value="PRINT" (click)="captureScreen()" />
+    </div>
+</div>

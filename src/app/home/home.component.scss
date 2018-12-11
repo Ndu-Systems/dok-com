@@ -1,0 +1,60 @@
+//variables
+$padding : 15px;
+$padding-account: 150px;
+$boarders : 15px;
+$desktop : 840px;
+$font-family:  'Abel', 'sans-serif';
+$width-val-mobile: 100%;
+$height-val-mobile: 100%;
+
+
+//map colors based off design
+$colors :(
+ blue : #4C5C96,
+ gray-dark : #4B4E5A,
+ gray-light: lighten(#4B4E5A, 55%), 
+ red: #F60C0C,
+ sky-blue: #3498DB,
+ navy : #2C3E50  
+ 
+);
+
+//functions
+@function color($color_name){
+    @return map-get($map: $colors, $key: $color_name );
+}
+
+//Mixins
+@mixin desktop {
+    @media(min-width: #{$desktop}){
+        @content;
+    }
+}
+
+section {
+    font-family: $font-family;
+    // clip-path: polygon(100% 0, 100% 83%, 45% 100%, 0 100%, 0 0);
+    // clip-path: polygon(0 0, 100% 0, 100% 48%, 0 83%);
+    background-color: color(gray-dark);
+    background-size: auto, cover;
+    background-attachment: fixed, fixed;
+    background-position: center, center;
+    width: $width-val-mobile;
+    height: $height-val-mobile;
+    position: absolute;
+    z-index: -1;
+    #bg
+    {         
+        @include desktop{
+        //    clip-path: polygon(0 0, 51% 0, 51% 57%, 0 56%);
+         }
+    }
+
+     
+}
+
+
+
+
+
+

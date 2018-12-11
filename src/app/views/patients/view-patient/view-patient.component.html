@@ -1,0 +1,161 @@
+<div [@routerTransition] *ngIf="patient$ | async as patient">
+  <app-page-header [heading]="'View Patient'" [icon]="'fa-user'"></app-page-header>
+  <p-growl [(value)]="msgs"></p-growl>
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425"></p-confirmDialog>   
+  <div class="row">
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="card mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">
+                <h3>Patient's Details</h3>
+              </div>
+              <div class="input-group mb-3 col-md-6">
+                    <a class="btn  rounded-btn-info"  (click)="edit(patient[0])" >Edit Pateint</a>    &nbsp;
+                  <a class="btn rounded-btn-warning"  (click)="archivePatient(patient[0])" >Archive Pateint</a> 
+                </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                   <h5><b>Full Name:</b>&nbsp;{{patient[0].FirstName}} {{patient[0].Surname}}</h5>
+                   <h5><b>Identity #:</b>&nbsp;{{patient[0].IdNumber}}</h5>  
+                   <h5><b>DOB :</b>&nbsp;{{patient[0].DOB}}</h5>  
+                   <h5><b>Gender :</b>&nbsp;{{patient[0].Gender}}</h5>  
+                  </div>
+                   <div class="col-md-6">
+                     <h5><b>Email Address:</b>&nbsp; {{patient[0].Email}}</h5>
+                     <h5><b>Contact Number:</b>&nbsp;{{patient[0].Cellphone}}</h5>                     
+                     <h5><b>Address:</b>&nbsp;{{patient[0].AddressLine1}}, {{patient[0].AddressLine2}}, {{patient[0].AddressLine3}}</h5>                     
+                     <h5><b>City:</b>&nbsp;{{patient[0].City}}, {{patient[0].PostCode}}</h5>                     
+                    </div>
+            </div>        
+          </div>
+        </div>
+  
+      </div>
+  
+  </div>
+  
+  <div class="row">
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Patient's Prescriptions</h3>
+            </div>
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <li class="fa fa-search"></li>
+                </span>
+              </div>
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search" placeholder="Search..."
+                aria-label="Search" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
+        <div class="card-body table-responsive">
+          <div class="row">
+              <a class="btn  rounded-btn-success"  (click)="prescribe()" >New Prescription</a>    &nbsp;
+          </div>
+          <table class="table card-table" *ngIf="prescriptions$ | async as prescriptions">
+            <thead>
+              <tr>
+                <th>Diagnosis</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of prescriptions | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td>{{item.diagnosis}}</td>
+                <td>{{item.createdate| date:'mediumDate'}}</td>
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" > Edit</a> &nbsp;
+                  <a class="btn rounded-btn-success" (click)="open(content)">Print</a>              
+                </td>
+                <ng-template #content let-c="close" let-d="dismiss">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Print {{patient[0].FirstName}} {{patient[0].Surname}}'s Prescription</h4>
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <app-print-prescription [prescription]="item" [patient]="patient[0]"></app-print-prescription>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                    </div>
+                </ng-template>
+              </tr>
+            </tbody>
+
+          </table>
+          <div class="justify-content-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>           
+        </div>
+      </div>
+
+    </div>
+   
+  </div>
+
+  <div class="row">
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-6">
+              <h3>Patient's Appointments</h3>
+            </div>
+            <div class="input-group mb-3 col-md-6">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                  <li class="fa fa-search"></li>
+                </span>
+              </div>
+              <input type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" class="form-control Search" placeholder="Search..."
+                aria-label="Search" aria-describedby="basic-addon1">
+            </div>
+          </div>
+        </div>
+        <div class="card-body table-responsive">
+          <div class="row">
+              <a class="btn  rounded-btn-success"  (click)="appointment()" >New Appointment</a>
+          </div>
+          <table class="table card-table" *ngIf="appointments$ | async as appointments">
+            <thead>
+              <tr>
+                <th>#</th>                
+                <th>Appointment Date</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of appointments | filter: searchText | paginate: { itemsPerPage: 10, currentPage: p }">
+                <th scope="row">{{item.AppointmentId}}</th>                
+                <td>Date: {{item.StartDate}}  From: {{item.FromTime}} To: {{item.ToTime}}</td>
+                <td>{{item.Description}}</td>
+                <td><a class="btn rounded-btn-info" [routerLink]="['/appointments/edit']" (click)="editAppointment(item)" >Edit</a> &nbsp;
+                  <a class="btn rounded-btn-warning"  (click)="archiveAppointment(item)" > Archive</a>              
+                </td>
+                
+              </tr>
+            </tbody>
+          </table>
+          <div class="justify-content-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>           
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
